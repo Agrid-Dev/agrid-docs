@@ -47,12 +47,12 @@ AGRID thermostats are advanced fan coil controllers designed for modern HVAC sys
 
 ## Get Started
 
-- [**AGR25-01 Overview**](agr25-01/index.md) - Product specifications and features
-- [**Installation**](agr25-01/installation.md) - Complete installation guide
-- [**Wiring Configurations**](agr25-01/wiring.md) - System configurations and wiring
-- [**Usage Guide**](agr25-01/usage.md) - Basic operation and control
-- [**EU Declaration of Conformity**](agr25-01/declaration.md) - Regulatory information
-- [**Ecodesign Information**](agr25-01/ecodesign.md) - Energy efficiency data
+- [**AGR25-01 Overview**](fan-coil/agr25-01/index.md) - Product specifications and features
+- [**Installation**](fan-coil/agr25-01/installation.md) - Complete installation guide
+- [**Wiring Configurations**](fan-coil/agr25-01/wiring.md) - System configurations and wiring
+- [**Usage Guide**](fan-coil/agr25-01/usage.md) - Basic operation and control
+- [**EU Declaration of Conformity**](fan-coil/agr25-01/declaration.md) - Regulatory information
+- [**Ecodesign Information**](fan-coil/agr25-01/ecodesign.md) - Energy efficiency data
 
 ---
 

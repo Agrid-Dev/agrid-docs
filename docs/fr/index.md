@@ -18,7 +18,7 @@ Bienvenue dans la documentation officielle des produits AGRID. Découvrez nos so
     - **Connectivité:** WiFi 2.4GHz
     - **Sorties:** 5 relais SPST-NO + 3 DAC 0-10V
 
-    [Voir la documentation complète](agr25-01/index.md){ .md-button .md-button--primary }
+    [Voir la documentation complète](fan-coil/agr25-01/index.md){ .md-button .md-button--primary }
 
 ## À propos d'AGRID
 

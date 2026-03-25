@@ -122,15 +122,15 @@ Voir la section **Tableau du bornier** ci-dessous pour l'identification des conn
 
 | **Symbole** | **Signification** | **Référence** |
 |---|---|---|
-| ![CE](../assets/ce.png){: style="width:40px"} | Marquage CE - Conformité aux directives UE applicables | Directive 2014/53/UE |
-| ![Classe II](../assets/class2.png){: style="width:40px"} | Classe II - Double isolation, pas de mise à la terre obligatoire | EN 60730-1 |
-| ![AC](../assets/ac.png){: style="width:40px"} | Courant alternatif | Alimentation 230V~ 50Hz |
-| ![DC](../assets/dc.png){: style="width:40px"} | Courant continu | Sorties DAC, entrées capteurs |
-| ![T50](../assets/t50.png){: style="width:40px"} | Indice de température T50 | EN 60730-2-9 |
-| ![IP20](../assets/ip20.png){: style="width:40px"} | Protection IP20 - Intérieur protégé | Intérieur sec obligatoire |
-| ![Type 1.B](../assets/type1b.png){: style="width:40px"} | Type 1.B micro-coupure | Micro-coupure automatique |
-| ![DEEE](../assets/weee.png){: style="width:40px"} | Directive DEEE - Recyclage des déchets électriques | 2012/19/UE |
-| ![RoHS](../assets/rohs.png){: style="width:40px"} | Directive RoHS - Restriction des substances dangereuses | 2011/65/UE |
+| ![CE](../../assets/ce.png){: style="width:40px"} | Marquage CE - Conformité aux directives UE applicables | Directive 2014/53/UE |
+| ![Classe II](../../assets/class2.png){: style="width:40px"} | Classe II - Double isolation, pas de mise à la terre obligatoire | EN 60730-1 |
+| ![AC](../../assets/ac.png){: style="width:40px"} | Courant alternatif | Alimentation 230V~ 50Hz |
+| ![DC](../../assets/dc.png){: style="width:40px"} | Courant continu | Sorties DAC, entrées capteurs |
+| ![T50](../../assets/t50.png){: style="width:40px"} | Indice de température T50 | EN 60730-2-9 |
+| ![IP20](../../assets/ip20.png){: style="width:40px"} | Protection IP20 - Intérieur protégé | Intérieur sec obligatoire |
+| ![Type 1.B](../../assets/type1b.png){: style="width:40px"} | Type 1.B micro-coupure | Micro-coupure automatique |
+| ![DEEE](../../assets/weee.png){: style="width:40px"} | Directive DEEE - Recyclage des déchets électriques | 2012/19/UE |
+| ![RoHS](../../assets/rohs.png){: style="width:40px"} | Directive RoHS - Restriction des substances dangereuses | 2011/65/UE |
 
 ## Entretien
 

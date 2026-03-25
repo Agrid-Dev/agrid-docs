@@ -168,15 +168,15 @@ The following symbols appear on the product or documentation:
 
 | Symbol | Meaning | Details |
 |--------|---------|---------|
-| ![CE](../../assets/ce.svg) | CE Mark | Complies with EU directives 2014/53/EU |
-| ![Class II](../../assets/class2.svg) | Class II (Double Insulation) | No protective earth required, but recommended |
+| ![CE](../../../assets/ce.svg) | CE Mark | Complies with EU directives 2014/53/EU |
+| ![Class II](../../../assets/class2.svg) | Class II (Double Insulation) | No protective earth required, but recommended |
 | **~** | AC Voltage | Alternating current |
 | **=** | DC Voltage | Direct current (proportional outputs) |
 | **T50** | Temperature Class | Operating range 5°C to 40°C |
 | **IP20** | Ingress Protection | Protected against dust ≥12mm, not water-resistant |
 | **1.B** | Micro-Break Type | General purpose switching capability |
-| ![WEEE](../../assets/weee.svg) | WEEE 2012/19/EU | Separate collection for electrical waste |
-| ![RoHS](../../assets/rohs.svg) | RoHS 2011/65/EU | Restricted hazardous substances compliance |
+| ![WEEE](../../../assets/weee.svg) | WEEE 2012/19/EU | Separate collection for electrical waste |
+| ![RoHS](../../../assets/rohs.svg) | RoHS 2011/65/EU | Restricted hazardous substances compliance |
 
 ---
 

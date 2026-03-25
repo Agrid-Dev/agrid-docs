@@ -1,5 +1,5 @@
 site_name: AGRID Documentation
-site_url: https://agrid.github.io/docs/
+site_url: https://docs.a-grid.com/
 site_description: Official product documentation for AGRID smart thermostats
 site_author: AGRID SAS
 
@@ -50,13 +50,14 @@ plugins:
 
 nav:
   - Home: index.md
-  - AGR25-01:
-    - Overview: agr25-01/index.md
-    - Installation: agr25-01/installation.md
-    - Wiring Diagrams: agr25-01/wiring.md
-    - Usage: agr25-01/usage.md
-    - EU Declaration: agr25-01/declaration.md
-    - Ecodesign: agr25-01/ecodesign.md
+  - Fan Coil:
+    - AGR25-01:
+      - Overview: fan-coil/agr25-01/index.md
+      - Installation: fan-coil/agr25-01/installation.md
+      - Wiring Diagrams: fan-coil/agr25-01/wiring.md
+      - Usage: fan-coil/agr25-01/usage.md
+      - EU Declaration: fan-coil/agr25-01/declaration.md
+      - Ecodesign: fan-coil/agr25-01/ecodesign.md
 
 markdown_extensions:
   - admonition

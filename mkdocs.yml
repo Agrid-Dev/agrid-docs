@@ -29,8 +29,10 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
+    - navigation.indexes
     - search.highlight
     - content.tabs.link
+    - toc.integrate
   icon:
     logo: material/thermostat
 
@@ -70,6 +72,10 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
+      toc_depth: 3
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:

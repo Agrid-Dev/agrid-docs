@@ -1,0 +1,30 @@
+/* Navigation sidebar: bold top-level items */
+.md-nav__item--nested > .md-nav__link {
+  font-weight: 700;
+}
+
+/* ToC right sidebar: better hierarchy */
+.md-sidebar--secondary .md-nav__link {
+  font-size: 0.75rem;
+}
+
+.md-sidebar--secondary .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* PDF download button styling */
+a[href$=".pdf"] {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: var(--md-primary-fg-color);
+  color: white !important;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+a[href$=".pdf"]:hover {
+  opacity: 0.9;
+}

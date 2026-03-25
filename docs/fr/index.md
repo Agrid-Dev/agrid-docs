@@ -1,27 +1,13 @@
 # Documentation AGRID
 
-Bienvenue dans la documentation officielle des produits AGRID. Découvrez nos solutions de régulation thermique innovantes pour ventilo-convecteurs.
+Documentation officielle des produits AGRID.
 
-## Produits disponibles
+## Produits
 
-=== "AGR25-01"
+**[AGR25-01 — Thermostat pour ventilo-convecteurs](fan-coil/agr25-01/)**
 
-    ![AGRID AGR25-01](../assets/agr25-01.png){: style="height:200px"}
+---
 
-    **Thermostat pour ventilo-convecteurs**
+**Fabricant :** Beijing Breeze Technology Co., Ltd. — Floor 22, Bldg 1, Yard 1, Guanyinan South St., Tongzhou Dist., Beijing, China
 
-    - **Modèle:** AGR25-01
-    - **Fabricant:** Beijing Breeze Technology Co., Ltd.
-    - **Importateur:** AGRID SAS (Paris)
-    - **Alimentation:** 220-240V~ 50Hz
-    - **Écran:** Tactile couleur 4 pouces
-    - **Connectivité:** WiFi 2.4GHz
-    - **Sorties:** 5 relais SPST-NO + 3 DAC 0-10V
-
-    [Voir la documentation complète](fan-coil/agr25-01/index.md){ .md-button .md-button--primary }
-
-## À propos d'AGRID
-
-AGRID SAS est l'importateur français des solutions de régulation thermique professionnelles développées par Beijing Breeze Technology Co., Ltd.
-
-Basée à Paris, AGRID propose des produits innovants conçus pour les applications de climatisation et chauffage via ventilo-convecteurs, avec une attention particulière à la connectivité WiFi et aux interfaces utilisateur intuitives.
+**Importateur :** AGRID SAS — 33 rue du Faubourg Saint-Antoine, 75011 Paris, FRANCE — Email : contact@a-grid.com

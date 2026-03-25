@@ -1,198 +1,99 @@
-# Installation et câblage
+# Installation
 
-## Avertissements de sécurité
+!!! warning "Avertissement"
+    Lire cette notice avant installation. Cet appareil est de Classe II (double isolation). Il ne dispose pas de borne de terre de protection.
 
-!!!warning "⚠ Danger électrique"
-    **Intervention réservée à un électricien qualifié**
+## Sécurité
 
-    - Couper l'alimentation électrique avant toute intervention
-    - Vérifier l'absence de tension avant de travailler sur l'installation
-    - Respecter les normes d'installation électrique en vigueur dans votre pays
+!!! danger "Avertissements de sécurité"
+    - L'installation doit être réalisée par un électricien qualifié conformément aux réglementations locales.
+    - Couper l'alimentation avant toute intervention sur le câblage. Vérifier l'absence de tension.
+    - Le thermostat étant raccordé de manière permanente, un dispositif de sectionnement et de protection contre les surintensités, à coupure omnipolaire (par exemple un disjoncteur bipolaire), doit être incorporé dans l'installation fixe conformément aux règles d'installation en vigueur. Ce dispositif doit couper simultanément tous les pôles actifs (phase et neutre), avec une distance d'ouverture des contacts d'au moins 3 mm, et doit rester accessible après l'installation du thermostat.
+    - L'installation doit être réalisée sur un circuit protégé conformément aux normes d'installation en vigueur (HD 60364 / NF C 15-100 ou équivalent).
+    - Intérieur sec uniquement (IP20). Ne pas installer dans des lieux humides ou en extérieur.
+    - Ne pas ouvrir le boîtier. Aucune pièce réparable par l'utilisateur.
 
-!!!danger "Dispositif de sectionnement omnipolaire"
-    Un **dispositif de sectionnement omnipolaire** avec **distance de contacts de 3 mm minimum** doit être accessible et facilement actionnable par l'utilisateur.
+!!! danger "Résistance électrique d'appoint"
+    Les relais du thermostat envoient uniquement un signal de commande. Ils ne doivent pas faire transiter la puissance d'une résistance électrique d'appoint. La résistance doit être pilotée via un contacteur (relais de puissance) externe adapté à la charge. Le non-respect de cette instruction peut entraîner un risque d'incendie.
 
-!!!warning "Environnement et boîtier"
-    - **Intérieur sec uniquement** - Protection IP20
-    - **Ne pas ouvrir le boîtier** - Les travaux internes sont réservés aux techniciens autorisés AGRID
-    - Ne pas exposer à l'humidité, vapeur ou condensation
+## Montage
 
-!!!danger "Sorties relais - Signal de commande uniquement"
-    Les sorties relais (RL1-RL5) fournissent un **signal de commande uniquement**. Pour commuter des **résistances électriques ou charges de puissance**, un **contacteur externe** doit obligatoirement être utilisé.
+Installer le thermostat au mur, à une hauteur maximale de 2 m par rapport au sol. La hauteur d'installation recommandée se situe à hauteur d'homme, à un emplacement représentatif de la température ambiante de la pièce. Éviter :
 
-    Les relais ne doivent jamais commutatrice directement une charge de puissance.
+- La proximité de sources de chaleur (radiateur, canalisation d'eau chaude)
+- Le rayonnement solaire direct
+- Les courants d'air (portes, fenêtres, bouches de ventilation)
+- Les zones mortes (coins, derrière les portes)
 
-## Instructions de montage
+**Étape 1 :** Desserrer la vis inférieure. Séparer le panneau avant de la platine arrière.
 
-### Localisation et placement
+**Étape 2 :** Fixer la platine arrière au mur.
 
-Le thermostat doit être installé :
+**Étape 3 :** Procéder au raccordement électrique (voir Bornier de raccordement et Configurations de câblage).
 
-- **Montage mural** uniquement
-- **Hauteur maximale : 2 mètres** du sol
-- **À l'écart** des sources de chaleur (radiateurs, exposition solaire directe)
-- **À l'écart** des courants d'air directs (portes, fenêtres, ventilations)
-- **À l'écart** des zones mortes thermiques (coins mal ventilés, recoins)
-- **À l'intérieur** dans un environnement sec et protégé (IP20)
+**Étape 4 :** Reconnecter le panneau avant et serrer la vis.
 
-### Procédure d'installation
+!!! info "Ventilation"
+    Ne pas obstruer les fentes de ventilation du boîtier (nécessaires aux capteurs).
 
-#### Étape 1 : Préparation
+## Bornier de raccordement
 
-1. Couper l'alimentation électrique générale
-2. Vérifier l'absence de tension avec un testeur de tension approprié
-3. Préparer les câbles d'alimentation (230V) et les câbles de commande (basse tension)
-
-#### Étape 2 : Séparation du panneau avant
-
-1. Desserrer la **vis inférieure** située en bas du thermostat avec un tournevis adapté
-2. Séparer délicatement le **panneau avant** de la **platine arrière**
-3. Mettre de côté le panneau avant (avec l'écran et les capteurs tactiles)
-
-#### Étape 3 : Fixation de la platine arrière
-
-1. Positionner la platine arrière au mur aux emplacements souhaités
-2. Utiliser **deux chevilles murales** appropriées au type de mur (béton, plâtre, brique)
-3. Visser les deux vis de fixation jusqu'à serrage complet (ne pas surserrer)
-4. Vérifier la stabilité et l'aplomb de la platine
-
-#### Étape 4 : Câblage
-
-Voir la section **Tableau du bornier** ci-dessous pour l'identification des connexions.
-
-1. **Alimentation 230V** : Connecter phase (L) et neutre (N) aux bornes L et N
-2. **Sorties relais** : Connecter les sorties de commande (RL1-RL5) aux récepteurs (ventilateurs, vannes, contacteurs)
-3. **Sorties analogiques** : Connecter les sorties DAC 0-10V aux récepteurs proportionnels (ventilateurs variables, vannes proportionnelles)
-4. **Mise à la terre** : Connecter la masse (G) en cas de besoin (équipements ayant une connexion masse)
-5. **Entrées capteurs** : Connecter les capteurs de température S1 et S2
-6. **Alimentation capteurs** : Connecter les tensions A (5V) et B (masse capteurs) si nécessaire
-
-!!!warning "Vérification finale"
-    Avant de reconnecter le panneau avant, vérifier visuellement que tous les câbles sont correctement serrés et qu'aucune gaine isolante n'est endommagée.
-
-#### Étape 5 : Reconnecter le panneau avant
-
-1. Aligner les encoches du panneau avant avec la platine arrière
-2. Rapprocher le panneau avant de la platine jusqu'au contact
-3. Serrer la vis inférieure
-
-#### Étape 6 : Mise en service
-
-1. Rétablir l'alimentation électrique
-2. L'écran doit s'allumer et afficher l'interface de démarrage
-3. Procéder aux premiers réglages via l'écran tactile
-
-## Tableau du bornier
-
-| **Borne** | **Désignation** | **Type** | **Description** |
-|---|---|---|---|
-| **L** | Phase 230V | Entrée AC | Alimentation électrique phase (phase 230V~ 50Hz) |
-| **N** | Neutre 230V | Entrée AC | Alimentation électrique neutre |
-| **RL1** | Relais 1 | Sortie SPST-NO | Sortie de commande (par défaut : vitesse haute ventilateur) |
-| **RL2** | Relais 2 | Sortie SPST-NO | Sortie de commande (par défaut : vitesse moyenne ventilateur) |
-| **RL3** | Relais 3 | Sortie SPST-NO | Sortie de commande (par défaut : vitesse basse ventilateur) |
-| **RL4** | Relais 4 | Sortie SPST-NO | Sortie de commande (par défaut : vanne chaude) |
-| **RL5** | Relais 5 | Sortie SPST-NO | Sortie de commande (par défaut : vanne froide) |
-| **G** | Masse / GND | Référence | Masse / terre pour équipements externes |
-| **DAC1** | Sortie analogique 1 | 0-10V DC | Sortie proportionnelle (par défaut : vanne chaude 0-10V) |
-| **DAC2** | Sortie analogique 2 | 0-10V DC | Sortie proportionnelle (par défaut : vanne froide 0-10V) |
-| **DAC3** | Sortie analogique 3 | 0-10V DC | Sortie proportionnelle (par défaut : vitesse ventilateur 0-10V) |
-| **B** | Masse capteurs | Alimentation BT | Masse / 0V pour entrées capteurs |
-| **A** | Alimentation capteurs | Alimentation BT | Tension d'alimentation capteurs (5V CC) |
-| **S1** | Entrée capteur 1 | Entrée analogique/numérique | Capteur de température ambiant ou contrôle externe |
-| **S2** | Entrée capteur 2 | Entrée analogique/numérique | Capteur additionnel ou contrôle externe |
-
-## Tableau des spécifications de câblage
-
-| **Paramètre** | **Spécification** |
-|---|---|
-| **Section câbles 230V** | Minimum 1,5 mm² (pour courant MAX 2W) |
-| **Section câbles BT** | 0,5 à 0,75 mm² pour connexions BT (<50V) |
-| **Longueur maximale DAC/capteurs** | 20 mètres sans blindage recommandé |
-| **Longueur avec blindage** | Câbles blindés fortement recommandés au-delà de 10 mètres |
-| **Type de câble DAC/capteurs** | Paire torsadée, de préférence blindée |
-| **Isolation galvanique** | Complète entre zone 230V et zone BT (isolation fonctionnelle) |
-| **Connecteurs recommandés** | Borniers à vis, pas de connecteurs fragiles |
-| **Distance de contacts de sectionnement** | Minimum 3 mm (omnipolaire) |
-
-!!!info "Isolation galvanique"
-    Le thermostat maintient une **isolation galvanique complète** entre la zone alimentation 230V et la zone basse tension (entrées capteurs, sorties 0-10V). Cette isolation améliore la robustesse et réduit les interférences électromagnétiques.
-
-## Tableau des symboles réglementaires
-
-| **Symbole** | **Signification** | **Référence** |
+| Borne | Nom | Description |
 |---|---|---|
-| ![CE](../../assets/ce.png){: style="width:40px"} | Marquage CE - Conformité aux directives UE applicables | Directive 2014/53/UE |
-| ![Classe II](../../assets/class2.png){: style="width:40px"} | Classe II - Double isolation, pas de mise à la terre obligatoire | EN 60730-1 |
-| ![AC](../../assets/ac.png){: style="width:40px"} | Courant alternatif | Alimentation 230V~ 50Hz |
-| ![DC](../../assets/dc.png){: style="width:40px"} | Courant continu | Sorties DAC, entrées capteurs |
-| ![T50](../../assets/t50.png){: style="width:40px"} | Indice de température T50 | EN 60730-2-9 |
-| ![IP20](../../assets/ip20.png){: style="width:40px"} | Protection IP20 - Intérieur protégé | Intérieur sec obligatoire |
-| ![Type 1.B](../../assets/type1b.png){: style="width:40px"} | Type 1.B micro-coupure | Micro-coupure automatique |
-| ![DEEE](../../assets/weee.png){: style="width:40px"} | Directive DEEE - Recyclage des déchets électriques | 2012/19/UE |
-| ![RoHS](../../assets/rohs.png){: style="width:40px"} | Directive RoHS - Restriction des substances dangereuses | 2011/65/UE |
+| **N** | Neutre | Conducteur neutre |
+| **L** | Phase | Conducteur de phase |
+| **RL1** | Relais 1 | Sortie TOR 230V~ — Ventilateur vitesse haute (FH) |
+| **RL2** | Relais 2 | Sortie TOR 230V~ — Ventilateur vitesse moyenne (FM) |
+| **RL3** | Relais 3 | Sortie TOR 230V~ — Ventilateur vitesse basse (FL) — ou résistance selon config. |
+| **RL4** | Relais 4 | Sortie TOR 230V~ — Vanne chaude (HV) |
+| **RL5** | Relais 5 | Sortie TOR 230V~ — Vanne froide (CV) ou résistance selon config. |
+| **G** | Réf. 0V | Référence 0V pour les sorties DAC et les entrées S1/S2 |
+| **DAC1** | Sortie 0-10V | Signal proportionnel — Vanne chaude (HV) |
+| **DAC2** | Sortie 0-10V | Signal proportionnel — Vanne froide (CV) ou résistance selon config. |
+| **DAC3** | Sortie 0-10V | Signal proportionnel — Ventilateur ou résistance selon config. |
+| **B** | Réservé | Réservé — ne pas connecter |
+| **A** | Réservé | Réservé — ne pas connecter |
+| **S1** | Entrée 1 | Capteur externe |
+| **S2** | Entrée 2 | Capteur externe |
+
+**Notes :**
+
+- Les sorties RL1-RL5 sont utilisées uniquement pour la régulation TOR (tout ou rien). Les sorties DAC1-DAC3 sont utilisées pour la régulation proportionnelle 0-10V.
+- Le bornier est séparé en deux zones isolées galvaniquement : partie 230V~ (N, L, RL1-RL5) et partie basse tension (G, DAC1-DAC3, B, A, S1, S2).
+- L'affectation exacte de chaque sortie dépend de la configuration. Se référer aux [Configurations de câblage](wiring.md).
+- Systèmes 2 tubes : la vanne unique est branchée sur la sortie HV (RL4 ou DAC1 selon la configuration).
+- Systèmes sans résistance : ne rien brancher sur la sortie HR.
+
+**Conventions :** FH = ventilateur vitesse haute, FM = vitesse moyenne, FL = vitesse basse, HV = vanne chaude, CV = vanne froide, HR = résistance électrique d'appoint.
+
+## Spécifications de câblage
+
+| Paramètre | Valeur |
+|---|---|
+| **Section de fil — partie 230V (N, L, RL1-RL5)** | 1,5 mm² |
+| **Section de fil — partie BT (G, DAC, S1, S2)** | 0,5 à 0,75 mm² |
+| **Longueur max. câbles DAC 0-10V** | 20 m (câble blindé recommandé au-delà de 10 m) |
+| **Longueur max. câbles capteurs S1/S2** | 20 m (câble blindé recommandé au-delà de 10 m) |
+| **Type de fil** | Fil rigide ou fil souple avec embout serti |
 
 ## Entretien
 
-!!!warning "Pas d'ouverture du boîtier"
-    Ne pas ouvrir le boîtier sous peine d'annulation de la garantie et risques de sécurité. Les interventions internes sont réservées aux techniciens autorisés AGRID.
+- Ne pas ouvrir le boîtier. Aucune pièce réparable. Aucune matière consommable à remplacer.
+- Nettoyer avec un chiffon sec ou légèrement humide. Pas de solvants, abrasifs ou jets d'eau.
+- Maintenir les fentes de ventilation dégagées.
+- L'appareil ne libère aucune substance toxique en fonctionnement normal.
 
-### Nettoyage
-
-- **Écran tactile** : Nettoyer avec un chiffon **sec et doux** (type microfibre)
-- **Boîtier** : Passer un chiffon sec pour éliminer la poussière
-- **Fentes de ventilation** : Vérifier qu'elles restent dégagées et non obstruées
-
-### Remplacement de composants
-
-- Seules les **piles éventuelles** (si présentes) peuvent être remplacées par l'utilisateur
-- Toute autre intervention : contacter le support AGRID
+En cas de dysfonctionnement, contacter AGRID ou un installateur qualifié.
 
 ## Dépannage
 
-| **Problème** | **Cause possible** | **Solution** |
+| Symptôme | Cause possible | Action |
 |---|---|---|
-| **Écran ne s'allume pas** | Absence d'alimentation | Vérifier l'alimentation 230V, vérifier le disjoncteur |
-| **Redémarrage en boucle** | Anomalie électrique ou logicielle | Couper l'alimentation 30 secondes, rebrancher |
-| **Température incohérente** | Capteur mal connecté ou défaillant | Vérifier la connexion capteur S1/S2, remplacer si défaillant |
-| **Ventilateur / Vanne ne réagit pas** | Relais ou sortie DAC en défaut | Vérifier le câblage, tester la sortie concernée |
-| **Aucune sortie relais** | Configuration logicielle incorrecte | Revoir la configuration via l'app AGRID Installer |
-| **Pas de WiFi** | Réseau non détecté ou MDP erroné | Vérifier le SSID réseau, entrer le bon mot de passe |
-| **Détection de présence intermittente** | Capteur tactile encrassé | Nettoyer l'écran avec un chiffon sec |
-| **Écran tactile peu réactif** | Humidité ou encrassement | Nettoyer l'écran, vérifier l'humidité ambiante (IP20) |
-
-!!!tip "Support technique"
-    En cas de problème persistant, contactez le support technique AGRID via l'application AGRID Installer ou par email à l'adresse support fournie dans la documentation.
-
-## Élimination en fin de vie
-
-!!!warning "Déchets électriques - Directive DEEE 2012/19/UE"
-    Le thermostat AGR25-01 est un équipement électrique. Il **doit être éliminé** selon les règlementations applicables :
-
-    - Ne pas jeter en ordures ménagères
-    - Utiliser les points de collecte réglementés DEEE
-    - Certains distributeurs reprennent les anciens appareils (voir conditions commerciales)
-    - L'importateur AGRID peut indiquer les points de collecte les plus proches
-
-## Sécurité des données et WiFi
-
-### Connexion WiFi
-
-- Connexion sécurisée via application **AGRID Installer**
-- Authentification WiFi 2.4GHz standard (WPA2 minimum recommandé)
-- Communication chiffrée vers les serveurs AGRID
-
-### Mises à jour firmware
-
-- Mises à jour disponibles **Over-The-Air (OTA)** via l'application
-- Installation automatique ou manuelle possible
-- Pas d'interruption de service pendant la mise à jour
-
-### Réinitialisation usine
-
-- Possible via l'application AGRID Installer si l'accès WiFi est accessible
-- Ramène le thermostat à sa configuration d'usine
-- Effacé toute configuration personnalisée
-
-!!!info "Données utilisateur"
-    Les données de consigne de température et de configuration sont stockées localement sur le thermostat. Les historiques détaillés sont conservés sur les serveurs AGRID seulement si l'option cloud est activée via l'application Installer.
+| L'écran ne s'allume pas | Pas d'alimentation | Vérifier le disjoncteur et la tension aux bornes N/L (220-240V~) |
+| L'écran s'allume puis s'éteint en boucle | Redémarrage watchdog répété | Couper l'alimentation 30 s puis réalimenter. Si le problème persiste, contacter AGRID. |
+| Température affichée incohérente | Capteur de température perturbé | Vérifier que les fentes de ventilation ne sont pas obstruées. Vérifier l'absence de source de chaleur à proximité. |
+| Le ventilateur ou la vanne ne réagit pas | Mauvaise configuration ou câblage incorrect | Vérifier la configuration sélectionnée. Vérifier le câblage. Vérifier le fonctionnement de l'équipement piloté. |
+| Aucune sortie ne fonctionne | Configuration non supportée (N/S) ou conflit de sorties | Sélectionner une configuration supportée. Les sorties sont désactivées par sécurité. |
+| Pas de connexion WiFi | Réseau WiFi indisponible ou identifiants incorrects | Vérifier la disponibilité du réseau WiFi 2,4 GHz. Reconfigurer via l'app AGRID Installer. Le thermostat continue en mode autonome. |
+| Détection de présence non fonctionnelle | Radar obstrué ou désactivé | Vérifier qu'aucun objet n'est placé devant le thermostat. Vérifier le paramétrage de la fonction présence. |
+| L'écran tactile ne répond pas | Écran en veille ou gel logiciel | Toucher l'écran pour le réveiller. Si pas de réponse, couper l'alimentation 30 s puis réalimenter. |

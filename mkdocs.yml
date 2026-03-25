@@ -1,0 +1,81 @@
+site_name: AGRID Documentation
+site_url: https://agrid.github.io/docs/
+site_description: Official product documentation for AGRID smart thermostats
+site_author: AGRID SAS
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.tabs.link
+  icon:
+    logo: material/thermostat
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fr
+          name: Français
+          build: true
+
+nav:
+  - Home: index.md
+  - AGR25-01:
+    - Overview: agr25-01/index.md
+    - Installation: agr25-01/installation.md
+    - Wiring Diagrams: agr25-01/wiring.md
+    - Usage: agr25-01/usage.md
+    - EU Declaration: agr25-01/declaration.md
+    - Ecodesign: agr25-01/ecodesign.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://a-grid.com
+    - icon: fontawesome/solid/envelope
+      link: mailto:contact@a-grid.com
+  generator: false
+
+copyright: "&copy; 2025 AGRID SAS — 33 rue du Faubourg Saint-Antoine, 75011 Paris, France"

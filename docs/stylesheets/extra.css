@@ -84,48 +84,62 @@
   display: none;
 }
 
-/* The label that duplicates the page name and acts as toggle:
-   hide the text, keep it as a small toggle arrow only */
-.md-sidebar--primary label.md-nav__link--active {
-  position: absolute;
-  right: 0.5rem;
-  top: 0;
-  width: auto;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  font-size: 0;
-  padding: 0;
-}
-
-/* Show only the toggle icon (arrow) from the label */
-.md-sidebar--primary label.md-nav__link--active .md-nav__icon {
-  font-size: 0.6rem;
-  display: block;
-  margin: 0;
-  width: auto;
-  height: auto;
-}
-
-/* Hide the label text span */
-.md-sidebar--primary label.md-nav__link--active .md-ellipsis {
+/* The label duplicates the page name — hide it entirely.
+   The <a> link shows the page name, we just need a clickable toggle. */
+.md-sidebar--primary label.md-nav__link[for="__toc"] {
   display: none;
 }
 
-/* Make parent item position relative for absolute label positioning */
-.md-sidebar--primary .md-nav__item:has(> label.md-nav__link--active) {
+/* Instead, style the native toggle arrow via the <a> link's sibling.
+   We use a small clickable arrow after the active link. */
+.md-sidebar--primary .md-nav__item--active > a.md-nav__link--active {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+/* Arrow indicator on active page that has TOC */
+.md-sidebar--primary .md-nav__item--active:has(#__toc) > a.md-nav__link--active::after {
+  content: "▸";
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.55rem;
+  opacity: 0.4;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when TOC is expanded */
+.md-sidebar--primary .md-nav__item--active:has(#__toc:checked) > a.md-nav__link--active::after {
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 0.7;
+}
+
+/* Make the label invisible but still clickable over the arrow area */
+.md-sidebar--primary label[for="__toc"] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Parent needs position relative */
+.md-sidebar--primary .md-nav__item--active:has(#__toc) {
   position: relative;
 }
 
-/* TOC collapsed by default: hide when checkbox unchecked */
-.md-sidebar--primary .md-nav--secondary {
-  display: none;
+/* TOC collapsed by default via the native checkbox */
+.md-sidebar--primary #__toc ~ .md-nav--secondary {
+  display: none !important;
 }
 
 /* TOC visible when checkbox is checked */
 .md-sidebar--primary #__toc:checked ~ .md-nav--secondary {
-  display: block;
+  display: block !important;
 }
 
 /* TOC items style: smaller, lighter */

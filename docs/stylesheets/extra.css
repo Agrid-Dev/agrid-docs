@@ -15,6 +15,37 @@
   --md-accent-fg-color--transparent: rgba(77, 184, 232, 0.1);
 }
 
+/* ===== Headings ===== */
+
+/* h2: prominent section headers with left accent bar and top separator */
+.md-typeset h2 {
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  font-size: 1.5em;
+  border-left: 4px solid var(--md-primary-fg-color);
+  padding-left: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-top: 2.5rem;
+}
+
+/* Automatic separator line above each h2 (except the first one) */
+.md-typeset h2:not(:first-child)::before {
+  content: "";
+  display: block;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  margin-bottom: 1.5rem;
+  margin-left: -0.75rem;
+}
+
+/* h3: distinct but secondary */
+.md-typeset h3 {
+  color: var(--md-primary-fg-color--light);
+  font-weight: 600;
+  font-size: 1.15em;
+  margin-top: 1.75rem;
+}
+
 /* ===== Navigation Sidebar ===== */
 
 /* Bold top-level nav items */

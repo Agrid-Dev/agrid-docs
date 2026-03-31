@@ -67,7 +67,6 @@
 !!! danger "Safety Warning"
     HR (electric heater) must **NEVER** be directly switched by relay. Always use an external power contactor.
 
----
 
 ## No Valve
 
@@ -86,7 +85,6 @@ Fan coil unit without control valve.
 
 ![Configuration #2](assets/images/config-02.png)
 
----
 
 ## No Valve + Electric Heater
 
@@ -108,7 +106,6 @@ Fan coil unit without valve, with electric heater.
 
 ![Configuration #4](assets/images/config-04.png)
 
----
 
 ## 2-Pipe (2P)
 
@@ -137,7 +134,6 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 
 ![Configuration #8](assets/images/config-08.png)
 
----
 
 ## 2-Pipe + Electric Heater (2P + 2 wires)
 
@@ -169,7 +165,6 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 
 ![Configuration #12](assets/images/config-12.png)
 
----
 
 ## 4-Pipe (4P)
 
@@ -198,7 +193,6 @@ Fan coil unit with 2 independent valves (heating + cooling).
 
 ![Configuration #16](assets/images/config-16.png)
 
----
 
 ## 4-Pipe + Electric Heater (4P + 2 wires)
 
@@ -231,7 +225,6 @@ Each output supports invertible logic (NO / NC) individually configurable.
 
 ![Configuration #19](assets/images/config-19.png)
 
----
 
 ## External Sensors (S1, S2)
 

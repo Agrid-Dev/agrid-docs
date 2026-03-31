@@ -16,8 +16,6 @@ The thermostat can also be controlled remotely via WiFi 2.4 GHz and the AGRID ap
 !!! note "Autonomous Operation"
     In case of WiFi loss, the thermostat continues in local standalone mode.
 
----
-
 ## Security and Data
 
 ### WiFi Configuration

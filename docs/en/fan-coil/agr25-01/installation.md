@@ -23,7 +23,6 @@
 !!! danger "Relay Limitations — Fire Hazard"
     The thermostat relays provide control signals only. They must not carry the power load of an auxiliary electric heater. The heater must be controlled via an external contactor (power relay) rated for the load. Failure to comply may result in a fire hazard.
 
----
 
 ## Mounting
 
@@ -46,7 +45,6 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 !!! note
     Do not obstruct the ventilation slots on the housing (required for the sensors).
 
----
 
 ## Terminal Block
 
@@ -97,7 +95,6 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 | Max. cable length sensors S1/S2 | 20 m (shielded cable recommended beyond 10 m) |
 | Wire type | Solid or stranded wire with crimped ferrule |
 
----
 
 ## Maintenance
 
@@ -107,7 +104,6 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 - The appliance does not release any toxic substances during normal operation.
 - In case of malfunction, contact AGRID or a qualified installer.
 
----
 
 ## Troubleshooting
 
@@ -122,7 +118,6 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 | Presence detection not working | Radar obstructed or disabled | Check that no object is placed in front of the thermostat. Check the presence function settings. |
 | Touchscreen does not respond | Screen in standby or software freeze | Touch the screen to wake it. If no response, disconnect power for 30 s then reconnect. |
 
----
 
 ## Disposal
 

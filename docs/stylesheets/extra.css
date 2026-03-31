@@ -132,14 +132,14 @@
   position: relative;
 }
 
-/* TOC collapsed by default via the native checkbox */
-.md-sidebar--primary #__toc ~ .md-nav--secondary {
-  display: none !important;
+/* TOC collapsed by default, expanded when checkbox is checked.
+   Use identical specificity so :checked wins naturally. */
+.md-sidebar--primary .md-nav__item--active > #__toc ~ .md-nav--secondary {
+  display: none;
 }
 
-/* TOC visible when checkbox is checked */
-.md-sidebar--primary #__toc:checked ~ .md-nav--secondary {
-  display: block !important;
+.md-sidebar--primary .md-nav__item--active > #__toc:checked ~ .md-nav--secondary {
+  display: block;
 }
 
 /* TOC items style: smaller, lighter */

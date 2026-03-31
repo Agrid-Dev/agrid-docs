@@ -5,8 +5,6 @@
 [Download Wiring Diagrams (PDF)](assets/AGR25-01_Wiring_Diagrams.pdf){ .md-button }
 </div>
 
----
-
 ## Technical Specifications
 
 | Parameter | Value |

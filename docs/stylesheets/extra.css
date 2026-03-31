@@ -194,6 +194,20 @@
   margin-bottom: 0.5rem;
 }
 
+/* ===== Diagram Symbol Legend ===== */
+.picto-icon {
+  max-height: 70px !important;
+  width: auto !important;
+  vertical-align: middle;
+}
+
+.cert-icon {
+  height: 36px !important;
+  width: 36px !important;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
 /* ===== Wiring Diagram Images ===== */
 img[alt^="Configuration #"],
 img[alt$="wiring"],

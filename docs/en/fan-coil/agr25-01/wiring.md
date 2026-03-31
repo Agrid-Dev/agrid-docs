@@ -92,11 +92,11 @@ Fan coil unit without control valve.
 
 **Configuration #1 — Fan 3-speed**
 
-![Configuration #1](assets/images/config-01.png)
+![Configuration #1](../../../assets/agr25-01/config-01.png)
 
 **Configuration #2 — Fan 0-10V**
 
-![Configuration #2](assets/images/config-02.png)
+![Configuration #2](../../../assets/agr25-01/config-02.png)
 
 
 ## No Valve + Electric Heater
@@ -113,11 +113,11 @@ Fan coil unit without valve, with electric heater.
 
 **Configuration #3 — Fan 3-speed / Heater ON/OFF**
 
-![Configuration #3](assets/images/config-03.png)
+![Configuration #3](../../../assets/agr25-01/config-03.png)
 
 **Configuration #4 — Fan 0-10V / Heater ON/OFF**
 
-![Configuration #4](assets/images/config-04.png)
+![Configuration #4](../../../assets/agr25-01/config-04.png)
 
 
 ## 2-Pipe (2P)
@@ -133,19 +133,19 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 
 **Configuration #5 — Fan 3-speed / Valve ON/OFF**
 
-![Configuration #5](assets/images/config-05.png)
+![Configuration #5](../../../assets/agr25-01/config-05.png)
 
 **Configuration #6 — Fan 3-speed / Valve 0-10V**
 
-![Configuration #6](assets/images/config-06.png)
+![Configuration #6](../../../assets/agr25-01/config-06.png)
 
 **Configuration #7 — Fan 0-10V / Valve ON/OFF**
 
-![Configuration #7](assets/images/config-07.png)
+![Configuration #7](../../../assets/agr25-01/config-07.png)
 
 **Configuration #8 — Fan 0-10V / Valve 0-10V**
 
-![Configuration #8](assets/images/config-08.png)
+![Configuration #8](../../../assets/agr25-01/config-08.png)
 
 
 ## 2-Pipe + Electric Heater (2P + 2 wires)
@@ -164,19 +164,19 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 
 **Configuration #9 — Fan 3-speed / Valve ON/OFF / Heater ON/OFF**
 
-![Configuration #9](assets/images/config-09.png)
+![Configuration #9](../../../assets/agr25-01/config-09.png)
 
 **Configuration #10 — Fan 3-speed / Valve 0-10V / Heater ON/OFF**
 
-![Configuration #10](assets/images/config-10.png)
+![Configuration #10](../../../assets/agr25-01/config-10.png)
 
 **Configuration #11 — Fan 0-10V / Valve ON/OFF / Heater ON/OFF**
 
-![Configuration #11](assets/images/config-11.png)
+![Configuration #11](../../../assets/agr25-01/config-11.png)
 
 **Configuration #12 — Fan 0-10V / Valve 0-10V / Heater ON/OFF**
 
-![Configuration #12](assets/images/config-12.png)
+![Configuration #12](../../../assets/agr25-01/config-12.png)
 
 
 ## 4-Pipe (4P)
@@ -192,19 +192,19 @@ Fan coil unit with 2 independent valves (heating + cooling).
 
 **Configuration #13 — Fan 3-speed / Valves ON/OFF**
 
-![Configuration #13](assets/images/config-13.png)
+![Configuration #13](../../../assets/agr25-01/config-13.png)
 
 **Configuration #14 — Fan 3-speed / Valves 0-10V**
 
-![Configuration #14](assets/images/config-14.png)
+![Configuration #14](../../../assets/agr25-01/config-14.png)
 
 **Configuration #15 — Fan 0-10V / Valves ON/OFF**
 
-![Configuration #15](assets/images/config-15.png)
+![Configuration #15](../../../assets/agr25-01/config-15.png)
 
 **Configuration #16 — Fan 0-10V / Valves 0-10V**
 
-![Configuration #16](assets/images/config-16.png)
+![Configuration #16](../../../assets/agr25-01/config-16.png)
 
 
 ## 4-Pipe + Electric Heater (4P + 2 wires)
@@ -228,15 +228,15 @@ Each output supports invertible logic (NO / NC) individually configurable.
 
 **Configuration #17 — Fan 3-speed / Valves 0-10V / Heater ON/OFF**
 
-![Configuration #17](assets/images/config-17.png)
+![Configuration #17](../../../assets/agr25-01/config-17.png)
 
 **Configuration #18 — Fan 0-10V / Valves ON/OFF / Heater ON/OFF**
 
-![Configuration #18](assets/images/config-18.png)
+![Configuration #18](../../../assets/agr25-01/config-18.png)
 
 **Configuration #19 — Fan 0-10V / Valves 0-10V / Heater ON/OFF**
 
-![Configuration #19](assets/images/config-19.png)
+![Configuration #19](../../../assets/agr25-01/config-19.png)
 
 
 ## External Sensors (S1, S2)
@@ -268,7 +268,7 @@ Remote temperature measurement.
 
 **Configuration:** sensor type must be set via the thermostat parameter screen or via the AGRID App (or BMS).
 
-![Thermistor wiring](assets/images/sensor-thermistor.png)
+![Thermistor wiring](../../../assets/agr25-01/sensor-thermistor.png)
 
 ### Digital Sensor (Dry Contact)
 
@@ -289,7 +289,7 @@ ON/OFF state detection.
 
 **Configuration:** sensor type must be set via the thermostat parameter screen or via the AGRID App (or BMS).
 
-![Dry contact wiring](assets/images/sensor-dry-contact.png)
+![Dry contact wiring](../../../assets/agr25-01/sensor-dry-contact.png)
 
 ### PIR Motion Detector
 
@@ -310,4 +310,4 @@ External PIR detector with dry contact output.
 !!! warning "External Power Supply Required"
     The PIR sensor requires an external power supply. Refer to the PIR sensor's instructions to ensure proper galvanic isolation and safety when connecting it to the thermostat. The external PSU must be isolated from the thermostat's low-voltage zone.
 
-![PIR detector wiring](assets/images/sensor-pir.png)
+![PIR detector wiring](../../../assets/agr25-01/sensor-pir.png)

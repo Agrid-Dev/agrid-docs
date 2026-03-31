@@ -78,14 +78,24 @@
   font-weight: 700 !important;
 }
 
-/* Hide TOC from left nav — keep sidebar clean with pages only */
-.md-nav--primary .md-nav--secondary {
+/* Hide right TOC sidebar — TOC is integrated in left nav */
+.md-sidebar--secondary {
   display: none;
 }
 
-/* Hide right TOC sidebar — headings are visible enough in the content */
-.md-sidebar--secondary {
-  display: none;
+/* TOC items in left nav: smaller, lighter */
+.md-nav--integrated .md-nav__link {
+  font-weight: 400;
+  font-size: 0.65rem;
+  opacity: 0.7;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+}
+
+.md-nav--integrated .md-nav__item--active > .md-nav__link {
+  opacity: 1;
+  color: var(--md-primary-fg-color);
+  font-weight: 500;
 }
 
 /* ===== Download Buttons ===== */

@@ -6,6 +6,44 @@
 
 ---
 
+## Terminal Block Overview
+
+<div class="terminal-block-table" markdown>
+
+| Terminal | Name | Description |
+|---|---|---|
+| <span class="wire-blue">**N**</span> | Neutral | Neutral conductor |
+| <span class="wire-red">**L**</span> | Line | Line conductor |
+| <span class="wire-orange">**RL1**</span> | Relay 1 | ON/OFF output 230V~ — Fan high speed (FH) |
+| <span class="wire-orange">**RL2**</span> | Relay 2 | ON/OFF output 230V~ — Fan medium speed (FM) |
+| <span class="wire-orange">**RL3**</span> | Relay 3 | ON/OFF output 230V~ — Fan low speed (FL) — or heater depending on config. |
+| <span class="wire-orange">**RL4**</span> | Relay 4 | ON/OFF output 230V~ — Heating valve (HV) |
+| <span class="wire-orange">**RL5**</span> | Relay 5 | ON/OFF output 230V~ — Cooling valve (CV) or heater depending on config. |
+| <span class="wire-green">**G**</span> | 0V Ref. | 0V reference for DAC outputs and S1/S2 inputs |
+| <span class="wire-green">**DAC1**</span> | 0-10V output | Proportional signal — Heating valve (HV) |
+| <span class="wire-green">**DAC2**</span> | 0-10V output | Proportional signal — Cooling valve (CV) |
+| <span class="wire-green">**DAC3**</span> | 0-10V output | Proportional signal — Fan |
+| **B** | Reserved | Reserved — do not connect |
+| **A** | Reserved | Reserved — do not connect |
+| <span class="wire-purple">**S1**</span> | Input 1 | External sensor |
+| <span class="wire-purple">**S2**</span> | Input 2 | External sensor |
+
+</div>
+
+!!! info "Galvanic Isolation"
+    The terminal block is divided into two isolated zones: **230V~ section** (N, L, RL1–RL5) and **low voltage section** (G, DAC1–DAC3, B, A, S1, S2).
+
+### Wiring Specifications
+
+| Parameter | Value |
+|---|---|
+| Wire gauge — 230V section (N, L, RL1–RL5) | 1.5 mm² |
+| Wire gauge — LV section (G, DAC, S1, S2) | 0.5 to 0.75 mm² |
+| Max. cable length DAC 0-10V | 20 m |
+| Max. cable length sensors S1/S2 | 20 m |
+| Shielded cable | Recommended beyond 10 m |
+| Wire type | Solid or stranded wire with crimped ferrule |
+
 ## Control Types
 
 | Type | Description |
@@ -20,9 +58,9 @@
 | FH | Fan High Speed |
 | FM | Fan Medium Speed |
 | FL | Fan Low Speed |
-| HV | Heating Valve |
-| CV | Cooling Valve |
-| HR | Electric Heater (via external power contactor) |
+| HV | Heating Valve (Hot Valve) |
+| CV | Cooling Valve (Cold Valve) |
+| HR | Electric Heater — via external power contactor |
 | Fan | Fan (0-10V proportional) |
 | N/S | Not Supported |
 

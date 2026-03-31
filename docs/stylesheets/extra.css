@@ -17,12 +17,12 @@
 
 /* ===== Navigation Sidebar ===== */
 
-/* Bold top-level nav items, clear hierarchy */
+/* Bold top-level nav items */
 .md-nav__item--nested > .md-nav__link {
   font-weight: 700;
 }
 
-/* Smaller sub-items for clear visual hierarchy */
+/* Smaller text for sub-items: clear hierarchy */
 .md-nav--primary .md-nav--nested .md-nav__link {
   font-size: 0.8rem;
 }
@@ -32,14 +32,11 @@
   font-weight: 400;
 }
 
-/* ===== Table of Contents (right sidebar) ===== */
-.md-sidebar--secondary .md-nav__link {
-  font-size: 0.75rem;
-}
-
-.md-sidebar--secondary .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link {
-  font-weight: 600;
-  font-size: 0.8rem;
+/* TOC items integrated in left nav: lighter weight */
+.md-nav--integrated .md-nav__link {
+  font-weight: 400;
+  font-size: 0.7rem;
+  opacity: 0.85;
 }
 
 /* ===== Download Buttons ===== */
@@ -66,4 +63,47 @@ img[alt$="detector wiring"] {
 .md-typeset table:not([class]) th {
   font-weight: 700;
   white-space: nowrap;
+}
+
+/* ===== Wiring Color Codes ===== */
+/* Match the color codes used in the wiring diagram schematics */
+.wire-red {
+  color: #c0392b;
+}
+
+.wire-blue {
+  color: #2980b9;
+}
+
+.wire-orange {
+  color: #d4750b;
+}
+
+.wire-green {
+  color: #1a8a5c;
+}
+
+.wire-purple {
+  color: #8e44ad;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .wire-red {
+  color: #e74c3c;
+}
+
+[data-md-color-scheme="slate"] .wire-blue {
+  color: #5dade2;
+}
+
+[data-md-color-scheme="slate"] .wire-orange {
+  color: #f0a030;
+}
+
+[data-md-color-scheme="slate"] .wire-green {
+  color: #2ecc71;
+}
+
+[data-md-color-scheme="slate"] .wire-purple {
+  color: #bb8fce;
 }

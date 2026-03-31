@@ -17,17 +17,26 @@
   font-size: 1.5em;
   border-left: 4px solid var(--md-primary-fg-color);
   padding-left: 0.75rem;
-  margin-top: 1rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.8rem;
 }
 
-/* Separator line above h2 — separate element via margin */
+/* Separator line above h2 — with spacing so it doesn't touch the accent bar */
 .md-typeset h2:not(:first-child) {
-  padding-top: 1.5rem;
-  background-image: linear-gradient(var(--md-default-fg-color--lightest), var(--md-default-fg-color--lightest));
-  background-size: calc(100% + 0.75rem) 1px;
-  background-position: left top;
-  background-repeat: no-repeat;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.md-typeset h2:not(:first-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
 }
 
 /* h3: distinct but secondary */
@@ -69,23 +78,14 @@
   font-weight: 700 !important;
 }
 
-/* TOC items (h2 sections integrated in left nav) */
-.md-nav--integrated .md-nav__link {
-  font-weight: 400;
-  font-size: 0.65rem;
-  opacity: 0.6;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  border-left: 2px solid transparent;
-  padding-left: 0.5rem;
+/* Hide the right TOC sidebar — nav is clean enough without it */
+.md-sidebar--secondary {
+  display: none;
 }
 
-/* Active TOC item */
-.md-nav--integrated .md-nav__item--active > .md-nav__link {
-  opacity: 1;
-  border-left-color: var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color) !important;
-  font-weight: 500 !important;
+/* Give content full width since right sidebar is hidden */
+.md-content {
+  max-width: 100%;
 }
 
 /* ===== Download Buttons ===== */

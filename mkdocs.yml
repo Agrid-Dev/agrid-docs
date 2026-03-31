@@ -19,7 +19,6 @@ theme:
     - navigation.indexes
     - search.highlight
     - content.tabs.link
-    - toc.integrate
   icon:
     alternate: material/web
   logo: assets/Logo_Agrid_White.png

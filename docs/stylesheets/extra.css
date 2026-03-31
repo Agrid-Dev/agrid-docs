@@ -78,68 +78,32 @@
 }
 
 /* ===== TOC in left nav (toc.integrate) ===== */
+/* Override Material's built-in rules that force TOC visible on desktop */
 
-/* Hide the "Table of contents" label inside the TOC nav */
+/* Hide the "Table of contents" title inside TOC */
 .md-sidebar--primary .md-nav--secondary > .md-nav__title {
   display: none;
 }
 
-/* The label duplicates the page name — hide it entirely.
-   The <a> link shows the page name, we just need a clickable toggle. */
-.md-sidebar--primary label.md-nav__link[for="__toc"] {
-  display: none;
-}
-
-/* Instead, style the native toggle arrow via the <a> link's sibling.
-   We use a small clickable arrow after the active link. */
-.md-sidebar--primary .md-nav__item--active > a.md-nav__link--active {
-  position: relative;
-  padding-right: 1.5rem;
-}
-
-/* Arrow indicator on active page that has TOC */
-.md-sidebar--primary .md-nav__item--active:has(#__toc) > a.md-nav__link--active::after {
-  content: "▸";
-  position: absolute;
-  right: 0.3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.55rem;
-  opacity: 0.4;
-  transition: transform 0.2s ease;
-}
-
-/* Rotate arrow when TOC is expanded */
-.md-sidebar--primary .md-nav__item--active:has(#__toc:checked) > a.md-nav__link--active::after {
-  transform: translateY(-50%) rotate(90deg);
-  opacity: 0.7;
-}
-
-/* Make the label invisible but still clickable over the arrow area */
-.md-sidebar--primary label[for="__toc"] {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 2rem;
-  opacity: 0;
+/* Force the toggle label visible on all screen sizes (Material hides it on desktop) */
+.md-nav--primary label.md-nav__link[for="__toc"] {
+  display: flex !important;
   cursor: pointer;
-  z-index: 1;
 }
 
-/* Parent needs position relative */
-.md-sidebar--primary .md-nav__item--active:has(#__toc) {
-  position: relative;
+/* Hide the duplicate <a> link — the label already shows the page name */
+.md-nav--primary label.md-nav__link[for="__toc"] + a.md-nav__link {
+  display: none !important;
 }
 
-/* TOC collapsed by default, expanded when checkbox is checked.
-   Use identical specificity so :checked wins naturally. */
-.md-sidebar--primary .md-nav__item--active > #__toc ~ .md-nav--secondary {
-  display: none;
+/* TOC hidden by default — override Material's "display: flex" on desktop */
+.md-nav--primary label.md-nav__link[for="__toc"] ~ .md-nav {
+  display: none !important;
 }
 
-.md-sidebar--primary .md-nav__item--active > #__toc:checked ~ .md-nav--secondary {
-  display: block;
+/* TOC visible when toggle is checked */
+.md-nav--primary #__toc:checked ~ .md-nav {
+  display: block !important;
 }
 
 /* TOC items style: smaller, lighter */

@@ -54,15 +54,15 @@
 
 | Symbole | Description |
 |:---:|---|
-| ![CE](assets/ce.png){ .cert-icon } | Conformité européenne (directives RED, LVD, EMC, RoHS, ErP, DEEE) |
-| ![Classe II](assets/class2.png){ .cert-icon } | Appareil à double isolation — pas de terre de protection |
+| ![CE](../../../assets/ce.png){ .cert-icon } | Conformité européenne (directives RED, LVD, EMC, RoHS, ErP, DEEE) |
+| ![Classe II](../../../assets/class2.png){ .cert-icon } | Appareil à double isolation — pas de terre de protection |
 | ~ | Courant alternatif (AC) |
 | ⎓ | Courant continu (DC) |
 | T50 | Température ambiante maximale de fonctionnement : 50°C |
 | IP20 | Protégé contre les corps solides > 12,5 mm — pas de protection contre l'eau |
 | Type 1.B / µ | Action automatique Type 1, micro-coupure (un seul pôle commuté) |
-| ![DEEE](assets/weee.png){ .cert-icon } | Ne pas jeter avec les déchets ménagers (voir [Mise au rebut](installation.md#mise-au-rebut)) |
-| ![RoHS](assets/rohs.png){ .cert-icon } | Limitation des substances dangereuses (directive 2011/65/UE) |
+| ![DEEE](../../../assets/weee.png){ .cert-icon } | Ne pas jeter avec les déchets ménagers (voir [Mise au rebut](installation.md#mise-au-rebut)) |
+| ![RoHS](../../../assets/rohs.png){ .cert-icon } | Limitation des substances dangereuses (directive 2011/65/UE) |
 
 ## Déclaration UE de conformité
 

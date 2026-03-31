@@ -89,73 +89,75 @@
   font-weight: 700 !important;
 }
 
-/* ===== TOC in left nav (toc.integrate) ===== */
-/* Override Material's built-in rules that force TOC visible on desktop */
+/* ---- TOC collapsible in left nav — DESKTOP ONLY ---- */
+/* On mobile (<60em), let Material handle nav/TOC natively */
 
-/* Hide the "Table of contents" title inside TOC */
-.md-sidebar--primary .md-nav--secondary > .md-nav__title {
-  display: none;
-}
+@media screen and (min-width: 60em) {
 
-/* Force the toggle label visible on all screen sizes (Material hides it on desktop) */
-.md-nav--primary label.md-nav__link[for="__toc"] {
-  display: flex !important;
-  cursor: pointer;
-}
+  /* Hide the "Table of contents" title inside TOC */
+  .md-sidebar--primary .md-nav--secondary > .md-nav__title {
+    display: none;
+  }
 
-/* Hide the hamburger icon entirely */
-.md-nav--primary label.md-nav__link[for="__toc"] .md-nav__icon {
-  display: none !important;
-}
+  /* Force the toggle label visible on desktop (Material hides it) */
+  .md-nav--primary label.md-nav__link[for="__toc"] {
+    display: flex !important;
+    cursor: pointer;
+  }
 
-/* Add a discreet arrow after the label text */
-.md-nav--primary label.md-nav__link[for="__toc"]::after {
-  content: "▸";
-  font-size: 0.55rem;
-  opacity: 0.4;
-  margin-left: auto;
-  transition: transform 0.2s ease;
-}
+  /* Hide the hamburger icon, replace with arrow */
+  .md-nav--primary label.md-nav__link[for="__toc"] .md-nav__icon {
+    display: none !important;
+  }
 
-/* Rotate arrow when expanded */
-.md-nav--primary #__toc:checked ~ label.md-nav__link[for="__toc"]::after {
-  transform: rotate(90deg);
-  opacity: 0.7;
-}
+  .md-nav--primary label.md-nav__link[for="__toc"]::after {
+    content: "▸";
+    font-size: 0.55rem;
+    opacity: 0.4;
+    margin-left: auto;
+    transition: transform 0.2s ease;
+  }
 
-/* Hide the duplicate <a> link — the label already shows the page name */
-.md-nav--primary label.md-nav__link[for="__toc"] + a.md-nav__link {
-  display: none !important;
-}
+  .md-nav--primary #__toc:checked ~ label.md-nav__link[for="__toc"]::after {
+    transform: rotate(90deg);
+    opacity: 0.7;
+  }
 
-/* TOC hidden by default — override Material's "display: flex" on desktop */
-.md-nav--primary label.md-nav__link[for="__toc"] ~ .md-nav {
-  display: none !important;
-}
+  /* Hide the duplicate <a> link */
+  .md-nav--primary label.md-nav__link[for="__toc"] + a.md-nav__link {
+    display: none !important;
+  }
 
-/* TOC visible when toggle is checked */
-.md-nav--primary #__toc:checked ~ .md-nav {
-  display: block !important;
-}
+  /* TOC hidden by default on desktop */
+  .md-nav--primary label.md-nav__link[for="__toc"] ~ .md-nav {
+    display: none !important;
+  }
 
-/* TOC items style: smaller, lighter */
-.md-sidebar--primary .md-nav--secondary .md-nav__link {
-  font-weight: 400;
-  font-size: 0.6rem;
-  opacity: 0.65;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-}
+  /* TOC visible when toggle is checked */
+  .md-nav--primary #__toc:checked ~ .md-nav {
+    display: block !important;
+  }
 
-.md-sidebar--primary .md-nav--secondary .md-nav__item--active > .md-nav__link {
-  opacity: 1;
-  color: var(--md-primary-fg-color);
-  font-weight: 500;
-}
+  /* TOC items style */
+  .md-sidebar--primary .md-nav--secondary .md-nav__link {
+    font-weight: 400;
+    font-size: 0.6rem;
+    opacity: 0.65;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+  }
 
-/* Hide right TOC sidebar */
-.md-sidebar--secondary {
-  display: none;
+  .md-sidebar--primary .md-nav--secondary .md-nav__item--active > .md-nav__link {
+    opacity: 1;
+    color: var(--md-primary-fg-color);
+    font-weight: 500;
+  }
+
+  /* Hide right TOC sidebar on desktop */
+  .md-sidebar--secondary {
+    display: none;
+  }
+
 }
 
 /* ===== Download Buttons ===== */

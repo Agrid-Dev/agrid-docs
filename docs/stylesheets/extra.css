@@ -194,6 +194,13 @@
   margin-bottom: 0.5rem;
 }
 
+/* ===== Diagram Symbol Legend ===== */
+.picto-icon {
+  height: 2.2rem;
+  width: auto;
+  vertical-align: middle;
+}
+
 /* ===== Wiring Diagram Images ===== */
 img[alt^="Configuration #"],
 img[alt$="wiring"],

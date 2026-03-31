@@ -62,6 +62,20 @@
 | Fan | Fan (0-10V proportional) |
 | N/S | Not Supported |
 
+## Diagram Symbols
+
+The following pictograms are used in the wiring diagrams below:
+
+<div class="picto-legend" markdown>
+
+| Symbol | Component |
+|:---:|---|
+| ![Fan](../../../assets/fan_logo.png){ .picto-icon } | **Fan** — Fan coil motor (3-speed or 0-10V) |
+| ![Valve](../../../assets/valve_logo.png){ .picto-icon } | **Valve** — Heating (HV) or Cooling (CV) valve actuator |
+| ![Heater](../../../assets/electric_heater.png){ .picto-icon } | **Electric Heater** — Via external power contactor (HR) |
+
+</div>
+
 !!! danger "Safety Warning"
     HR (electric heater) must **NEVER** be directly switched by relay. Always use an external power contactor.
 

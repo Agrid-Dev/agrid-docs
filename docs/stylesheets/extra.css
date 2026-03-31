@@ -177,9 +177,9 @@
 
   /* Bigger TOC items on mobile for easier tap targets */
   .md-nav--secondary .md-nav__link {
-    font-size: 0.8rem !important;
-    padding-top: 0.3em !important;
-    padding-bottom: 0.3em !important;
+    font-size: 0.7rem !important;
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
   }
 }
 

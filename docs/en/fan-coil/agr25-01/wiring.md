@@ -40,11 +40,11 @@ Fan coil unit without control valve.
 | 1 | Fan Only | 3-speed | — | — | RL1=FH, RL2=FM, RL3=FL | **OK** |
 | 2 | Fan Only | 0-10V | — | — | DAC3=Fan | **OK** |
 
-### Configuration #1 — Fan 3-speed
+**Configuration #1 — Fan 3-speed**
 
 ![Configuration #1](assets/images/config-01.png)
 
-### Configuration #2 — Fan 0-10V
+**Configuration #2 — Fan 0-10V**
 
 ![Configuration #2](assets/images/config-02.png)
 
@@ -62,11 +62,11 @@ Fan coil unit without valve, with electric heater.
 !!! danger "Heater Safety"
     HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
 
-### Configuration #3 — Fan 3-speed / Heater ON/OFF
+**Configuration #3 — Fan 3-speed / Heater ON/OFF**
 
 ![Configuration #3](assets/images/config-03.png)
 
-### Configuration #4 — Fan 0-10V / Heater ON/OFF
+**Configuration #4 — Fan 0-10V / Heater ON/OFF**
 
 ![Configuration #4](assets/images/config-04.png)
 
@@ -83,19 +83,19 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 | 7 | 2P: Fan + 1 Valve | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV | **OK** |
 | 8 | 2P: Fan + 1 Valve | 0-10V | 0-10V | — | DAC1=HV, DAC3=Fan | **OK** |
 
-### Configuration #5 — Fan 3-speed / Valve ON/OFF
+**Configuration #5 — Fan 3-speed / Valve ON/OFF**
 
 ![Configuration #5](assets/images/config-05.png)
 
-### Configuration #6 — Fan 3-speed / Valve 0-10V
+**Configuration #6 — Fan 3-speed / Valve 0-10V**
 
 ![Configuration #6](assets/images/config-06.png)
 
-### Configuration #7 — Fan 0-10V / Valve ON/OFF
+**Configuration #7 — Fan 0-10V / Valve ON/OFF**
 
 ![Configuration #7](assets/images/config-07.png)
 
-### Configuration #8 — Fan 0-10V / Valve 0-10V
+**Configuration #8 — Fan 0-10V / Valve 0-10V**
 
 ![Configuration #8](assets/images/config-08.png)
 
@@ -115,19 +115,19 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 !!! danger "Heater Safety"
     HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
 
-### Configuration #9 — Fan 3-speed / Valve ON/OFF / Heater ON/OFF
+**Configuration #9 — Fan 3-speed / Valve ON/OFF / Heater ON/OFF**
 
 ![Configuration #9](assets/images/config-09.png)
 
-### Configuration #10 — Fan 3-speed / Valve 0-10V / Heater ON/OFF
+**Configuration #10 — Fan 3-speed / Valve 0-10V / Heater ON/OFF**
 
 ![Configuration #10](assets/images/config-10.png)
 
-### Configuration #11 — Fan 0-10V / Valve ON/OFF / Heater ON/OFF
+**Configuration #11 — Fan 0-10V / Valve ON/OFF / Heater ON/OFF**
 
 ![Configuration #11](assets/images/config-11.png)
 
-### Configuration #12 — Fan 0-10V / Valve 0-10V / Heater ON/OFF
+**Configuration #12 — Fan 0-10V / Valve 0-10V / Heater ON/OFF**
 
 ![Configuration #12](assets/images/config-12.png)
 
@@ -144,19 +144,19 @@ Fan coil unit with 2 independent valves (heating + cooling).
 | 15 | 4P: Fan + 2 Valves | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV, RL5=CV | **OK** |
 | 16 | 4P: Fan + 2 Valves | 0-10V | 0-10V | — | DAC1=HV, DAC2=CV, DAC3=Fan | **OK** |
 
-### Configuration #13 — Fan 3-speed / Valves ON/OFF
+**Configuration #13 — Fan 3-speed / Valves ON/OFF**
 
 ![Configuration #13](assets/images/config-13.png)
 
-### Configuration #14 — Fan 3-speed / Valves 0-10V
+**Configuration #14 — Fan 3-speed / Valves 0-10V**
 
 ![Configuration #14](assets/images/config-14.png)
 
-### Configuration #15 — Fan 0-10V / Valves ON/OFF
+**Configuration #15 — Fan 0-10V / Valves ON/OFF**
 
 ![Configuration #15](assets/images/config-15.png)
 
-### Configuration #16 — Fan 0-10V / Valves 0-10V
+**Configuration #16 — Fan 0-10V / Valves 0-10V**
 
 ![Configuration #16](assets/images/config-16.png)
 
@@ -181,15 +181,15 @@ Fan coil unit with 2 independent valves (heating + cooling).
 
 Each output supports invertible logic (NO / NC) individually configurable.
 
-### Configuration #17 — Fan 3-speed / Valves 0-10V / Heater ON/OFF
+**Configuration #17 — Fan 3-speed / Valves 0-10V / Heater ON/OFF**
 
 ![Configuration #17](assets/images/config-17.png)
 
-### Configuration #18 — Fan 0-10V / Valves ON/OFF / Heater ON/OFF
+**Configuration #18 — Fan 0-10V / Valves ON/OFF / Heater ON/OFF**
 
 ![Configuration #18](assets/images/config-18.png)
 
-### Configuration #19 — Fan 0-10V / Valves 0-10V / Heater ON/OFF
+**Configuration #19 — Fan 0-10V / Valves 0-10V / Heater ON/OFF**
 
 ![Configuration #19](assets/images/config-19.png)
 

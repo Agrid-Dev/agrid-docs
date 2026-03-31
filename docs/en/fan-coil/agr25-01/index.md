@@ -68,13 +68,27 @@
 
 ## EU Declaration of Conformity
 
-AGRID SAS hereby declares that the AGR25-01 thermostat is in conformity with Directive 2014/53/EU.
+Simplified EU declaration of conformity (in accordance with Article 10(9) of Directive 2014/53/EU):
+
+AGRID SAS hereby declares that the AGR25-01 thermostat is in conformity with the following European directives and regulations:
+
+- Directive 2014/35/EU (LVD) — Safety of low voltage electrical equipment
+- Directive 2014/30/EU (EMC) — Electromagnetic compatibility
+- Directive 2014/53/EU (RED) — Radio equipment
+- Directive 2011/65/EU (RoHS) — Restriction of hazardous substances
+- Directive 2009/125/EC (ErP) — Ecodesign of energy-related products
+- Regulation (EU) 2024/1103 — Ecodesign of local space heaters and separate controls
+- Commission Delegated Regulation (EU) 2022/30 — Cybersecurity requirements (Article 3(3) of the RED)
+- Directive 2012/19/EU (WEEE) — Waste electrical and electronic equipment
+- Regulation (EC) No 1907/2006 (REACH) — Registration, Evaluation, Authorisation and Restriction of Chemicals
+- Council Recommendation 1999/519/EC — Limitation of public exposure to electromagnetic fields
+
+Applied harmonised standards: EN 60730-1:2011, EN 60730-2-9:2010, EN 62311:2008, EN 55014-1:2017/A11:2020, EN 55014-2:2015, EN 61000-3-2:2019, EN 61000-3-3:2013/A1:2019, EN 301489-1 V2.2.3, EN 301489-17 V3.3.1, EN 300328 V2.2.2, EN 18031-X, EN 50581:2012.
 
 Full text of the EU declaration of conformity is available on request from the importer (see Contact below).
 
 ## Contact
 
-| | |
-|---|---|
-| **Manufacturer** | Beijing Breeze Technology Co., Ltd. — Floor 22, Bldg 1, Yard 1, Guanyinan South St., Tongzhou Dist., Beijing, China |
-| **Importer** | AGRID SAS — 33 rue du Faubourg Saint-Antoine, 75011 Paris, FRANCE — Email: contact@a-grid.com |
+**Manufacturer:** Beijing Breeze Technology Co., Ltd. — Floor 22, Bldg 1, Yard 1, Guanyinan South St., Tongzhou Dist., Beijing, China
+
+**Importer:** AGRID SAS — 33 rue du Faubourg Saint-Antoine, 75011 Paris, FRANCE — Email: contact@a-grid.com

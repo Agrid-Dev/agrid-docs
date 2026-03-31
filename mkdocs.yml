@@ -1,4 +1,4 @@
-site_name: AGRID Documentation
+site_name: AGRID
 site_url: https://docs.a-grid.com/
 site_description: Official product documentation for AGRID smart thermostats
 site_author: AGRID SAS
@@ -7,35 +7,21 @@ theme:
   name: material
   language: en
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: blue
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: blue
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+    scheme: default
+    primary: custom
+    accent: custom
   font:
     text: Inter
     code: Roboto Mono
   features:
     - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.top
-    - navigation.indexes
     - search.highlight
     - content.tabs.link
     - toc.integrate
   icon:
-    logo: material/thermostat
     alternate: material/web
+  logo: assets/Logo_Agrid_White.png
 
 plugins:
   - search
@@ -57,7 +43,6 @@ plugins:
             Installation: Installation
             Wiring Diagrams: Schémas de câblage
             Usage: Utilisation
-            EU Declaration: Déclaration UE
             Ecodesign: Écoconception
 
 nav:
@@ -68,7 +53,6 @@ nav:
       - Installation: fan-coil/agr25-01/installation.md
       - Wiring Diagrams: fan-coil/agr25-01/wiring.md
       - Usage: fan-coil/agr25-01/usage.md
-      - EU Declaration: fan-coil/agr25-01/declaration.md
       - Ecodesign: fan-coil/agr25-01/ecodesign.md
 
 markdown_extensions:
@@ -81,11 +65,14 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - toc:
-      permalink: true
-      toc_depth: 3
+      permalink: false
+      toc_depth: 2
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/toc-default-open.js
 
 extra:
   social:

@@ -1,21 +1,18 @@
 /**
  * Collapsible TOC items in the left navigation sidebar.
- * When toc.integrate is enabled, TOC headings appear under the active page.
- * This script makes them collapsible (closed by default, click to toggle).
+ * When toc.integrate is enabled, a nav.md-nav--secondary appears under the
+ * active page in the left sidebar. This script makes it collapsible.
  */
 document.addEventListener("DOMContentLoaded", function () {
   function initTocToggle() {
-    // Find all integrated TOC nav containers in the left sidebar
     var tocNavs = document.querySelectorAll(
-      ".md-sidebar--primary .md-nav--integrated"
+      ".md-sidebar--primary .md-nav--secondary"
     );
 
     tocNavs.forEach(function (tocNav) {
-      // Already processed
       if (tocNav.dataset.tocToggle) return;
       tocNav.dataset.tocToggle = "true";
 
-      // Find the parent link (the page name like "Installation")
       var parentItem = tocNav.closest(".md-nav__item");
       if (!parentItem) return;
 
@@ -28,14 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create toggle arrow
       var toggle = document.createElement("span");
       toggle.className = "toc-toggle";
-      toggle.innerHTML = "&#9656;"; // right triangle ▸
-      toggle.style.cssText =
-        "cursor:pointer;margin-left:auto;padding:0 0.4rem;font-size:0.7rem;color:inherit;opacity:0.5;transition:transform 0.2s;user-select:none;";
+      toggle.innerHTML = "&#9656;";
       parentLink.style.display = "flex";
       parentLink.style.alignItems = "center";
       parentLink.appendChild(toggle);
 
-      // Toggle on click
       toggle.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -46,10 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Run on page load
   initTocToggle();
 
-  // Re-run on navigation (instant loading)
   if (typeof document$ !== "undefined") {
     document$.subscribe(function () {
       initTocToggle();

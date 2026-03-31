@@ -91,6 +91,26 @@
   cursor: pointer;
 }
 
+/* Hide the hamburger icon entirely */
+.md-nav--primary label.md-nav__link[for="__toc"] .md-nav__icon {
+  display: none !important;
+}
+
+/* Add a discreet arrow after the label text */
+.md-nav--primary label.md-nav__link[for="__toc"]::after {
+  content: "▸";
+  font-size: 0.55rem;
+  opacity: 0.4;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when expanded */
+.md-nav--primary #__toc:checked ~ label.md-nav__link[for="__toc"]::after {
+  transform: rotate(90deg);
+  opacity: 0.7;
+}
+
 /* Hide the duplicate <a> link — the label already shows the page name */
 .md-nav--primary label.md-nav__link[for="__toc"] + a.md-nav__link {
   display: none !important;

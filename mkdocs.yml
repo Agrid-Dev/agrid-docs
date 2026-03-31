@@ -50,7 +50,6 @@ nav:
   - Home: index.md
   - Fan Coil:
     - AGR25-01:
-      - fan-coil/agr25-01/index.md
       - Overview: fan-coil/agr25-01/index.md
       - Installation: fan-coil/agr25-01/installation.md
       - Wiring Diagrams: fan-coil/agr25-01/wiring.md

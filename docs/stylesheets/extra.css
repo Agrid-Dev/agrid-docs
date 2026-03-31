@@ -98,8 +98,16 @@
   font-weight: 700 !important;
 }
 
+/* ---- Hide TOC from mobile nav so real sections stay visible ---- */
+@media screen and (max-width: 59.9375em) {
+  .md-nav--primary label.md-nav__link[for="__toc"],
+  .md-nav--primary label.md-nav__link[for="__toc"] + a.md-nav__link,
+  .md-nav--primary .md-nav--secondary {
+    display: none !important;
+  }
+}
+
 /* ---- TOC collapsible in left nav — DESKTOP ONLY ---- */
-/* On mobile (<60em), let Material handle nav/TOC natively */
 
 @media screen and (min-width: 60em) {
 

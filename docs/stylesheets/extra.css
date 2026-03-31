@@ -7,6 +7,18 @@
   --md-accent-fg-color--transparent: rgba(10, 122, 181, 0.1);
 }
 
+/* ===== Top Header Bar ===== */
+
+/* Hide site name text next to logo */
+.md-header__topic:first-child .md-ellipsis {
+  display: none;
+}
+
+/* Hide section name that appears on scroll */
+.md-header__topic:last-child {
+  display: none;
+}
+
 /* ===== Headings ===== */
 
 /* h2: brand color with left accent bar */

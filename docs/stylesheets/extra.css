@@ -78,14 +78,14 @@
   font-weight: 700 !important;
 }
 
-/* Hide the right TOC sidebar — nav is clean enough without it */
-.md-sidebar--secondary {
+/* Hide TOC from left nav — keep sidebar clean with pages only */
+.md-nav--primary .md-nav--secondary {
   display: none;
 }
 
-/* Give content full width since right sidebar is hidden */
-.md-content {
-  max-width: 100%;
+/* Hide right TOC sidebar — headings are visible enough in the content */
+.md-sidebar--secondary {
+  display: none;
 }
 
 /* ===== Download Buttons ===== */

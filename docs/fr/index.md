@@ -1,6 +1,6 @@
 # Documentation AGRID
 
-Documentation officielle des produits AGRID.
+Documentation produit officielle des appareils AGRID.
 
 ## Produits
 

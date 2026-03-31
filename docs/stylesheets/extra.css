@@ -196,8 +196,8 @@
 
 /* ===== Diagram Symbol Legend ===== */
 .picto-icon {
-  height: 1.4rem;
-  width: auto;
+  max-height: 28px !important;
+  width: auto !important;
   vertical-align: middle;
 }
 

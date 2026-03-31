@@ -39,17 +39,28 @@ agrid-docs/
 ├── requirements.txt        ← Dépendances Python
 ├── docs/
 │   ├── CNAME               ← Domaine custom GitHub Pages
+│   ├── assets/             ← Assets partagés (toutes langues / tous produits)
+│   │   ├── Logo_Agrid_White.png  ← Logo header
+│   │   ├── ce.png, class2.png,   ← Icônes certification (CE, Classe II,
+│   │   │   rohs.png, weee.png       WEEE, RoHS)
+│   │   ├── fan_logo.png,         ← Pictogrammes schémas de câblage
+│   │   │   valve_logo.png,         (ventilateur, vanne, résistance)
+│   │   │   electric_heater.png
+│   │   └── agr25-01/             ← Images schémas AGR25-01 (partagées EN/FR)
+│   │       ├── config-01..19.png     ← 19 schémas de configurations
+│   │       └── sensor-*.png         ← 3 schémas capteurs externes
 │   ├── en/                 ← Contenu en anglais (langue par défaut)
-│   │   ├── index.md        ← Page d'accueil (liste des produits)
+│   │   ├── index.md        ← Page d'accueil
 │   │   └── fan-coil/agr25-01/
 │   │       ├── index.md        ← Vue d'ensemble + spécifications
 │   │       ├── installation.md ← Guide d'installation
-│   │       ├── wiring.md       ← Schémas de câblage (30 configurations)
+│   │       ├── wiring.md       ← Schémas de câblage (20 configurations)
 │   │       ├── usage.md        ← Utilisation locale/WiFi
 │   │       ├── ecodesign.md    ← Données écoconception
-│   │       └── assets/         ← PDF, images, icônes
+│   │       └── assets/         ← PDFs EN uniquement
 │   ├── fr/                 ← Contenu en français (même structure que en/)
-│   ├── assets/             ← Assets partagés (logo, images)
+│   │   └── fan-coil/agr25-01/
+│   │       └── assets/         ← PDFs FR uniquement
 │   ├── stylesheets/
 │   │   └── extra.css       ← Styles personnalisés (header, nav, TOC, headings)
 │   └── javascripts/

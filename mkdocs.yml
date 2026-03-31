@@ -35,6 +35,7 @@ theme:
     - toc.integrate
   icon:
     logo: material/thermostat
+    alternate: material/web
 
 plugins:
   - search

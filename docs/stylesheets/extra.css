@@ -117,7 +117,7 @@
 }
 
 .md-nav--primary label.md-nav__link[for="__toc"]::after {
-  content: "▸";
+  content: "\25b8";
   font-size: 0.55rem;
   opacity: 0.4;
   margin-left: auto;

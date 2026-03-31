@@ -158,6 +158,15 @@
     display: none;
   }
 
+} /* end @media (min-width: 60em) */
+
+/* Hide duplicate site name text in mobile nav drawer (logo already shows "AGRID") */
+.md-nav--primary > .md-nav__title {
+  font-size: 0;
+}
+
+.md-nav--primary > .md-nav__title .md-logo {
+  font-size: initial;
 }
 
 /* ===== Download Buttons ===== */

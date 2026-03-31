@@ -19,6 +19,15 @@
   display: none;
 }
 
+/* Hide duplicate site name text in mobile nav drawer (logo already shows "AGRID") */
+.md-nav--primary > .md-nav__title {
+  font-size: 0;
+}
+
+.md-nav--primary > .md-nav__title .md-logo {
+  font-size: initial;
+}
+
 /* ===== Headings ===== */
 
 /* h2: brand color with left accent bar */
@@ -89,26 +98,24 @@
   font-weight: 700 !important;
 }
 
-/* ===== TOC in left nav (toc.integrate) ===== */
-/* Override Material's built-in rules that force TOC visible on desktop */
+/* ---- TOC collapsible in left nav — ALL SCREEN SIZES ---- */
 
-/* Hide the "Table of contents" title inside TOC */
-.md-sidebar--primary .md-nav--secondary > .md-nav__title {
-  display: none;
+/* Hide the "Table of contents" title */
+.md-nav--secondary > .md-nav__title {
+  display: none !important;
 }
 
-/* Force the toggle label visible on all screen sizes (Material hides it on desktop) */
+/* Force the toggle label visible (Material hides it on desktop) */
 .md-nav--primary label.md-nav__link[for="__toc"] {
   display: flex !important;
   cursor: pointer;
 }
 
-/* Hide the hamburger icon entirely */
+/* Hide the hamburger icon, replace with arrow */
 .md-nav--primary label.md-nav__link[for="__toc"] .md-nav__icon {
   display: none !important;
 }
 
-/* Add a discreet arrow after the label text */
 .md-nav--primary label.md-nav__link[for="__toc"]::after {
   content: "▸";
   font-size: 0.55rem;
@@ -117,18 +124,17 @@
   transition: transform 0.2s ease;
 }
 
-/* Rotate arrow when expanded */
 .md-nav--primary #__toc:checked ~ label.md-nav__link[for="__toc"]::after {
   transform: rotate(90deg);
   opacity: 0.7;
 }
 
-/* Hide the duplicate <a> link — the label already shows the page name */
+/* Hide the duplicate <a> link */
 .md-nav--primary label.md-nav__link[for="__toc"] + a.md-nav__link {
   display: none !important;
 }
 
-/* TOC hidden by default — override Material's "display: flex" on desktop */
+/* TOC hidden by default */
 .md-nav--primary label.md-nav__link[for="__toc"] ~ .md-nav {
   display: none !important;
 }
@@ -138,8 +144,8 @@
   display: block !important;
 }
 
-/* TOC items style: smaller, lighter */
-.md-sidebar--primary .md-nav--secondary .md-nav__link {
+/* TOC items style */
+.md-nav--secondary .md-nav__link {
   font-weight: 400;
   font-size: 0.6rem;
   opacity: 0.65;
@@ -147,7 +153,7 @@
   padding-bottom: 0.1em;
 }
 
-.md-sidebar--primary .md-nav--secondary .md-nav__item--active > .md-nav__link {
+.md-nav--secondary .md-nav__item--active > .md-nav__link {
   opacity: 1;
   color: var(--md-primary-fg-color);
   font-weight: 500;
@@ -156,6 +162,26 @@
 /* Hide right TOC sidebar */
 .md-sidebar--secondary {
   display: none;
+}
+
+/* ---- Mobile: prevent TOC from sliding as a separate panel ---- */
+@media screen and (max-width: 59.9375em) {
+  .md-nav--primary .md-nav--secondary {
+    position: static !important;
+    height: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    background: none !important;
+  }
+
+  /* Bigger TOC items on mobile for easier tap targets */
+  .md-nav--secondary .md-nav__link {
+    font-size: 0.7rem !important;
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+    padding-left: 1.2rem !important;
+  }
 }
 
 /* ===== Download Buttons ===== */

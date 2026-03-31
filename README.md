@@ -38,6 +38,7 @@ agrid-docs/
 ├── mkdocs.yml              ← Configuration du site (navigation, thème, plugins, i18n)
 ├── requirements.txt        ← Dépendances Python
 ├── docs/
+│   ├── CNAME               ← Domaine custom GitHub Pages
 │   ├── en/                 ← Contenu en anglais (langue par défaut)
 │   │   ├── index.md        ← Page d'accueil (liste des produits)
 │   │   └── fan-coil/agr25-01/
@@ -45,13 +46,14 @@ agrid-docs/
 │   │       ├── installation.md ← Guide d'installation
 │   │       ├── wiring.md       ← Schémas de câblage (30 configurations)
 │   │       ├── usage.md        ← Utilisation locale/WiFi
-│   │       ├── declaration.md  ← Déclaration UE de conformité
 │   │       ├── ecodesign.md    ← Données écoconception
 │   │       └── assets/         ← PDF, images, icônes
 │   ├── fr/                 ← Contenu en français (même structure que en/)
-│   ├── assets/             ← Assets partagés
-│   └── stylesheets/
-│       └── extra.css       ← Styles personnalisés
+│   ├── assets/             ← Assets partagés (logo, images)
+│   ├── stylesheets/
+│   │   └── extra.css       ← Styles personnalisés (header, nav, TOC, headings)
+│   └── javascripts/
+│       └── toc-default-open.js ← Ouvre la TOC par défaut dans la nav
 └── .github/workflows/
     └── deploy.yml          ← CI/CD GitHub Actions
 ```

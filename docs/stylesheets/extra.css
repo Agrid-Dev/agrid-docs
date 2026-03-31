@@ -13,18 +13,32 @@
   font-size: 0.8rem;
 }
 
-/* PDF download button styling */
-a[href$=".pdf"] {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  background-color: var(--md-primary-fg-color);
-  color: white !important;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
+/* Download buttons section */
+.download-buttons {
   margin-bottom: 1rem;
 }
 
-a[href$=".pdf"]:hover {
-  opacity: 0.9;
+.download-buttons .md-button {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Wiring diagram images: constrain size, add subtle frame */
+img[alt^="Configuration #"],
+img[alt$="wiring"],
+img[alt$="wiring "] {
+  max-width: 100%;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+/* Tables: improve readability */
+.md-typeset table:not([class]) th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.md-typeset table:not([class]) td:first-child {
+  font-weight: 600;
 }

@@ -57,7 +57,6 @@ plugins:
             Installation: Installation
             Wiring Diagrams: Schémas de câblage
             Usage: Utilisation
-            EU Declaration: Déclaration UE
             Ecodesign: Écoconception
 
 nav:
@@ -68,7 +67,6 @@ nav:
       - Installation: fan-coil/agr25-01/installation.md
       - Wiring Diagrams: fan-coil/agr25-01/wiring.md
       - Usage: fan-coil/agr25-01/usage.md
-      - EU Declaration: fan-coil/agr25-01/declaration.md
       - Ecodesign: fan-coil/agr25-01/ecodesign.md
 
 markdown_extensions:

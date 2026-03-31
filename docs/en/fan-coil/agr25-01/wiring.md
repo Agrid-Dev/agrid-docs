@@ -1,83 +1,269 @@
 # Wiring Configurations
 
-Each output supports individually configurable inverted logic (NO / NC).
+<div class="download-buttons" markdown>
+[Download Wiring Diagrams (PDF)](assets/AGR25-01_Wiring_Diagrams.pdf){ .md-button .md-button--primary }
+</div>
 
-!!! warning "Heater Power Control"
-    Regardless of configuration, the HR output must never directly switch a power heater. Use an external power contactor (see Installation section).
+---
 
-## 4.1 No Valve — Fan Coil Unit Without Control Valve
+## Control Types
 
-| Config | Description | Status | Outputs |
-|--------|-------------|--------|---------|
-| 1 | Fan 3-speed | ✓ OK | RL1=FH, RL2=FM, RL3=FL |
-| 2 | Fan 0-10V | ✓ OK | DAC3=Fan |
+| Type | Description |
+|---|---|
+| **ON/OFF (Relay)** | Via relay outputs RL1–RL5. Including 3-speed fan mode (3 ON/OFF relays, one per speed). |
+| **0-10V (Proportional)** | Via DAC outputs DAC1–DAC3. Proportional analog signal for modulating actuators. |
 
-## 4.2 No Valve + 2-wire (Heater) — Fan Coil Unit Without Valve, With Electric Heating Element
+## Output Abbreviations
 
-| Config | Description | Status | Outputs |
-|--------|-------------|--------|---------|
-| 3 | Fan 3S / Heater ON/OFF | ✓ OK | RL1=FH, RL2=FM, RL3=FL, RL5=HR |
-| 4 | Fan 3S / Heater 0-10V | ✓ OK | RL1=FH, RL2=FM, RL3=FL, DAC3=HR |
-| 5 | Fan 0-10V / Heater ON/OFF | ✓ OK | DAC3=Fan, RL5=HR |
-| 6 | Fan 0-10V / Heater 0-10V | ✓ OK | DAC3=Fan, DAC2=HR |
+| Abbreviation | Meaning |
+|---|---|
+| FH | Fan High Speed |
+| FM | Fan Medium Speed |
+| FL | Fan Low Speed |
+| HV | Heating Valve |
+| CV | Cooling Valve |
+| HR | Electric Heater (via external power contactor) |
+| Fan | Fan (0-10V proportional) |
+| N/S | Not Supported |
 
-## 4.3 2-Pipe (2T) — Fan Coil Unit With 1 Valve
+!!! danger "Safety Warning"
+    HR (electric heater) must **NEVER** be directly switched by relay. Always use an external power contactor.
 
-Single valve always connected to HV: RL4 for ON/OFF, DAC1 for 0-10V.
+---
 
-| Config | Description | Status | Outputs |
-|--------|-------------|--------|---------|
-| 7 | Fan 3S / Valve ON/OFF | ✓ OK | RL1=FH, RL2=FM, RL3=FL, RL4=HV |
-| 8 | Fan 3S / Valve 0-10V | ✓ OK | RL1=FH, RL2=FM, RL3=FL, DAC1=HV |
-| 9 | Fan 0-10V / Valve ON/OFF | ✓ OK | DAC3=Fan, RL4=HV |
-| 10 | Fan 0-10V / Valve 0-10V | ✓ OK | DAC1=HV, DAC3=Fan |
+## No Valve
 
-## 4.4 2-Pipe + 2-wire (Heater) — 2T Fan Coil Unit With Electric Heating Element
+Fan coil unit without control valve.
 
-| Config | Description | Status | Outputs |
-|--------|-------------|--------|---------|
-| 11 | Fan 3S / Valve ON/OFF / Heater ON/OFF | ✓ OK | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=HR |
-| 12 | Fan 3S / Valve ON/OFF / Heater 0-10V | ✓ OK | RL1=FH, RL2=FM, RL3=FL, RL4=HV, DAC3=HR |
-| 13 | Fan 3S / Valve 0-10V / Heater ON/OFF | ✓ OK | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, RL5=HR |
-| 14 | Fan 3S / Valve 0-10V / Heater 0-10V | ✓ OK | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC3=HR |
-| 15 | Fan 0-10V / Valve ON/OFF / Heater ON/OFF | ✓ OK | DAC3=Fan, RL4=HV, RL5=HR |
-| 16 | Fan 0-10V / Valve ON/OFF / Heater 0-10V | ✓ OK | DAC3=Fan, RL4=HV, DAC2=HR |
-| 17 | Fan 0-10V / Valve 0-10V / Heater ON/OFF | ✓ OK | DAC1=HV, DAC3=Fan, RL5=HR |
-| 18 | Fan 0-10V / Valve 0-10V / Heater 0-10V | ✓ OK | DAC1=HV, DAC3=Fan, DAC2=HR |
+| # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
+|---|---|---|---|---|---|---|
+| 1 | Fan Only | 3-speed | — | — | RL1=FH, RL2=FM, RL3=FL | **OK** |
+| 2 | Fan Only | 0-10V | — | — | DAC3=Fan | **OK** |
 
-## 4.5 4-Pipe (4T) — Fan Coil Unit With 2 Independent Valves (Hot + Cold)
+### Configuration #1 — Fan 3-speed
 
-| Config | Description | Status | Outputs |
-|--------|-------------|--------|---------|
-| 19 | Fan 3S / Valves ON/OFF | ✓ OK | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=CV |
-| 20 | Fan 3S / Valves 0-10V | ✓ OK | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV |
-| 21 | Fan 0-10V / Valves ON/OFF | ✓ OK | DAC3=Fan, RL4=HV, RL5=CV |
-| 22 | Fan 0-10V / Valves 0-10V | ✓ OK | DAC1=HV, DAC2=CV, DAC3=Fan |
+![Configuration #1](assets/images/config-01.png)
 
-## 4.6 4-Pipe + 2-wire (Heater) — 4T Fan Coil Unit With Electric Heating Element
+### Configuration #2 — Fan 0-10V
 
-| Config | Description | Status | Outputs |
-|--------|-------------|--------|---------|
-| 23 | Fan 3S / Valves ON/OFF / Heater ON/OFF | ✗ N/S | 5 relays used, none free for HR |
-| 24 | Fan 3S / Valves ON/OFF / Heater 0-10V | ✓ OK | RL1-3=Fan, RL4=HV, RL5=CV, DAC3=HR |
-| 25 | Fan 3S / Valves 0-10V / Heater ON/OFF | ✓ OK | RL1-3=Fan, DAC1=HV, DAC2=CV, RL5=HR |
-| 26 | Fan 3S / Valves 0-10V / Heater 0-10V | ✓ OK | RL1-3=Fan, DAC1=HV, DAC2=CV, DAC3=HR |
-| 27 | Fan 0-10V / Valves ON/OFF / Heater ON/OFF | ✓ OK | DAC3=Fan, RL4=HV, RL5=CV, RL3=HR |
-| 28 | Fan 0-10V / Valves ON/OFF / Heater 0-10V | ✓ OK | DAC3=Fan, RL4=HV, RL5=CV, DAC2=HR |
-| 29 | Fan 0-10V / Valves 0-10V / Heater ON/OFF | ✓ OK | DAC1=HV, DAC2=CV, DAC3=Fan, RL5=HR |
-| 30 | Fan 0-10V / Valves 0-10V / Heater 0-10V | ✗ N/S | 3 DACs used, none free for HR |
+![Configuration #2](assets/images/config-02.png)
 
-**Status legend:**
-- ✓ OK = Configuration supported
-- ✗ N/S = Configuration not supported. If selected, outputs remain disabled for safety.
+---
+
+## No Valve + Electric Heater
+
+Fan coil unit without valve, with electric heater.
+
+| # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
+|---|---|---|---|---|---|---|
+| 3 | Fan Only + Electric Heater | 3-speed | — | ON/OFF | RL1=FH, RL2=FM, RL3=FL, RL5=HR | **OK** |
+| 4 | Fan Only + Electric Heater | 0-10V | — | ON/OFF | DAC3=Fan, RL5=HR | **OK** |
+
+!!! danger "Heater Safety"
+    HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
+
+### Configuration #3 — Fan 3-speed / Heater ON/OFF
+
+![Configuration #3](assets/images/config-03.png)
+
+### Configuration #4 — Fan 0-10V / Heater ON/OFF
+
+![Configuration #4](assets/images/config-04.png)
+
+---
+
+## 2-Pipe (2P)
+
+Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). The single valve is always connected to HV: RL4 for ON/OFF, DAC1 for 0-10V.
+
+| # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
+|---|---|---|---|---|---|---|
+| 5 | 2P: Fan + 1 Valve | 3-speed | ON/OFF | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV | **OK** |
+| 6 | 2P: Fan + 1 Valve | 3-speed | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV | **OK** |
+| 7 | 2P: Fan + 1 Valve | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV | **OK** |
+| 8 | 2P: Fan + 1 Valve | 0-10V | 0-10V | — | DAC1=HV, DAC3=Fan | **OK** |
+
+### Configuration #5 — Fan 3-speed / Valve ON/OFF
+
+![Configuration #5](assets/images/config-05.png)
+
+### Configuration #6 — Fan 3-speed / Valve 0-10V
+
+![Configuration #6](assets/images/config-06.png)
+
+### Configuration #7 — Fan 0-10V / Valve ON/OFF
+
+![Configuration #7](assets/images/config-07.png)
+
+### Configuration #8 — Fan 0-10V / Valve 0-10V
+
+![Configuration #8](assets/images/config-08.png)
+
+---
+
+## 2-Pipe + Electric Heater (2P + 2 wires)
+
+2-pipe fan coil unit with electric heater.
+
+| # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
+|---|---|---|---|---|---|---|
+| 9 | 2P + Heater: Fan + 1 Valve + Heater | 3-speed | ON/OFF | ON/OFF | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=HR | **OK** |
+| 10 | 2P + Heater: Fan + 1 Valve + Heater | 3-speed | 0-10V | ON/OFF | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, RL5=HR | **OK** |
+| 11 | 2P + Heater: Fan + 1 Valve + Heater | 0-10V | ON/OFF | ON/OFF | DAC3=Fan, RL4=HV, RL5=HR | **OK** |
+| 12 | 2P + Heater: Fan + 1 Valve + Heater | 0-10V | 0-10V | ON/OFF | DAC1=HV, DAC3=Fan, RL5=HR | **OK** |
+
+!!! danger "Heater Safety"
+    HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
+
+### Configuration #9 — Fan 3-speed / Valve ON/OFF / Heater ON/OFF
+
+![Configuration #9](assets/images/config-09.png)
+
+### Configuration #10 — Fan 3-speed / Valve 0-10V / Heater ON/OFF
+
+![Configuration #10](assets/images/config-10.png)
+
+### Configuration #11 — Fan 0-10V / Valve ON/OFF / Heater ON/OFF
+
+![Configuration #11](assets/images/config-11.png)
+
+### Configuration #12 — Fan 0-10V / Valve 0-10V / Heater ON/OFF
+
+![Configuration #12](assets/images/config-12.png)
+
+---
+
+## 4-Pipe (4P)
+
+Fan coil unit with 2 independent valves (heating + cooling).
+
+| # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
+|---|---|---|---|---|---|---|
+| 13 | 4P: Fan + 2 Valves | 3-speed | ON/OFF | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=CV | **OK** |
+| 14 | 4P: Fan + 2 Valves | 3-speed | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV | **OK** |
+| 15 | 4P: Fan + 2 Valves | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV, RL5=CV | **OK** |
+| 16 | 4P: Fan + 2 Valves | 0-10V | 0-10V | — | DAC1=HV, DAC2=CV, DAC3=Fan | **OK** |
+
+### Configuration #13 — Fan 3-speed / Valves ON/OFF
+
+![Configuration #13](assets/images/config-13.png)
+
+### Configuration #14 — Fan 3-speed / Valves 0-10V
+
+![Configuration #14](assets/images/config-14.png)
+
+### Configuration #15 — Fan 0-10V / Valves ON/OFF
+
+![Configuration #15](assets/images/config-15.png)
+
+### Configuration #16 — Fan 0-10V / Valves 0-10V
+
+![Configuration #16](assets/images/config-16.png)
+
+---
+
+## 4-Pipe + Electric Heater (4P + 2 wires)
+
+4-pipe fan coil unit with electric heater.
+
+| # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
+|---|---|---|---|---|---|---|
+| 17 | 4P + Heater: Fan + 2 Valves + Heater | 3-speed | 0-10V | ON/OFF | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV, RL5=HR | **OK** |
+| 18 | 4P + Heater: Fan + 2 Valves + Heater | 0-10V | ON/OFF | ON/OFF | DAC3=Fan, RL4=HV, RL5=CV, RL3=HR | **OK** |
+| 19 | 4P + Heater: Fan + 2 Valves + Heater | 0-10V | 0-10V | ON/OFF | DAC1=HV, DAC2=CV, DAC3=Fan, RL5=HR | **OK** |
+| 20 | 4P + Heater: Fan + 2 Valves + Heater | 3-speed | ON/OFF | ON/OFF | — | **N/S** |
+
+!!! danger "Heater Safety"
+    HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
+
+!!! warning "Configuration #20 — Not Supported"
+    Not enough relays available to handle this configuration. If this configuration is selected, outputs remain disabled for safety.
+
+Each output supports invertible logic (NO / NC) individually configurable.
+
+### Configuration #17 — Fan 3-speed / Valves 0-10V / Heater ON/OFF
+
+![Configuration #17](assets/images/config-17.png)
+
+### Configuration #18 — Fan 0-10V / Valves ON/OFF / Heater ON/OFF
+
+![Configuration #18](assets/images/config-18.png)
+
+### Configuration #19 — Fan 0-10V / Valves 0-10V / Heater ON/OFF
+
+![Configuration #19](assets/images/config-19.png)
+
+---
 
 ## External Sensors (S1, S2)
 
-S1 and S2 inputs accept two types of sensors, configurable from the screen or AGRID server:
+Inputs S1 and S2 accept two types of sensors, configurable from the screen or the AGRID server.
 
-**Analog sensor (thermistor):** Remote temperature measurement (supply air, outdoor, etc.)
+### Analog Sensor (Thermistor)
 
-**Dry contact sensor:** Window open detector, presence badge, PIR detector, etc.
+Remote temperature measurement.
 
-!!! note
-    Sensors requiring external power must have their own power supply with appropriate galvanic isolation.
+| Sensor Type | Connection | Input | Signal | Applications |
+|---|---|---|---|---|
+| Thermistor | S1 or S2 + G (0V ref) | Analog | Resistance variation | Supply / outdoor / return air temp, pipe changeover detection (2-pipe auto H/C switching) |
+
+**Wiring notes:**
+
+- Connect thermistor between S1 (or S2) and G
+- No external power supply needed
+- 2-wire, no polarity
+- Max cable length: 20 m
+
+**Supported thermistors:**
+
+- NTC 5K
+- NTC 10K Type II & Type III
+- NTC 20K
+- PT1000
+- PT 500
+
+**Configuration:** sensor type must be set via the thermostat parameter screen or via the AGRID App (or BMS).
+
+![Thermistor wiring](assets/images/sensor-thermistor.png)
+
+### Digital Sensor (Dry Contact)
+
+ON/OFF state detection.
+
+| Sensor Type | Connection | Input | Signal | Applications |
+|---|---|---|---|---|
+| Dry Contact (Switch) | S1 or S2 + G (0V ref) | Digital | ON/OFF state | Window detector, key card, badge |
+
+**Wiring notes:**
+
+- Connect switch between S1 (or S2) and G
+- No external power supply needed
+- Voltage-free contact only
+- Max cable length: 20 m
+
+**Applications:** window open/close detector, key card / badge presence, any voltage-free contact.
+
+**Configuration:** sensor type must be set via the thermostat parameter screen or via the AGRID App (or BMS).
+
+![Dry contact wiring](assets/images/sensor-dry-contact.png)
+
+### PIR Motion Detector
+
+External PIR detector with dry contact output.
+
+| Sensor Type | Connection | Input | Signal | Power Supply |
+|---|---|---|---|---|
+| PIR Motion Detector | S1 or S2 + G (0V ref) | Digital | ON/OFF (dry contact) | External (separate PSU) |
+
+**Wiring notes:**
+
+- Connect PIR dry contact output between S1 (or S2) and G
+- PIR requires its own external power supply
+- Refer to PIR sensor manual for power supply specifications
+
+**Configuration:** sensor type must be set via the thermostat parameter screen or via the AGRID App (or BMS).
+
+!!! warning "External Power Supply Required"
+    The PIR sensor requires an external power supply. Refer to the PIR sensor's instructions to ensure proper galvanic isolation and safety when connecting it to the thermostat. The external PSU must be isolated from the thermostat's low-voltage zone.
+
+![PIR detector wiring](assets/images/sensor-pir.png)

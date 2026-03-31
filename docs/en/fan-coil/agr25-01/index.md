@@ -54,15 +54,15 @@
 
 | Symbol | Description |
 |:---:|---|
-| ![CE](assets/ce.png){ .picto-icon } | European conformity (directives RED, LVD, EMC, RoHS, ErP, WEEE) |
-| ![Class II](assets/class2.png){ .picto-icon } | Double insulated appliance — no protective earth |
+| ![CE](assets/ce.png){ .cert-icon } | European conformity (directives RED, LVD, EMC, RoHS, ErP, WEEE) |
+| ![Class II](assets/class2.png){ .cert-icon } | Double insulated appliance — no protective earth |
 | ~ | Alternating current (AC) |
 | ⎓ | Direct current (DC) |
 | T50 | Maximum ambient operating temperature: 50°C |
 | IP20 | Protected against solid objects > 12.5 mm — no protection against water |
 | Type 1.B / µ | Automatic action Type 1, micro-disconnection (single pole switched) |
-| ![WEEE](assets/weee.png){ .picto-icon } | Do not dispose of with household waste (see [Disposal](installation.md#disposal)) |
-| ![RoHS](assets/rohs.png){ .picto-icon } | Restriction of hazardous substances (Directive 2011/65/EU) |
+| ![WEEE](assets/weee.png){ .cert-icon } | Do not dispose of with household waste (see [Disposal](installation.md#disposal)) |
+| ![RoHS](assets/rohs.png){ .cert-icon } | Restriction of hazardous substances (Directive 2011/65/EU) |
 
 ## EU Declaration of Conformity
 

@@ -7,13 +7,6 @@
   --md-accent-fg-color--transparent: rgba(10, 122, 181, 0.1);
 }
 
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #054060;
-  --md-primary-fg-color--light: #0a5a85;
-  --md-primary-fg-color--dark: #032d44;
-  --md-accent-fg-color: #4db8e8;
-  --md-accent-fg-color--transparent: rgba(77, 184, 232, 0.1);
-}
 
 /* ===== Headings ===== */
 
@@ -143,23 +136,3 @@ img[alt$="detector wiring"] {
   color: #8e44ad;
 }
 
-/* Dark mode adjustments */
-[data-md-color-scheme="slate"] .wire-red {
-  color: #e74c3c;
-}
-
-[data-md-color-scheme="slate"] .wire-blue {
-  color: #5dade2;
-}
-
-[data-md-color-scheme="slate"] .wire-orange {
-  color: #f0a030;
-}
-
-[data-md-color-scheme="slate"] .wire-green {
-  color: #2ecc71;
-}
-
-[data-md-color-scheme="slate"] .wire-purple {
-  color: #bb8fce;
-}

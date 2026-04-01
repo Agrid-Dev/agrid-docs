@@ -30,7 +30,7 @@
 | Sorties relais | 5 relais SPST-NO (RL1–RL5), Max 5A (Ind.) 220-240V~ |
 | Sorties 0-10V | 3 sorties DAC (DAC1, DAC2, DAC3) |
 | Entrées capteurs externes | 2 entrées (S1, S2) |
-| Capteurs intégrés | Température + humidité (SHT41), sonde de température (NTC), détecteur de présence, capteur de luminosité ambiante |
+| Capteurs intégrés | Température, humidité, luminosité, présence |
 
 ## Action et cycles
 

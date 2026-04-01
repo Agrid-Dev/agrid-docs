@@ -90,7 +90,7 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 | Parameter | Value |
 |---|---|
 | Wire gauge — 230V section (N, L, RL1–RL5) | 1.5 mm² |
-| Wire gauge — LV section (G, DAC, S1, S2) | 0.5 to 0.75 mm² |
+| Wire gauge — LV section (G, DAC1–DAC3, S1, S2) | 0.5 to 0.75 mm² |
 | Max. cable length DAC 0-10V | 20 m (shielded cable recommended beyond 10 m) |
 | Max. cable length sensors S1/S2 | 20 m (shielded cable recommended beyond 10 m) |
 | Wire type | Solid or stranded wire with crimped ferrule |
@@ -114,7 +114,7 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 | Inconsistent displayed temperature | Temperature sensor disturbed | Check that ventilation slots are not blocked. Check for nearby heat sources. |
 | Fan or valve does not respond | Wrong configuration or incorrect wiring | Check the selected configuration (see [Wiring](wiring.md)). Check wiring. Check the operation of the controlled equipment. |
 | No output is working | Unsupported configuration (N/S) or output conflict | Select a supported configuration (see [Wiring](wiring.md)). Outputs are disabled for safety. |
-| No WiFi connection | WiFi network unavailable or incorrect credentials | Check WiFi 2.4 GHz network availability. Reconfigure via the AGRID Installer app. The thermostat continues in standalone mode. |
+| No WiFi connection | WiFi network unavailable or incorrect credentials | Check WiFi 2.4 GHz network availability. Reconfigure directly from the thermostat settings screen or via the AGRID Installer app. The thermostat continues in standalone mode. |
 | Presence detection not working | Radar obstructed or disabled | Check that no object is placed in front of the thermostat. Check the presence function settings. |
 | Touchscreen does not respond | Screen in standby or software freeze | Touch the screen to wake it. If no response, disconnect power for 30 s then reconnect. |
 

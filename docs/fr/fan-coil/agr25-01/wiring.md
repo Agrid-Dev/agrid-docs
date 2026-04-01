@@ -4,7 +4,9 @@
 [Télécharger les schémas de câblage (PDF)](assets/Wiring_Diagrams_AGRID_FR.pdf){ .md-button .md-button--primary }
 </div>
 
-## Vue d'ensemble du bornier
+## Référence
+
+### Vue d'ensemble du bornier
 
 <div class="terminal-block-table" markdown>
 
@@ -31,45 +33,45 @@
 !!! info "Isolation galvanique"
     Le bornier est séparé en deux zones isolées : **partie 230V~** (N, L, RL1–RL5) et **partie basse tension** (G, DAC1–DAC3, B, A, S1, S2).
 
-### Spécifications de câblage
+#### Spécifications de câblage
 
 | Paramètre | Valeur |
 |---|---|
 | Section de fil — partie 230V (N, L, RL1–RL5) | 1,5 mm² |
-| Section de fil — partie BT (G, DAC, S1, S2) | 0,5 à 0,75 mm² |
+| Section de fil — partie BT (G, DAC1–DAC3, S1, S2) | 0,5 à 0,75 mm² |
 | Longueur max. câbles DAC 0-10V | 20 m |
 | Longueur max. câbles capteurs S1/S2 | 20 m |
 | Câble blindé | Recommandé au-delà de 10 m |
 | Type de fil | Fil rigide ou fil souple avec embout serti |
 
-## Types de régulation
+### Types de régulation
 
 | Type | Description |
 |---|---|
 | **TOR (Relais)** | Via les sorties relais RL1–RL5. Inclut le mode 3 vitesses du ventilateur (3 relais TOR, un par vitesse). |
 | **0-10V (Proportionnel)** | Via les sorties DAC1–DAC3. Signal analogique proportionnel pour actionneurs modulants. |
 
-## Abréviations des sorties
+### Abréviations des sorties
 
 | Abréviation | Signification |
 |---|---|
 | FH | Ventilateur vitesse haute (Fan High) |
 | FM | Ventilateur vitesse moyenne (Fan Medium) |
 | FL | Ventilateur vitesse basse (Fan Low) |
-| HV | Vanne chaude (Hot Valve) |
-| CV | Vanne froide (Cold Valve) |
+| HV | Vanne chaude (Heating Valve) |
+| CV | Vanne froide (Cooling Valve) |
 | HR | Résistance électrique — via contacteur de puissance externe |
 | Fan | Ventilateur (0-10V proportionnel) |
 | N/S | Non supporté |
 
-## Symboles des schémas
+### Symboles des schémas
 
 Les pictogrammes suivants sont utilisés dans les schémas de câblage ci-dessous :
 
 <div class="picto-legend" markdown>
 
 | Symbole | Composant |
-|:---:|---|
+|:---:|:---|
 | ![Ventilateur](../../../assets/fan_logo.png){ .picto-icon } | **Ventilateur** — Moteur du ventilo-convecteur (3 vitesses ou 0-10V) |
 | ![Vanne](../../../assets/valve_logo.png){ .picto-icon } | **Vanne** — Actionneur de vanne chaude (HV) ou froide (CV) |
 | ![Résistance](../../../assets/electric_heater.png){ .picto-icon } | **Résistance électrique** — Via contacteur de puissance externe (HR) |

@@ -195,6 +195,10 @@
 }
 
 /* ===== Diagram Symbol Legend ===== */
+.picto-legend td {
+  vertical-align: middle !important;
+}
+
 .picto-icon {
   max-height: 70px !important;
   width: auto !important;

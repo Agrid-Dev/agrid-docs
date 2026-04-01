@@ -30,7 +30,7 @@
 | Relay outputs | 5 SPST-NO relays (RL1–RL5), Max 5A (Ind.) 220-240V~ |
 | 0-10V outputs | 3 DAC outputs (DAC1, DAC2, DAC3) |
 | External sensor inputs | 2 inputs (S1, S2) |
-| Built-in sensors | Temperature, humidity, light, presence |
+| Built-in sensors | Temperature, humidity, light, presence detection |
 
 ## Action & Cycles
 

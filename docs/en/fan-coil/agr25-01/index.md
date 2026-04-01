@@ -1,8 +1,8 @@
 # AGR25-01 — Fan Coil Thermostat
 
 <div class="download-buttons" markdown>
-[Download Installation Manual (PDF)](assets/AGR25-01_Manual.pdf){ .md-button .md-button--primary }
-[Download Wiring Diagrams (PDF)](assets/AGR25-01_Wiring_Diagrams.pdf){ .md-button }
+[Download Installation Manual (PDF)](assets/Complete_Manual_AGRID_AGR25-01_EN.pdf){ .md-button .md-button--primary }
+[Download Wiring Diagrams (PDF)](assets/Wiring_Diagrams_AGRID_EN.pdf){ .md-button }
 </div>
 
 ## Technical Specifications
@@ -30,7 +30,7 @@
 | Relay outputs | 5 SPST-NO relays (RL1–RL5), Max 5A (Ind.) 220-240V~ |
 | 0-10V outputs | 3 DAC outputs (DAC1, DAC2, DAC3) |
 | External sensor inputs | 2 inputs (S1, S2) |
-| Built-in sensors | Temperature + humidity (SHT41), temperature probe (NTC), presence detector, ambient light sensor |
+| Built-in sensors | Temperature, humidity, light, presence detection |
 
 ## Action & Cycles
 

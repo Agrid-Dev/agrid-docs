@@ -1,10 +1,12 @@
 # Wiring Configurations
 
 <div class="download-buttons" markdown>
-[Download Wiring Diagrams (PDF)](assets/AGR25-01_Wiring_Diagrams.pdf){ .md-button .md-button--primary }
+[Download Wiring Diagrams (PDF)](assets/Wiring_Diagrams_AGRID_EN.pdf){ .md-button .md-button--primary }
 </div>
 
-## Terminal Block Overview
+## Reference
+
+### Terminal Block Overview
 
 <div class="terminal-block-table" markdown>
 
@@ -31,45 +33,45 @@
 !!! info "Galvanic Isolation"
     The terminal block is divided into two isolated zones: **230V~ section** (N, L, RL1–RL5) and **low voltage section** (G, DAC1–DAC3, B, A, S1, S2).
 
-### Wiring Specifications
+#### Wiring Specifications
 
 | Parameter | Value |
 |---|---|
 | Wire gauge — 230V section (N, L, RL1–RL5) | 1.5 mm² |
-| Wire gauge — LV section (G, DAC, S1, S2) | 0.5 to 0.75 mm² |
+| Wire gauge — LV section (G, DAC1–DAC3, S1, S2) | 0.5 to 0.75 mm² |
 | Max. cable length DAC 0-10V | 20 m |
 | Max. cable length sensors S1/S2 | 20 m |
 | Shielded cable | Recommended beyond 10 m |
 | Wire type | Solid or stranded wire with crimped ferrule |
 
-## Control Types
+### Control Types
 
 | Type | Description |
 |---|---|
 | **ON/OFF (Relay)** | Via relay outputs RL1–RL5. Including 3-speed fan mode (3 ON/OFF relays, one per speed). |
 | **0-10V (Proportional)** | Via DAC outputs DAC1–DAC3. Proportional analog signal for modulating actuators. |
 
-## Output Abbreviations
+### Output Abbreviations
 
 | Abbreviation | Meaning |
 |---|---|
 | FH | Fan High Speed |
 | FM | Fan Medium Speed |
 | FL | Fan Low Speed |
-| HV | Heating Valve (Hot Valve) |
-| CV | Cooling Valve (Cold Valve) |
+| HV | Heating Valve |
+| CV | Cooling Valve |
 | HR | Electric Heater — via external power contactor |
 | Fan | Fan (0-10V proportional) |
 | N/S | Not Supported |
 
-## Diagram Symbols
+### Diagram Symbols
 
 The following pictograms are used in the wiring diagrams below:
 
 <div class="picto-legend" markdown>
 
 | Symbol | Component |
-|:---:|---|
+|:---:|:---|
 | ![Fan](../../../assets/fan_logo.png){ .picto-icon } | **Fan** — Fan coil motor (3-speed or 0-10V) |
 | ![Valve](../../../assets/valve_logo.png){ .picto-icon } | **Valve** — Heating (HV) or Cooling (CV) valve actuator |
 | ![Heater](../../../assets/electric_heater.png){ .picto-icon } | **Electric Heater** — Via external power contactor (HR) |

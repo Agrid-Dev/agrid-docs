@@ -38,7 +38,7 @@ Le thermostat peut également être commandé à distance via WiFi 2,4 GHz et l'
 
 ### Configuration WiFi
 
-Les identifiants WiFi sont configurés lors de la mise en service via l'application AGRID Installer.
+Les identifiants WiFi sont configurés lors de la mise en service directement depuis l'écran de paramétrage du thermostat ou via l'application AGRID Installer.
 
 ### Mises à jour du firmware
 

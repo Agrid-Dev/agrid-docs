@@ -38,7 +38,7 @@ The thermostat can also be controlled remotely via WiFi 2.4 GHz and the AGRID ap
 
 ### WiFi Configuration
 
-WiFi credentials are configured during commissioning via the AGRID Installer application.
+WiFi credentials are configured during commissioning directly from the thermostat settings screen or via the AGRID Installer application.
 
 ### Firmware Updates
 

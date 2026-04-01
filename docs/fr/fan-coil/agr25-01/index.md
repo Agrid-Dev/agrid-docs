@@ -1,8 +1,8 @@
 # AGR25-01 — Thermostat pour ventilo-convecteurs
 
 <div class="download-buttons" markdown>
-[Télécharger le manuel d'installation (PDF)](assets/AGR25-01_Manuel.pdf){ .md-button .md-button--primary }
-[Télécharger les schémas de câblage (PDF)](assets/AGR25-01_Schemas_Cablage.pdf){ .md-button }
+[Télécharger le manuel d'installation (PDF)](assets/Complete_Manual_AGRID_AGR25-01_FR.pdf){ .md-button .md-button--primary }
+[Télécharger les schémas de câblage (PDF)](assets/Wiring_Diagrams_AGRID_FR.pdf){ .md-button }
 </div>
 
 ## Spécifications techniques
@@ -30,7 +30,7 @@
 | Sorties relais | 5 relais SPST-NO (RL1–RL5), Max 5A (Ind.) 220-240V~ |
 | Sorties 0-10V | 3 sorties DAC (DAC1, DAC2, DAC3) |
 | Entrées capteurs externes | 2 entrées (S1, S2) |
-| Capteurs intégrés | Température + humidité (SHT41), sonde de température (NTC), détecteur de présence, capteur de luminosité ambiante |
+| Capteurs intégrés | Température, humidité, luminosité, détection de présence |
 
 ## Action et cycles
 

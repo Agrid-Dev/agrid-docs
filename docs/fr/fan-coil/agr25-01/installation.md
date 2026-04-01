@@ -90,7 +90,7 @@ Installer le thermostat au mur, à une hauteur maximale de 2 m par rapport au so
 | Paramètre | Valeur |
 |---|---|
 | Section de fil — partie 230V (N, L, RL1–RL5) | 1,5 mm² |
-| Section de fil — partie BT (G, DAC, S1, S2) | 0,5 à 0,75 mm² |
+| Section de fil — partie BT (G, DAC1–DAC3, S1, S2) | 0,5 à 0,75 mm² |
 | Longueur max. câbles DAC 0-10V | 20 m (câble blindé recommandé au-delà de 10 m) |
 | Longueur max. câbles capteurs S1/S2 | 20 m (câble blindé recommandé au-delà de 10 m) |
 | Type de fil | Fil rigide ou fil souple avec embout serti |
@@ -114,7 +114,7 @@ Installer le thermostat au mur, à une hauteur maximale de 2 m par rapport au so
 | Température affichée incohérente | Capteur de température perturbé | Vérifier que les fentes de ventilation ne sont pas obstruées. Vérifier l'absence de source de chaleur à proximité. |
 | Le ventilateur ou la vanne ne réagit pas | Mauvaise configuration ou câblage incorrect | Vérifier la configuration sélectionnée (voir [Câblage](wiring.md)). Vérifier le câblage. Vérifier le fonctionnement de l'équipement piloté. |
 | Aucune sortie ne fonctionne | Configuration non supportée (N/S) ou conflit de sorties | Sélectionner une configuration supportée (voir [Câblage](wiring.md)). Les sorties sont désactivées par sécurité. |
-| Pas de connexion WiFi | Réseau WiFi indisponible ou identifiants incorrects | Vérifier la disponibilité du réseau WiFi 2,4 GHz. Reconfigurer via l'app AGRID Installer. Le thermostat continue en mode autonome. |
+| Pas de connexion WiFi | Réseau WiFi indisponible ou identifiants incorrects | Vérifier la disponibilité du réseau WiFi 2,4 GHz. Reconfigurer directement depuis l'écran de paramétrage du thermostat ou via l'app AGRID Installer. Le thermostat continue en mode autonome. |
 | Détection de présence non fonctionnelle | Radar obstrué ou désactivé | Vérifier qu'aucun objet n'est placé devant le thermostat. Vérifier le paramétrage de la fonction présence. |
 | L'écran tactile ne répond pas | Écran en veille ou gel logiciel | Toucher l'écran pour le réveiller. Si pas de réponse, couper l'alimentation 30 s puis réalimenter. |
 

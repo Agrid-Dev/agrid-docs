@@ -1,7 +1,7 @@
 # Wiring Configurations
 
 <div class="download-buttons" markdown>
-[Download Wiring Diagrams (PDF)](assets/AGR25-01_Wiring_Diagrams.pdf){ .md-button .md-button--primary }
+[Download Wiring Diagrams (PDF)](assets/Wiring_Diagrams_AGRID_EN.pdf){ .md-button .md-button--primary }
 </div>
 
 ## Terminal Block Overview

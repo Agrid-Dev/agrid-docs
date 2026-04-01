@@ -1,7 +1,7 @@
 # Configurations de câblage
 
 <div class="download-buttons" markdown>
-[Télécharger les schémas de câblage (PDF)](assets/AGR25-01_Schemas_Cablage.pdf){ .md-button .md-button--primary }
+[Télécharger les schémas de câblage (PDF)](assets/Wiring_Diagrams_AGRID_FR.pdf){ .md-button .md-button--primary }
 </div>
 
 ## Vue d'ensemble du bornier

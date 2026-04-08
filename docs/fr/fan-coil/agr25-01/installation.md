@@ -69,7 +69,7 @@ Installer le thermostat au mur, à une hauteur maximale de 2 m par rapport au so
 ### Notes
 
 - Les sorties RL1–RL5 sont utilisées uniquement pour la régulation TOR (tout ou rien). Les sorties DAC1–DAC3 sont utilisées pour la régulation proportionnelle 0-10V.
-- Le bornier est séparé en deux zones isolées galvaniquement : **partie 230V~** (N, L, RL1–RL5) et **partie basse tension** (G, DAC1–DAC3, B, A, S1, S2).
+- Le bornier est séparé en deux zones isolées galvaniquement : **zone BT (basse tension) 230V~** (N, L, RL1–RL5) et **zone TBT (très basse tension) 0-10V** (G, DAC1–DAC3, B, A, S1, S2).
 - L'affectation exacte de chaque sortie dépend de la configuration. Se référer aux [Configurations de câblage](wiring.md).
 - Systèmes 2 tubes : la vanne unique est branchée sur la sortie HV (RL4 ou DAC1 selon la configuration).
 - Systèmes sans résistance : ne rien brancher sur la sortie HR.
@@ -89,8 +89,8 @@ Installer le thermostat au mur, à une hauteur maximale de 2 m par rapport au so
 
 | Paramètre | Valeur |
 |---|---|
-| Section de fil — partie 230V (N, L, RL1–RL5) | 1,5 mm² |
-| Section de fil — partie BT (G, DAC1–DAC3, S1, S2) | 0,5 à 0,75 mm² |
+| Section de fil — zone BT 230V~ (N, L, RL1–RL5) | 1,5 mm² |
+| Section de fil — zone TBT 0-10V (G, DAC1–DAC3, S1, S2) | 0,5 à 0,75 mm² |
 | Longueur max. câbles DAC 0-10V | 20 m (câble blindé recommandé au-delà de 10 m) |
 | Longueur max. câbles capteurs S1/S2 | 20 m (câble blindé recommandé au-delà de 10 m) |
 | Type de fil | Fil rigide ou fil souple avec embout serti |

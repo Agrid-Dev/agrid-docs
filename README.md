@@ -17,7 +17,7 @@ cd agrid-docs
 pip install -r requirements.txt
 ```
 
-## Lancer en local
+## Tester en local
 
 ```bash
 mkdocs serve
@@ -25,11 +25,49 @@ mkdocs serve
 
 Ouvrir **http://localhost:8000** dans le navigateur. Le site se recharge automatiquement à chaque modification de fichier.
 
+**Workflow recommandé pour tester sans impacter la production :**
+
+1. Créer une branche de travail :
+   ```bash
+   git checkout -b ma-branche main
+   ```
+2. Faire les modifications (markdown, assets, CSS...)
+3. Tester en local avec `mkdocs serve`
+4. Commiter et pusher la branche :
+   ```bash
+   git add -A
+   git commit -m "Description des changements"
+   git push -u origin ma-branche
+   ```
+5. Créer une Pull Request sur GitHub pour review
+6. Merger dans `main` quand c'est validé — le déploiement se fait automatiquement
+
 ## Déploiement
 
 Le déploiement est **automatique** : chaque push sur `main` déclenche un build via GitHub Actions et publie sur GitHub Pages.
 
 Workflow : `.github/workflows/deploy.yml`
+
+## Mettre à jour les PDFs téléchargeables
+
+Les PDFs (notice complète et schémas de câblage) sont proposés en téléchargement sur les pages du produit. Pour les mettre à jour :
+
+1. **Remplacer les fichiers PDF** dans les dossiers assets de chaque langue, en gardant les mêmes noms de fichiers :
+   - EN : `docs/en/fan-coil/agr25-01/assets/`
+     - `Complete_Manual_AGRID_AGR25-01_EN.pdf`
+     - `Wiring_Diagrams_AGRID_EN.pdf`
+   - FR : `docs/fr/fan-coil/agr25-01/assets/`
+     - `Complete_Manual_AGRID_AGR25-01_FR.pdf`
+     - `Wiring_Diagrams_AGRID_FR.pdf`
+2. **Commiter et pusher** (sur une branche ou directement sur `main`) :
+   ```bash
+   git add docs/en/fan-coil/agr25-01/assets/*.pdf docs/fr/fan-coil/agr25-01/assets/*.pdf
+   git commit -m "Update downloadable PDFs"
+   git push
+   ```
+3. Si pushé sur `main`, le déploiement se déclenche automatiquement et les nouveaux PDFs seront disponibles en ligne.
+
+> **Note :** si les noms de fichiers changent, il faut aussi mettre à jour les liens dans les fichiers markdown (`index.md` et `wiring.md` de chaque langue).
 
 ## Structure du projet
 

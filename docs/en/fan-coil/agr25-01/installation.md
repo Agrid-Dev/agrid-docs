@@ -69,7 +69,7 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 ### Notes
 
 - Outputs RL1–RL5 are used for ON/OFF control only. Outputs DAC1–DAC3 are used for 0-10V proportional control.
-- The terminal block is divided into two galvanically isolated zones: **230V~ section** (N, L, RL1–RL5) and **low voltage section** (G, DAC1–DAC3, B, A, S1, S2).
+- The terminal block is divided into two galvanically isolated zones: **LV zone (low voltage) 230V~** (N, L, RL1–RL5) and **ELV zone (extra-low voltage) 0-10V** (G, DAC1–DAC3, B, A, S1, S2).
 - The exact assignment of each output depends on the configuration. Refer to [Wiring Configurations](wiring.md).
 - 2-pipe systems: the single valve is connected to the HV output (RL4 or DAC1 depending on configuration).
 - Systems without heater: do not connect anything to the HR output.
@@ -89,8 +89,8 @@ Install the thermostat on a wall, at a maximum height of 2 m above the floor. Th
 
 | Parameter | Value |
 |---|---|
-| Wire gauge — 230V section (N, L, RL1–RL5) | 1.5 mm² |
-| Wire gauge — LV section (G, DAC1–DAC3, S1, S2) | 0.5 to 0.75 mm² |
+| Wire gauge — LV 230V~ zone (N, L, RL1–RL5) | 1.5 mm² |
+| Wire gauge — ELV 0-10V zone (G, DAC1–DAC3, S1, S2) | 0.5 to 0.75 mm² |
 | Max. cable length DAC 0-10V | 20 m (shielded cable recommended beyond 10 m) |
 | Max. cable length sensors S1/S2 | 20 m (shielded cable recommended beyond 10 m) |
 | Wire type | Solid or stranded wire with crimped ferrule |

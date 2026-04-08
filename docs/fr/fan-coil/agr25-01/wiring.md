@@ -31,14 +31,14 @@
 </div>
 
 !!! info "Isolation galvanique"
-    Le bornier est séparé en deux zones isolées : **partie 230V~** (N, L, RL1–RL5) et **partie basse tension** (G, DAC1–DAC3, B, A, S1, S2).
+    Le bornier est séparé en deux zones isolées : **zone BT (basse tension) 230V~** (N, L, RL1–RL5) et **zone TBT (très basse tension) 0-10V** (G, DAC1–DAC3, B, A, S1, S2).
 
 #### Spécifications de câblage
 
 | Paramètre | Valeur |
 |---|---|
-| Section de fil — partie 230V (N, L, RL1–RL5) | 1,5 mm² |
-| Section de fil — partie BT (G, DAC1–DAC3, S1, S2) | 0,5 à 0,75 mm² |
+| Section de fil — zone BT 230V~ (N, L, RL1–RL5) | 1,5 mm² |
+| Section de fil — zone TBT 0-10V (G, DAC1–DAC3, S1, S2) | 0,5 à 0,75 mm² |
 | Longueur max. câbles DAC 0-10V | 20 m |
 | Longueur max. câbles capteurs S1/S2 | 20 m |
 | Câble blindé | Recommandé au-delà de 10 m |
@@ -310,6 +310,6 @@ Détecteur PIR externe avec sortie contact sec.
 **Configuration :** le type de capteur doit être défini via l'écran de paramétrage du thermostat ou via l'application AGRID (ou BMS).
 
 !!! warning "Alimentation externe requise"
-    Le capteur PIR nécessite une alimentation externe. Se référer aux instructions du capteur PIR pour garantir une isolation galvanique et une sécurité adéquates lors du raccordement au thermostat. L'alimentation externe doit être isolée de la zone basse tension du thermostat.
+    Le capteur PIR nécessite une alimentation externe. Se référer aux instructions du capteur PIR pour garantir une isolation galvanique et une sécurité adéquates lors du raccordement au thermostat. L'alimentation externe doit être isolée de la zone TBT 0-10V du thermostat.
 
 ![Câblage détecteur PIR](../../../assets/agr25-01/sensor-pir.png)

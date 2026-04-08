@@ -31,14 +31,14 @@
 </div>
 
 !!! info "Galvanic Isolation"
-    The terminal block is divided into two isolated zones: **230V~ section** (N, L, RL1–RL5) and **low voltage section** (G, DAC1–DAC3, B, A, S1, S2).
+    The terminal block is divided into two isolated zones: **LV zone (low voltage) 230V~** (N, L, RL1–RL5) and **ELV zone (extra-low voltage) 0-10V** (G, DAC1–DAC3, B, A, S1, S2).
 
 #### Wiring Specifications
 
 | Parameter | Value |
 |---|---|
-| Wire gauge — 230V section (N, L, RL1–RL5) | 1.5 mm² |
-| Wire gauge — LV section (G, DAC1–DAC3, S1, S2) | 0.5 to 0.75 mm² |
+| Wire gauge — LV 230V~ zone (N, L, RL1–RL5) | 1.5 mm² |
+| Wire gauge — ELV 0-10V zone (G, DAC1–DAC3, S1, S2) | 0.5 to 0.75 mm² |
 | Max. cable length DAC 0-10V | 20 m |
 | Max. cable length sensors S1/S2 | 20 m |
 | Shielded cable | Recommended beyond 10 m |
@@ -310,6 +310,6 @@ External PIR detector with dry contact output.
 **Configuration:** sensor type must be set via the thermostat parameter screen or via the AGRID App (or BMS).
 
 !!! warning "External Power Supply Required"
-    The PIR sensor requires an external power supply. Refer to the PIR sensor's instructions to ensure proper galvanic isolation and safety when connecting it to the thermostat. The external PSU must be isolated from the thermostat's low-voltage zone.
+    The PIR sensor requires an external power supply. Refer to the PIR sensor's instructions to ensure proper galvanic isolation and safety when connecting it to the thermostat. The external PSU must be isolated from the thermostat's ELV 0-10V zone.
 
 ![PIR detector wiring](../../../assets/agr25-01/sensor-pir.png)

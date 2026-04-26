@@ -33,9 +33,6 @@ plugins:
           default: true
           name: Français
           build: true
-        - locale: en
-          name: English
-          build: true
           nav_translations:
             Home: Accueil
             Fan Coil: Ventilo-convecteurs
@@ -44,6 +41,9 @@ plugins:
             Wiring Diagrams: Schémas de câblage
             Usage: Utilisation
             Ecodesign: Écoconception
+        - locale: en
+          name: English
+          build: true
 
 nav:
   - Home: index.md

@@ -29,11 +29,8 @@ plugins:
       docs_structure: folder
       fallback_to_default: true
       languages:
-        - locale: en
-          default: true
-          name: English
-          build: true
         - locale: fr
+          default: true
           name: Français
           build: true
           nav_translations:
@@ -44,6 +41,9 @@ plugins:
             Wiring Diagrams: Schémas de câblage
             Usage: Utilisation
             Ecodesign: Écoconception
+        - locale: en
+          name: English
+          build: true
 
 nav:
   - Home: index.md

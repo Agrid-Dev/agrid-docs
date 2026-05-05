@@ -56,9 +56,8 @@ nav:
       - Wiring Diagrams: fan-coil/agr25-01/wiring.md
       - Usage: fan-coil/agr25-01/usage.md
       - Ecodesign: fan-coil/agr25-01/ecodesign.md
-      - Ownership Transfer Procedure:
-        - Overview: fan-coil/agr25-01/ownership-transfer-procedure.md
-        - Security Support Policy: fan-coil/agr25-01/security-support-policy.md
+      - Ownership Transfer Procedure: fan-coil/agr25-01/ownership-transfer-procedure.md
+      - Security Support Policy: fan-coil/agr25-01/security-support-policy.md
 
 markdown_extensions:
   - admonition

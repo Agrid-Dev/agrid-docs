@@ -41,6 +41,7 @@ plugins:
             Wiring Diagrams: Schémas de câblage
             Usage: Utilisation
             Ecodesign: Écoconception
+            Ownership Transfer Procedure: Procédure de transfert de propriété
         - locale: en
           name: English
           build: true
@@ -54,6 +55,7 @@ nav:
       - Wiring Diagrams: fan-coil/agr25-01/wiring.md
       - Usage: fan-coil/agr25-01/usage.md
       - Ecodesign: fan-coil/agr25-01/ecodesign.md
+      - Ownership Transfer Procedure: fan-coil/agr25-01/ownership-transfer-procedure.md
 
 markdown_extensions:
   - admonition

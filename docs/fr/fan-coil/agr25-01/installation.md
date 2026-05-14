@@ -115,7 +115,7 @@ Installer le thermostat au mur, à une hauteur maximale de 2 m par rapport au so
 | Le ventilateur ou la vanne ne réagit pas | Mauvaise configuration ou câblage incorrect | Vérifier la configuration sélectionnée (voir [Câblage](wiring.md)). Vérifier le câblage. Vérifier le fonctionnement de l'équipement piloté. |
 | Aucune sortie ne fonctionne | Configuration non supportée (N/S) ou conflit de sorties | Sélectionner une configuration supportée (voir [Câblage](wiring.md)). Les sorties sont désactivées par sécurité. |
 | Pas de connexion WiFi | Réseau WiFi indisponible ou identifiants incorrects | Vérifier la disponibilité du réseau WiFi 2,4 GHz. Reconfigurer directement depuis l'écran de paramétrage du thermostat ou via l'app AGRID Installer. Le thermostat continue en mode autonome. |
-| Détection de présence non fonctionnelle | Radar obstrué ou désactivé | Vérifier qu'aucun objet n'est placé devant le thermostat. Vérifier le paramétrage de la fonction présence. |
+
 | L'écran tactile ne répond pas | Écran en veille ou gel logiciel | Toucher l'écran pour le réveiller. Si pas de réponse, couper l'alimentation 30 s puis réalimenter. |
 
 

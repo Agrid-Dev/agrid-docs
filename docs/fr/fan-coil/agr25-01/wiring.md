@@ -62,7 +62,7 @@
 | CV | Vanne froide (Cooling Valve) |
 | HR | Résistance électrique — via contacteur de puissance externe |
 | Fan | Ventilateur (0-10V proportionnel) |
-| N/S | Non supporté |
+
 
 ### Symboles des schémas
 
@@ -89,8 +89,8 @@ Ventilo-convecteur sans vanne de régulation.
 
 | # | Configuration | Ventilateur | Vannes | Résistance | Affectation des sorties | Statut |
 |---|---|---|---|---|---|---|
-| 1 | Ventilateur seul | 3 vitesses | — | — | RL1=FH, RL2=FM, RL3=FL | **OK** |
-| 2 | Ventilateur seul | 0-10V | — | — | DAC3=Fan | **OK** |
+| 1 | Ventilateur seul | 3 vitesses | — | — | RL1=FH, RL2=FM, RL3=FL | **Supporté** |
+| 2 | Ventilateur seul | 0-10V | — | — | DAC3=Fan | **Supporté** |
 
 **Configuration #1 — Ventilateur 3 vitesses**
 
@@ -107,8 +107,8 @@ Ventilo-convecteur sans vanne, avec résistance électrique.
 
 | # | Configuration | Ventilateur | Vannes | Résistance | Affectation des sorties | Statut |
 |---|---|---|---|---|---|---|
-| 3 | Ventilateur + Résistance | 3 vitesses | — | TOR | RL1=FH, RL2=FM, RL3=FL, RL5=HR | **OK** |
-| 4 | Ventilateur + Résistance | 0-10V | — | TOR | DAC3=Fan, RL5=HR | **OK** |
+| 3 | Ventilateur + Résistance | 3 vitesses | — | TOR | RL1=FH, RL2=FM, RL3=FL, RL5=HR | **Supporté** |
+| 4 | Ventilateur + Résistance | 0-10V | — | TOR | DAC3=Fan, RL5=HR | **Supporté** |
 
 !!! danger "Sécurité résistance"
     La résistance électrique (HR) ne doit JAMAIS être commutée directement par un relais. Utiliser un contacteur de puissance externe.
@@ -128,10 +128,10 @@ Ventilo-convecteur avec 1 vanne (2T mixte, 2T chaud seul ou 2T froid seul). La v
 
 | # | Configuration | Ventilateur | Vannes | Résistance | Affectation des sorties | Statut |
 |---|---|---|---|---|---|---|
-| 5 | 2T : Ventilateur + 1 Vanne | 3 vitesses | TOR | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV | **OK** |
-| 6 | 2T : Ventilateur + 1 Vanne | 3 vitesses | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV | **OK** |
-| 7 | 2T : Ventilateur + 1 Vanne | 0-10V | TOR | — | DAC3=Fan, RL4=HV | **OK** |
-| 8 | 2T : Ventilateur + 1 Vanne | 0-10V | 0-10V | — | DAC1=HV, DAC3=Fan | **OK** |
+| 5 | 2T : Ventilateur + 1 Vanne | 3 vitesses | TOR | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV | **Supporté** |
+| 6 | 2T : Ventilateur + 1 Vanne | 3 vitesses | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV | **Supporté** |
+| 7 | 2T : Ventilateur + 1 Vanne | 0-10V | TOR | — | DAC3=Fan, RL4=HV | **Supporté** |
+| 8 | 2T : Ventilateur + 1 Vanne | 0-10V | 0-10V | — | DAC1=HV, DAC3=Fan | **Supporté** |
 
 **Configuration #5 — Ventilateur 3 vitesses / Vanne TOR**
 
@@ -156,10 +156,10 @@ Ventilo-convecteur 2 tubes avec résistance électrique.
 
 | # | Configuration | Ventilateur | Vannes | Résistance | Affectation des sorties | Statut |
 |---|---|---|---|---|---|---|
-| 9 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 3 vitesses | TOR | TOR | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=HR | **OK** |
-| 10 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 3 vitesses | 0-10V | TOR | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, RL5=HR | **OK** |
-| 11 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 0-10V | TOR | TOR | DAC3=Fan, RL4=HV, RL5=HR | **OK** |
-| 12 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 0-10V | 0-10V | TOR | DAC1=HV, DAC3=Fan, RL5=HR | **OK** |
+| 9 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 3 vitesses | TOR | TOR | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=HR | **Supporté** |
+| 10 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 3 vitesses | 0-10V | TOR | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, RL5=HR | **Supporté** |
+| 11 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 0-10V | TOR | TOR | DAC3=Fan, RL4=HV, RL5=HR | **Supporté** |
+| 12 | 2T + Rés. : Ventilateur + 1 Vanne + Résistance | 0-10V | 0-10V | TOR | DAC1=HV, DAC3=Fan, RL5=HR | **Supporté** |
 
 !!! danger "Sécurité résistance"
     La résistance électrique (HR) ne doit JAMAIS être commutée directement par un relais. Utiliser un contacteur de puissance externe.
@@ -187,10 +187,10 @@ Ventilo-convecteur avec 2 vannes indépendantes (chauffage + refroidissement).
 
 | # | Configuration | Ventilateur | Vannes | Résistance | Affectation des sorties | Statut |
 |---|---|---|---|---|---|---|
-| 13 | 4T : Ventilateur + 2 Vannes | 3 vitesses | TOR | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=CV | **OK** |
-| 14 | 4T : Ventilateur + 2 Vannes | 3 vitesses | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV | **OK** |
-| 15 | 4T : Ventilateur + 2 Vannes | 0-10V | TOR | — | DAC3=Fan, RL4=HV, RL5=CV | **OK** |
-| 16 | 4T : Ventilateur + 2 Vannes | 0-10V | 0-10V | — | DAC1=HV, DAC2=CV, DAC3=Fan | **OK** |
+| 13 | 4T : Ventilateur + 2 Vannes | 3 vitesses | TOR | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=CV | **Supporté** |
+| 14 | 4T : Ventilateur + 2 Vannes | 3 vitesses | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV | **Supporté** |
+| 15 | 4T : Ventilateur + 2 Vannes | 0-10V | TOR | — | DAC3=Fan, RL4=HV, RL5=CV | **Supporté** |
+| 16 | 4T : Ventilateur + 2 Vannes | 0-10V | 0-10V | — | DAC1=HV, DAC2=CV, DAC3=Fan | **Supporté** |
 
 **Configuration #13 — Ventilateur 3 vitesses / Vannes TOR**
 
@@ -215,10 +215,10 @@ Ventilo-convecteur 4 tubes avec résistance électrique.
 
 | # | Configuration | Ventilateur | Vannes | Résistance | Affectation des sorties | Statut |
 |---|---|---|---|---|---|---|
-| 17 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 3 vitesses | 0-10V | TOR | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV, RL5=HR | **OK** |
-| 18 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 0-10V | TOR | TOR | DAC3=Fan, RL4=HV, RL5=CV, RL3=HR | **OK** |
-| 19 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 0-10V | 0-10V | TOR | DAC1=HV, DAC2=CV, DAC3=Fan, RL5=HR | **OK** |
-| 20 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 3 vitesses | TOR | TOR | — | **N/S** |
+| 17 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 3 vitesses | 0-10V | TOR | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV, RL5=HR | **Supporté** |
+| 18 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 0-10V | TOR | TOR | DAC3=Fan, RL4=HV, RL5=CV, RL3=HR | **Supporté** |
+| 19 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 0-10V | 0-10V | TOR | DAC1=HV, DAC2=CV, DAC3=Fan, RL5=HR | **Supporté** |
+| 20 | 4T + Rés. : Ventilateur + 2 Vannes + Résistance | 3 vitesses | TOR | TOR | — | **Non Supporté** |
 
 !!! danger "Sécurité résistance"
     La résistance électrique (HR) ne doit JAMAIS être commutée directement par un relais. Utiliser un contacteur de puissance externe.

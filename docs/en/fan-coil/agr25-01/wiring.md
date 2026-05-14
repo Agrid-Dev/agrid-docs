@@ -62,7 +62,7 @@
 | CV | Cooling Valve |
 | HR | Electric Heater — via external power contactor |
 | Fan | Fan (0-10V proportional) |
-| N/S | Not Supported |
+
 
 ### Diagram Symbols
 
@@ -89,8 +89,8 @@ Fan coil unit without control valve.
 
 | # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
 |---|---|---|---|---|---|---|
-| 1 | Fan Only | 3-speed | — | — | RL1=FH, RL2=FM, RL3=FL | **OK** |
-| 2 | Fan Only | 0-10V | — | — | DAC3=Fan | **OK** |
+| 1 | Fan Only | 3-speed | — | — | RL1=FH, RL2=FM, RL3=FL | **Supported** |
+| 2 | Fan Only | 0-10V | — | — | DAC3=Fan | **Supported** |
 
 **Configuration #1 — Fan 3-speed**
 
@@ -107,8 +107,8 @@ Fan coil unit without valve, with electric heater.
 
 | # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
 |---|---|---|---|---|---|---|
-| 3 | Fan Only + Electric Heater | 3-speed | — | ON/OFF | RL1=FH, RL2=FM, RL3=FL, RL5=HR | **OK** |
-| 4 | Fan Only + Electric Heater | 0-10V | — | ON/OFF | DAC3=Fan, RL5=HR | **OK** |
+| 3 | Fan Only + Electric Heater | 3-speed | — | ON/OFF | RL1=FH, RL2=FM, RL3=FL, RL5=HR | **Supported** |
+| 4 | Fan Only + Electric Heater | 0-10V | — | ON/OFF | DAC3=Fan, RL5=HR | **Supported** |
 
 !!! danger "Heater Safety"
     HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
@@ -128,10 +128,10 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 
 | # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
 |---|---|---|---|---|---|---|
-| 5 | 2P: Fan + 1 Valve | 3-speed | ON/OFF | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV | **OK** |
-| 6 | 2P: Fan + 1 Valve | 3-speed | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV | **OK** |
-| 7 | 2P: Fan + 1 Valve | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV | **OK** |
-| 8 | 2P: Fan + 1 Valve | 0-10V | 0-10V | — | DAC1=HV, DAC3=Fan | **OK** |
+| 5 | 2P: Fan + 1 Valve | 3-speed | ON/OFF | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV | **Supported** |
+| 6 | 2P: Fan + 1 Valve | 3-speed | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV | **Supported** |
+| 7 | 2P: Fan + 1 Valve | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV | **Supported** |
+| 8 | 2P: Fan + 1 Valve | 0-10V | 0-10V | — | DAC1=HV, DAC3=Fan | **Supported** |
 
 **Configuration #5 — Fan 3-speed / Valve ON/OFF**
 
@@ -156,10 +156,10 @@ Fan coil unit with 1 valve (2P changeover, 2P heating only or 2P cooling only). 
 
 | # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
 |---|---|---|---|---|---|---|
-| 9 | 2P + Heater: Fan + 1 Valve + Heater | 3-speed | ON/OFF | ON/OFF | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=HR | **OK** |
-| 10 | 2P + Heater: Fan + 1 Valve + Heater | 3-speed | 0-10V | ON/OFF | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, RL5=HR | **OK** |
-| 11 | 2P + Heater: Fan + 1 Valve + Heater | 0-10V | ON/OFF | ON/OFF | DAC3=Fan, RL4=HV, RL5=HR | **OK** |
-| 12 | 2P + Heater: Fan + 1 Valve + Heater | 0-10V | 0-10V | ON/OFF | DAC1=HV, DAC3=Fan, RL5=HR | **OK** |
+| 9 | 2P + Heater: Fan + 1 Valve + Heater | 3-speed | ON/OFF | ON/OFF | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=HR | **Supported** |
+| 10 | 2P + Heater: Fan + 1 Valve + Heater | 3-speed | 0-10V | ON/OFF | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, RL5=HR | **Supported** |
+| 11 | 2P + Heater: Fan + 1 Valve + Heater | 0-10V | ON/OFF | ON/OFF | DAC3=Fan, RL4=HV, RL5=HR | **Supported** |
+| 12 | 2P + Heater: Fan + 1 Valve + Heater | 0-10V | 0-10V | ON/OFF | DAC1=HV, DAC3=Fan, RL5=HR | **Supported** |
 
 !!! danger "Heater Safety"
     HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.
@@ -187,10 +187,10 @@ Fan coil unit with 2 independent valves (heating + cooling).
 
 | # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
 |---|---|---|---|---|---|---|
-| 13 | 4P: Fan + 2 Valves | 3-speed | ON/OFF | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=CV | **OK** |
-| 14 | 4P: Fan + 2 Valves | 3-speed | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV | **OK** |
-| 15 | 4P: Fan + 2 Valves | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV, RL5=CV | **OK** |
-| 16 | 4P: Fan + 2 Valves | 0-10V | 0-10V | — | DAC1=HV, DAC2=CV, DAC3=Fan | **OK** |
+| 13 | 4P: Fan + 2 Valves | 3-speed | ON/OFF | — | RL1=FH, RL2=FM, RL3=FL, RL4=HV, RL5=CV | **Supported** |
+| 14 | 4P: Fan + 2 Valves | 3-speed | 0-10V | — | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV | **Supported** |
+| 15 | 4P: Fan + 2 Valves | 0-10V | ON/OFF | — | DAC3=Fan, RL4=HV, RL5=CV | **Supported** |
+| 16 | 4P: Fan + 2 Valves | 0-10V | 0-10V | — | DAC1=HV, DAC2=CV, DAC3=Fan | **Supported** |
 
 **Configuration #13 — Fan 3-speed / Valves ON/OFF**
 
@@ -215,10 +215,10 @@ Fan coil unit with 2 independent valves (heating + cooling).
 
 | # | Configuration | Fan | Valves | Heater | Output Assignment | Status |
 |---|---|---|---|---|---|---|
-| 17 | 4P + Heater: Fan + 2 Valves + Heater | 3-speed | 0-10V | ON/OFF | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV, RL5=HR | **OK** |
-| 18 | 4P + Heater: Fan + 2 Valves + Heater | 0-10V | ON/OFF | ON/OFF | DAC3=Fan, RL4=HV, RL5=CV, RL3=HR | **OK** |
-| 19 | 4P + Heater: Fan + 2 Valves + Heater | 0-10V | 0-10V | ON/OFF | DAC1=HV, DAC2=CV, DAC3=Fan, RL5=HR | **OK** |
-| 20 | 4P + Heater: Fan + 2 Valves + Heater | 3-speed | ON/OFF | ON/OFF | — | **N/S** |
+| 17 | 4P + Heater: Fan + 2 Valves + Heater | 3-speed | 0-10V | ON/OFF | RL1=FH, RL2=FM, RL3=FL, DAC1=HV, DAC2=CV, RL5=HR | **Supported** |
+| 18 | 4P + Heater: Fan + 2 Valves + Heater | 0-10V | ON/OFF | ON/OFF | DAC3=Fan, RL4=HV, RL5=CV, RL3=HR | **Supported** |
+| 19 | 4P + Heater: Fan + 2 Valves + Heater | 0-10V | 0-10V | ON/OFF | DAC1=HV, DAC2=CV, DAC3=Fan, RL5=HR | **Supported** |
+| 20 | 4P + Heater: Fan + 2 Valves + Heater | 3-speed | ON/OFF | ON/OFF | — | **Not Supported** |
 
 !!! danger "Heater Safety"
     HR (electric heater) must NEVER be directly switched by relay. Use an external power contactor.

@@ -14,9 +14,9 @@
 | Power supply | 220-240V~ 50Hz |
 | Power consumption | MAX 2W |
 | Display | 4-inch colour touchscreen |
-| Communication | WiFi 2.4 GHz |
+| Communication | Wi-Fi 2.4 GHz IEEE 802.11 b/g/n/ax <br> Band: 2 400 – 2 483.5 MHz <br> Max RF power: 19.81 dBm EIRP (≤ 100 mW) |
 | Protection | Class II (double insulation), IP20 |
-| Operating temperature | 0°C to +50°C |
+| Operating temperature | +10°C to +50°C |
 | Setpoint range | 5°C to 35°C (configurable) |
 | Accuracy | ± 1°C |
 | Dimensions | 105 × 85 × 30 mm |

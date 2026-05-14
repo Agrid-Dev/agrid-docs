@@ -14,9 +14,9 @@
 | Alimentation | 220-240V~ 50Hz |
 | Puissance consommée | MAX 2W |
 | Affichage | Écran tactile couleur 4 pouces |
-| Communication | WiFi 2,4 GHz |
+| Communication | Wi-Fi 2,4 GHz IEEE 802.11 b/g/n/ax <br> Bande : 2 400 – 2 483,5 MHz <br> Puissance RF max : 19,81 dBm EIRP (≤ 100 mW) |
 | Protection | Classe II (double isolation), IP20 |
-| Température de fonctionnement | 0°C à +50°C |
+| Température de fonctionnement | +10°C à +50°C |
 | Plage de consigne | 5°C à 35°C (configurable) |
 | Précision | ± 1°C |
 | Dimensions | 105 × 85 × 30 mm |

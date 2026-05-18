@@ -43,6 +43,7 @@ plugins:
             Ecodesign: Écoconception
             Ownership Transfer Procedure: Procédure de transfert de propriété
             Security Support Policy: Politique de support securite
+            Privacy Policy: Politique de confidentialité
         - locale: en
           name: English
           build: true
@@ -58,6 +59,7 @@ nav:
       - Ecodesign: fan-coil/agr25-01/ecodesign.md
       - Ownership Transfer Procedure: fan-coil/agr25-01/ownership-transfer-procedure.md
       - Security Support Policy: fan-coil/agr25-01/security-support-policy.md
+      - Privacy Policy: fan-coil/agr25-01/privacy-policy.md
 
 markdown_extensions:
   - admonition

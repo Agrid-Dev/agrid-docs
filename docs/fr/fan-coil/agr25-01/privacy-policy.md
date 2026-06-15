@@ -12,12 +12,12 @@ Le thermostat ne vise pas à identifier directement les personnes présentes. To
 | Catégorie | Exemples | Usage principal |
 | --- | --- | --- |
 | Données de confort et de régulation | Température, humidité, luminosité, consigne, mode HVAC, vitesse ventilateur, état des sorties, horodatages. | Piloter le chauffage, le refroidissement, la ventilation et l'affichage local. |
-| Présence et états de zone | Radar/présence, occupancy, keycard, fenêtre ouverte/fermée, réservations courantes ou futures si configurées. | Adapter la régulation, réduire la consommation, gérer les scénarios d'occupation. |
+| Présence et états de zone | Occupancy (état dérivé), détection de mouvement par capteur PIR externe (entrée contact sec sur S1/S2), keycard, fenêtre ouverte/fermée, réservations courantes ou futures si configurées. | Adapter la régulation, réduire la consommation, gérer les scénarios d'occupation. |
 | Données réseau et identifiants techniques | Adresse MAC, IP, RSSI, SSID, mot de passe Wi-Fi, broker/BMS, port MQTT, identifiants MQTT, certificats mTLS. | Connecter le thermostat au réseau du site et aux services de supervision autorisés. |
 | Configuration installateur | Langue, fuseau horaire, seuils, calibrations, capteurs externes, règles de régulation, codes d'accès settings. | Configurer l'équipement selon le site et maintenir un fonctionnement conforme à l'installation. |
 | Journaux techniques | Événements, redémarrages, connexions/déconnexions MQTT, erreurs de commande, état firmware, GitHash/version. | Diagnostic, sécurité, maintenance, analyse d'incident et preuve d'exécution de certaines actions. |
 
-Sauf configuration spécifique du site, le thermostat ne collecte pas d'audio, d'image, de vidéo, de contenu de communication personnelle, ni de géolocalisation précise d'une personne. La donnée de présence est un état technique de zone, pas une identification nominative.
+Sauf configuration spécifique du site, le thermostat ne collecte pas d'audio, d'image, de vidéo, de contenu de communication personnelle, ni de géolocalisation précise d'une personne. Le thermostat ne dispose d'aucun capteur intégré de détection de mouvement, d'image ou de son. Lorsqu'un capteur PIR externe est raccordé à une entrée contact sec, seul un état binaire (mouvement détecté / non détecté) est utilisé, sans identification nominative ni traitement biométrique. La donnée de présence reste un état technique de zone, pas une identification nominative.
 
 ## Finalités du traitement
 
@@ -30,7 +30,18 @@ Sauf configuration spécifique du site, le thermostat ne collecte pas d'audio, d
 
 ## Bases légales
 
-Les bases légales doivent être confirmées par le responsable de traitement selon le contexte de déploiement. À titre de référence, les traitements nécessaires au fonctionnement du thermostat peuvent relever de l'exécution d'un contrat ou de l'intérêt légitime du responsable de traitement à exploiter, maintenir et sécuriser ses équipements. Les traitements facultatifs ou non nécessaires au service doivent être documentés séparément et, si requis, soumis à consentement ou à un autre fondement légal applicable.
+Les traitements opérés **par AGRID** au titre de fabricant et d'importateur (signature firmware, émission initiale des certificats à l'usine, support produit sur demande) reposent sur :
+
+- l'**obligation légale** de mise sur le marché conforme et de support sécurité (directive 2014/53/UE (RED), directive 2011/65/UE (RoHS), règlement délégué (UE) 2022/30, série de normes EN 18031) ;
+- l'**intérêt légitime** d'AGRID à garantir l'intégrité et la sécurité de ses équipements tout au long de leur cycle de vie.
+
+Les traitements opérés **par l'exploitant du site** (régulation, supervision, journalisation, archivage des données reçues par le broker MQTT ou le BMS/GTB) relèvent de bases légales déterminées par lui selon le contexte de déploiement, généralement :
+
+- exécution d'un **contrat** avec ses clients ou occupants ;
+- **intérêt légitime** à exploiter, maintenir et optimiser ses équipements et son site ;
+- **obligation légale** (efficacité énergétique, sécurité des bâtiments) le cas échéant.
+
+Les traitements facultatifs ou non nécessaires au service (fonctionnalités d'occupation détaillées, statistiques d'usage transmises à un tiers, etc.) doivent être documentés séparément et, si requis, soumis à consentement ou à un autre fondement légal applicable.
 
 ## Destinataires
 
@@ -39,7 +50,7 @@ Les données peuvent être accessibles, dans la limite de leurs habilitations, a
 - personnel autorisé du responsable de traitement ou de l'exploitant du site ;
 - installateurs et mainteneurs autorisés ;
 - broker MQTT, BMS/GTB ou infrastructure de supervision configurés par le site ;
-- prestataires techniques d'hébergement, d'exploitation, de support ou de PKI lorsque leur intervention est nécessaire ;
+- AGRID, fabricant et importateur, dans le cadre exclusif du support produit, de la signature firmware et de l'émission initiale des certificats à l'usine — AGRID ne reçoit aucune donnée d'usage du thermostat en production ;
 - autorités compétentes lorsqu'une obligation légale l'impose.
 
 Les données ne sont pas vendues. Toute transmission à un tiers non listé doit être documentée, limitée à une finalité déterminée et portée à la connaissance des utilisateurs concernés.
@@ -52,7 +63,7 @@ Les données ne sont pas vendues. Toute transmission à un tiers non listé doit
 | Configuration locale persistante | Jusqu'à modification, réinstallation, transfert de propriété ou factory reset | Suppression locale par factory reset ou effacement de configuration autorisé. |
 | Journaux locaux | Jusqu'à rotation, effacement de logs ou factory reset | Suppression locale par factory reset ; durée maximale à préciser selon la politique du site. |
 | Certificats et identifiants MQTT/mTLS locaux | Jusqu'à remplacement, révocation ou factory reset | Suppression locale par factory reset ; révocation à effectuer aussi côté serveur/PKI. |
-| Données reçues côté serveur par le broker/BMS ou l'infrastructure de supervision | [À compléter : durée serveur par catégorie de donnée] | Suppression ou anonymisation selon la politique du responsable de traitement. |
+| Données reçues côté serveur par le broker MQTT, le BMS/GTB ou l'infrastructure de supervision | Durée définie et documentée par l'exploitant du site, conformément à sa propre politique de conservation. Le thermostat fonctionne en autonomie sans serveur ; lorsqu'un serveur AGRID est déployé, il l'est localement sur l'infrastructure du site et les données y restent sous le contrôle physique et logique de l'exploitant. AGRID n'opère aucun serveur centralisé recevant ces données. | Suppression ou anonymisation selon la politique de l'exploitant du site, responsable de traitement. |
 
 **Factory reset.** La remise à zéro usine efface localement les données persistantes, la configuration, les réseaux Wi-Fi, les identifiants MQTT, les certificats TLS/mTLS, les journaux et les clés internes stockées sur l'équipement. Elle ne révoque pas à elle seule un certificat déjà émis côté serveur : la révocation et la suppression de l'association doivent aussi être réalisées sur le broker ou la PKI du propriétaire précédent. Voir la [procédure de transfert de propriété](ownership-transfer-procedure.md).
 
@@ -64,13 +75,15 @@ La sécurité effective dépend aussi de la configuration du site : mots de pass
 
 ## Transferts hors Union européenne
 
-À compléter selon l'hébergement, le broker MQTT, les outils de support et les prestataires utilisés. Si des données personnelles sont transférées hors de l'Union européenne ou de l'Espace économique européen, le responsable de traitement doit indiquer le pays concerné, la garantie applicable et les moyens d'en obtenir une copie.
+Le thermostat ne transmet aucune donnée vers un serveur AGRID centralisé. Aucun transfert hors Union européenne n'est réalisé par AGRID dans le cadre du fonctionnement du produit.
+
+Si l'exploitant du site configure un broker MQTT, un BMS/GTB ou une infrastructure de supervision hébergés hors de l'Union européenne ou de l'Espace économique européen, il lui incombe, en tant que responsable de traitement, d'indiquer le pays concerné, la garantie applicable (clauses contractuelles types, décision d'adéquation, etc.) et les moyens d'en obtenir une copie.
 
 ## Droits des personnes
 
 Dans les conditions prévues par la réglementation applicable, les personnes concernées peuvent exercer leurs droits d'accès, de rectification, d'effacement, de limitation, d'opposition et, lorsque le fondement légal le permet, de portabilité.
 
-Les demandes doivent être adressées à : [contact confidentialité]. Si le thermostat est exploité par un client ou un gestionnaire de site, AGRID peut devoir transmettre la demande au responsable de traitement compétent. Une réclamation peut également être introduite auprès de la CNIL.
+Les demandes doivent être adressées à : **contact@a-grid.com**. Si le thermostat est exploité par un client ou un gestionnaire de site, AGRID transmet la demande au responsable de traitement compétent. Une réclamation peut également être introduite auprès de la CNIL.
 
 ## Information des changements et mécanisme UNM
 
@@ -88,6 +101,8 @@ Exemples de changements à notifier : ajout d'une nouvelle catégorie de donnée
 ## Version et accessibilité
 
 La version publiée de cette politique doit être disponible dans la documentation utilisateur et, lorsque possible, depuis l'application installateur. Toute version publiée doit indiquer sa date d'entrée en vigueur, son numéro de version et le canal de contact pour les questions relatives aux données personnelles.
+
+**Version :** 1.0 — **Entrée en vigueur :** 15 juin 2026 — **Contact :** contact@a-grid.com
 
 ## Références de conformité
 

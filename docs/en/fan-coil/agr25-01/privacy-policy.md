@@ -12,12 +12,12 @@ The thermostat is not designed to directly identify individuals on site. However
 | Category | Examples | Primary use |
 | --- | --- | --- |
 | Comfort and control data | Temperature, humidity, light level, setpoint, HVAC mode, fan speed, output states, timestamps. | Drive heating, cooling, ventilation, and the local display. |
-| Presence and zone states | Radar/presence, occupancy, keycard, window open/closed, current or upcoming bookings when configured. | Adapt control, reduce consumption, manage occupancy scenarios. |
+| Presence and zone states | Occupancy (derived state), motion detection via external PIR sensor (dry-contact input on S1/S2), keycard, window open/closed, current or upcoming bookings when configured. | Adapt control, reduce consumption, manage occupancy scenarios. |
 | Network data and technical identifiers | MAC address, IP, RSSI, SSID, Wi-Fi password, broker/BMS address, MQTT port, MQTT credentials, mTLS certificates. | Connect the thermostat to the site network and to authorized supervision services. |
 | Installer configuration | Language, time zone, thresholds, calibrations, external sensors, control rules, settings access codes. | Configure the device for the site and keep it consistent with the installation. |
 | Technical logs | Events, reboots, MQTT connect/disconnect, command errors, firmware state, GitHash/version. | Diagnostics, security, maintenance, incident analysis, and evidence of certain actions. |
 
-Unless the site is specifically configured otherwise, the thermostat does not collect audio, image, video, personal communication content, or precise geolocation of a person. The presence value is a technical zone state, not a nominal identification.
+Unless the site is specifically configured otherwise, the thermostat does not collect audio, image, video, personal communication content, or precise geolocation of a person. The thermostat has no built-in motion, image, or sound sensor. When an external PIR sensor is wired to a dry-contact input, only a binary state (motion detected / not detected) is used, with no nominal identification or biometric processing. The presence value remains a technical zone state, not a nominal identification.
 
 ## Purposes of Processing
 
@@ -30,7 +30,18 @@ Unless the site is specifically configured otherwise, the thermostat does not co
 
 ## Legal Bases
 
-The applicable legal bases must be confirmed by the data controller based on the deployment context. As a reference, processing necessary for the thermostat to operate may rely on the performance of a contract or on the legitimate interest of the data controller to operate, maintain, and secure its equipment. Optional processing that is not necessary for the service must be documented separately and, where required, subject to consent or to another applicable legal basis.
+Processing carried out **by AGRID** as manufacturer and importer (firmware signing, initial factory certificate issuance, product support on request) relies on:
+
+- the **legal obligation** of compliant market placement and security support (Directive 2014/53/EU (RED), Directive 2011/65/EU (RoHS), Delegated Regulation (EU) 2022/30, the EN 18031 series of standards);
+- AGRID's **legitimate interest** in ensuring the integrity and security of its equipment throughout its lifecycle.
+
+Processing carried out **by the site operator** (control, supervision, logging, archiving of data received by the MQTT broker or the BMS/BAS) relies on legal bases determined by the operator based on the deployment context, typically:
+
+- performance of a **contract** with its customers or occupants;
+- **legitimate interest** in operating, maintaining, and optimizing its equipment and site;
+- **legal obligation** (energy efficiency, building safety) where applicable.
+
+Optional processing that is not necessary for the service (detailed occupancy features, usage statistics transmitted to a third party, etc.) must be documented separately and, where required, subject to consent or to another applicable legal basis.
 
 ## Recipients
 
@@ -39,7 +50,7 @@ Data may be accessible, within the limits of their permissions, to the following
 - authorized personnel of the data controller or of the site operator;
 - authorized installers and maintainers;
 - MQTT broker, BMS/BAS, or supervision infrastructure configured by the site;
-- technical providers for hosting, operations, support, or PKI when their intervention is needed;
+- AGRID, as manufacturer and importer, solely for product support, firmware signing, and initial factory certificate issuance — AGRID does not receive any usage data from the thermostat in production;
 - competent authorities when a legal obligation applies.
 
 Data is not sold. Any transmission to a third party not listed above must be documented, limited to a specific purpose, and brought to the attention of the users concerned.
@@ -52,7 +63,7 @@ Data is not sold. Any transmission to a third party not listed above must be doc
 | Persistent local configuration | Until modification, reinstallation, ownership transfer, or factory reset | Local deletion via factory reset or authorized configuration wipe. |
 | Local logs | Until rotation, log wipe, or factory reset | Local deletion via factory reset; maximum duration to be defined by the site policy. |
 | Local MQTT/mTLS credentials and certificates | Until replacement, revocation, or factory reset | Local deletion via factory reset; revocation must also be performed server-side/PKI. |
-| Data received server-side by the broker/BMS or supervision infrastructure | [To be filled: server-side duration per data category] | Deletion or anonymization according to the data controller's policy. |
+| Data received server-side by the MQTT broker, BMS/BAS, or supervision infrastructure | Duration defined and documented by the site operator, in accordance with its own retention policy. The thermostat operates standalone, with no server required; when an AGRID server is deployed, it is deployed locally on the site's infrastructure and the data remains under the operator's physical and logical control. AGRID does not operate any centralized server receiving such data. | Deletion or anonymization according to the site operator's policy, as data controller. |
 
 **Factory reset.** The factory reset locally erases persisted data, configuration, Wi-Fi networks, MQTT credentials, TLS/mTLS certificates, logs, and internal keys stored on the device. It does not, on its own, revoke a certificate that has already been issued server-side: revocation and removal of the device-to-owner association must also be performed on the broker or the previous owner's PKI. See the [ownership transfer procedure](ownership-transfer-procedure.md).
 
@@ -64,13 +75,15 @@ Effective security also depends on the site configuration: strong Wi-Fi password
 
 ## Transfers Outside the European Union
 
-To be completed depending on the hosting, MQTT broker, support tooling, and providers used. If personal data is transferred outside the European Union or the European Economic Area, the data controller must indicate the country involved, the applicable safeguard, and how to obtain a copy of it.
+The thermostat does not transmit any data to a centralized AGRID server. No transfer outside the European Union is performed by AGRID in the course of operating the product.
+
+If the site operator configures an MQTT broker, a BMS/BAS, or supervision infrastructure hosted outside the European Union or the European Economic Area, it is incumbent upon the operator, as data controller, to indicate the country involved, the applicable safeguard (standard contractual clauses, adequacy decision, etc.), and how to obtain a copy of it.
 
 ## Data Subject Rights
 
 Under the conditions set by applicable regulation, data subjects can exercise their rights of access, rectification, erasure, restriction, objection, and, where the legal basis allows, portability.
 
-Requests must be sent to: [privacy contact]. If the thermostat is operated by a customer or a site manager, AGRID may need to forward the request to the competent data controller. A complaint can also be lodged with the relevant supervisory authority (CNIL in France).
+Requests must be sent to: **contact@a-grid.com**. If the thermostat is operated by a customer or a site manager, AGRID forwards the request to the competent data controller. A complaint can also be lodged with the relevant supervisory authority (CNIL in France).
 
 ## Change Notification and UNM Mechanism
 
@@ -88,6 +101,8 @@ Examples of changes that must be notified: addition of a new data category colle
 ## Version and Accessibility
 
 The published version of this policy must be available in the user documentation and, where possible, from the installer app. Any published version must include its effective date, its version number, and the contact channel for personal data questions.
+
+**Version:** 1.0 — **Effective date:** 15 June 2026 — **Contact:** contact@a-grid.com
 
 ## Compliance References
 

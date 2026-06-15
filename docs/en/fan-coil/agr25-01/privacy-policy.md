@@ -11,13 +11,13 @@ The thermostat is not designed to directly identify individuals on site. However
 
 | Category | Examples | Primary use |
 | --- | --- | --- |
-| Comfort and control data | Temperature, humidity, light level, setpoint, HVAC mode, fan speed, output states, timestamps. | Drive heating, cooling, ventilation, and the local display. |
-| Presence and zone states | Occupancy (derived state), motion detection via external PIR sensor (dry-contact input on S1/S2), keycard, window open/closed, current or upcoming bookings when configured. | Adapt control, reduce consumption, manage occupancy scenarios. |
+| Comfort and control data | Temperature, humidity (internal SHT31 sensor), light level, setpoint, HVAC mode, fan speed, output states, processor temperature (internal sensor of the AT32F407 MCU), timestamps. | Drive heating, cooling, ventilation, and the local display. |
+| Presence and zone states | Occupancy (derived state), motion detection via internal radar sensor and optional external PIR sensor (dry-contact input on S1/S2, corresponding to firmware inputs DI_1/DI_2), keycard, window open/closed, current or upcoming bookings when configured. | Adapt control, reduce consumption, manage occupancy scenarios. |
 | Network data and technical identifiers | MAC address, IP, RSSI, SSID, Wi-Fi password, broker/BMS address, MQTT port, MQTT credentials, mTLS certificates. | Connect the thermostat to the site network and to authorized supervision services. |
 | Installer configuration | Language, time zone, thresholds, calibrations, external sensors, control rules, settings access codes. | Configure the device for the site and keep it consistent with the installation. |
 | Technical logs | Events, reboots, MQTT connect/disconnect, command errors, firmware state, GitHash/version. | Diagnostics, security, maintenance, incident analysis, and evidence of certain actions. |
 
-Unless the site is specifically configured otherwise, the thermostat does not collect audio, image, video, personal communication content, or precise geolocation of a person. The thermostat has no built-in motion, image, or sound sensor. When an external PIR sensor is wired to a dry-contact input, only a binary state (motion detected / not detected) is used, with no nominal identification or biometric processing. The presence value remains a technical zone state, not a nominal identification.
+Unless the site is specifically configured otherwise, the thermostat does not collect audio, image, video, personal communication content, or precise geolocation of a person. The thermostat has no built-in image or sound sensor. It includes an internal radar presence sensor to detect motion in the room and also accepts an optional external PIR sensor wired to a dry-contact input (S1/S2, corresponding to firmware inputs DI_1/DI_2). Neither of these two sensors performs biometric identification: they only provide a binary motion / no-motion state. The presence value remains a technical zone state, not a nominal identification.
 
 ## Purposes of Processing
 

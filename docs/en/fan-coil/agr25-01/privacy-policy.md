@@ -94,7 +94,7 @@ Each change notification must, at a minimum, contain:
 - a clear description of the change;
 - a description of its effect on the protection and privacy of personal data.
 
-The selected notification channels are: updated user documentation, release notes, the installer app, a local message on the thermostat when the change directly concerns the device or its configuration, and contractual information or email when the data controller already has a suitable communication channel.
+The selected notification channels are: updated user documentation, release notes, the installer app, and contractual information or email when the data controller already has a suitable communication channel.
 
 Examples of changes that must be notified: addition of a new data category collected, longer retention duration, new recipient, activation of a more detailed occupancy feature, change of hosting, modification of the deletion mechanism, or security change that may affect privacy.
 

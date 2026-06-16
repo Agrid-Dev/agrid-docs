@@ -94,7 +94,7 @@ Chaque notification de changement doit au minimum contenir :
 - une description claire du changement ;
 - une description de son effet sur la protection et la confidentialité des données personnelles.
 
-Les canaux de notification retenus sont : documentation utilisateur mise à jour, note de version, application installateur, message local sur le thermostat lorsque le changement concerne directement l'équipement ou son paramétrage, et information contractuelle ou email lorsque le responsable de traitement dispose déjà d'un canal de communication adapté.
+Les canaux de notification retenus sont : documentation utilisateur mise à jour, note de version, application installateur, et information contractuelle ou email lorsque le responsable de traitement dispose déjà d'un canal de communication adapté.
 
 Exemples de changements à notifier : ajout d'une nouvelle catégorie de données collectées, allongement de durée de conservation, nouveau destinataire, activation d'une fonctionnalité d'occupation plus détaillée, changement d'hébergement, modification du mécanisme de suppression ou changement de sécurité pouvant affecter la confidentialité.
 

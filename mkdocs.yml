@@ -44,6 +44,7 @@ plugins:
             Ownership Transfer Procedure: Procédure de transfert de propriété
             Security Support Policy: Politique de support securite
             Privacy Policy: Politique de confidentialité
+            Firmware Variables: Variables du firmware
         - locale: en
           name: English
           build: true
@@ -60,6 +61,9 @@ nav:
       - Ownership Transfer Procedure: fan-coil/agr25-01/ownership-transfer-procedure.md
       - Security Support Policy: fan-coil/agr25-01/security-support-policy.md
       - Privacy Policy: fan-coil/agr25-01/privacy-policy.md
+      # Page générée automatiquement depuis le dépôt firmware (thermostat) :
+      # le workflow y pousse une PR à chaque évolution de la DATA_TABLE.
+      - Firmware Variables: fan-coil/agr25-01/variables.md
 
 markdown_extensions:
   - admonition

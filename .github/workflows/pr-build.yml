@@ -1,0 +1,29 @@
+name: PR build check
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Le déploiement ne se déclenche qu'au push sur main : sans ce job, une
+      # PR qui casse le build (lien mort, page hors nav, config i18n invalide)
+      # n'est détectée qu'une fois mergée, site déjà en ligne.
+      # --strict transforme ces avertissements en erreurs.
+      - name: Build documentation (strict)
+        run: mkdocs build --strict

@@ -111,7 +111,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `HVAC_Real_Mode` | `enum` | r | HVAC_MODE_FAN | Value of the HVAC_Real_Mode. Is equal to HVAC_Mode except for Mode AUTO.<br>This variable is read only, and is here for statistic purposes only, if we want to know at each timestep what was the real Mode<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
 | `Tsetpoint` | `fxp1000` | rw | 20 | Il s'agit de la température de consigne affichée sur le thermostat. Attention, il ne s'agit pas nécessairement de la température de consigne demandée au système (il faut prendre en compte Tsetpoint_Shift_HEAT ou Tsetpoint_Shift_COOL)<br>_Absente du build MINIMAL._ |
 | `Fanspeed` | `enum` | rw | FAN_SPEED_LOW | Pour une interface utilisateur simple, il faut 3 vitesses de ventilations et un mode AUTO<br>_Valeurs : FAN_SPEED_LOW · FAN_SPEED_MEDIUM · FAN_SPEED_HIGH · FAN_SPEED_AUTO_<br>_Absente du build MINIMAL._ |
-| `Temperature_Unit` | `enum` | rw | TEMPERATURE_UNIT_C_ONLY | Choix de l'unité de température. Il ne s'agit que de la temperature à l'affichage: les données sont toujours stockées en °C. les _ONLY interedisent à l'utilisateur de changer d'unité<br>_Valeurs : TEMPERATURE_UNIT_C · TEMPERATURE_UNIT_F · TEMPERATURE_UNIT_C_ONLY · TEMPERATURE_UNIT_F_ONLY_<br>_Absente du build MINIMAL._ |
+| `Temperature_Unit` | `enum` | rw | TEMPERATURE_UNIT_C_ONLY | Choix de l'unité de température. Il ne s'agit que de la temperature à l'affichage: les données sont toujours stockées en °C. les _ONLY interdisent à l'utilisateur de changer d'unité<br>_Valeurs : TEMPERATURE_UNIT_C · TEMPERATURE_UNIT_F · TEMPERATURE_UNIT_C_ONLY · TEMPERATURE_UNIT_F_ONLY_<br>_Absente du build MINIMAL._ |
 
 ### Inputs Internal raw mesurements
 
@@ -199,7 +199,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 
 | Variable | Type | Accès | Défaut | Description |
 |---|---|---|---|---|
-| `MAGIC_WORD` | `int32` | r | — | a magic word that should change each time this data table is updated. If magicword is loaded to ram, it means ram is already configured, else it requieres data from flash. If magit word is already loaded to flash, it doesn't requiere to flash data with default values. |
+| `MAGIC_WORD` | `int32` | r | — | a magic word that should change each time this data table is updated. If magicword is loaded to ram, it means ram is already configured, else it requires data from flash. If magic word is already loaded to flash, it doesn't requires to flash data with default values. |
 | `FLASH_DATA_COUNT` | `int32` | r | — | Count of data_ values. If extra data is added, with same magicword, only extra data are updated to default values on boot |
 | `Thermostat_Name` | `char` | rw | — | Nom libre du thermostat. Affiché sur l'écran de statut public et remonté dans le rapport de diagnostic Wi-Fi. Vide par défaut. |
 
@@ -238,17 +238,17 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Heat_Valve_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation de la vanne chaude<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
 | `Cool_Valve_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation de la vanne froide<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
 | `Resistance_Regulation_Type` | `enum` | rw | REGULATION_ON_OFF | Permet de décrire le type de régulation de la résistance<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_0` | `enum` | rw | HVAC_MODE_FAN | 1er mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_1` | `enum` | rw | HVAC_MODE_HEAT | 2ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_2` | `enum` | rw | HVAC_MODE_COOL | 3ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_3` | `enum` | rw | HVAC_MODE_AUTO | 4ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_4` | `enum` | rw | HVAC_MODE_ERROR | 5ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_5` | `enum` | rw | HVAC_MODE_ERROR | 6ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_6` | `enum` | rw | HVAC_MODE_ERROR | 7ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_7` | `enum` | rw | HVAC_MODE_ERROR | 8ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_8` | `enum` | rw | HVAC_MODE_ERROR | 9ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `HVAC_Mode_9` | `enum` | rw | HVAC_MODE_FAN | 10ème mode HVAC selectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
-| `Tsetpoint_Range_Type` | `enum` | rw | TSETPOINT_VALUE_VALUE | 2 manières d'imposer des bornes de températures (Température de consigne et un intervalle centré autour de cette consigne +/- X°C) ou bien imposer 2 limites directements. <br>Les 2 méthodes sont un peu similaires et necessitent au final 2 variables<br>_Valeurs : TSETPOINT_VALUE_RANGE · TSETPOINT_VALUE_VALUE_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_0` | `enum` | rw | HVAC_MODE_FAN | 1er mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_1` | `enum` | rw | HVAC_MODE_HEAT | 2ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_2` | `enum` | rw | HVAC_MODE_COOL | 3ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_3` | `enum` | rw | HVAC_MODE_AUTO | 4ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_4` | `enum` | rw | HVAC_MODE_ERROR | 5ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_5` | `enum` | rw | HVAC_MODE_ERROR | 6ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_6` | `enum` | rw | HVAC_MODE_ERROR | 7ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_7` | `enum` | rw | HVAC_MODE_ERROR | 8ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_8` | `enum` | rw | HVAC_MODE_ERROR | 9ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `HVAC_Mode_9` | `enum` | rw | HVAC_MODE_FAN | 10ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
+| `Tsetpoint_Range_Type` | `enum` | rw | TSETPOINT_VALUE_VALUE | 2 manières d'imposer des bornes de températures (Température de consigne et un intervalle centré autour de cette consigne +/- X°C) ou bien imposer 2 limites directement. <br>Les 2 méthodes sont un peu similaires et necessitent au final 2 variables<br>_Valeurs : TSETPOINT_VALUE_RANGE · TSETPOINT_VALUE_VALUE_<br>_Absente du build MINIMAL._ |
 | `Tmin_HEAT` | `fxp1000` | rw | 16 | Température de consigne minimum en mode CHAUD<br>_Absente du build MINIMAL._ |
 | `Tmin_COLD` | `fxp1000` | rw | 18 | Température de consigne minimum en mode FROID<br>_Absente du build MINIMAL._ |
 | `Tmax_HEAT` | `fxp1000` | rw | 26 | Température de consigne maximum en mode CHAUD<br>_Absente du build MINIMAL._ |
@@ -362,20 +362,20 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `MQTT_Username` | `char` | rw | _(masqué)_ | Username d'accès au serveur MQTT.<br>Pour une facilité d'installation, il faut que le serveur MQTT ait un username par default |
 | `MQTT_Password` | `char` | rw | _(masqué)_ | Password d'accès au serveur MQTT.<br>Pour une facilité d'installation, il faut que le serveur MQTT ait un password par default |
 | `MQTT_Use_TLS` | `boolean` | rw | true | si on, utilisation du mqtt"s" avec authentification unidirectionnelle ou mutuelle. si flase, aucune authentification nécéssaie |
-| `MQTT_Group_1` | `char` | — | `"all"` | topitc de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
-| `MQTT_Group_2` | `char` | — | — | topitc de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
-| `MQTT_Group_3` | `char` | — | — | topitc de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
-| `MQTT_Group_4` | `char` | — | — | topitc de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
-| `MQTT_Group_5` | `char` | — | — | topitc de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
+| `MQTT_Group_1` | `char` | — | `"all"` | topic de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
+| `MQTT_Group_2` | `char` | — | — | topic de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
+| `MQTT_Group_3` | `char` | — | — | topic de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
+| `MQTT_Group_4` | `char` | — | — | topic de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
+| `MQTT_Group_5` | `char` | — | — | topic de groupes de thermostats. si vide, non utilisé.<br>_(non implantée)_ |
 
 ### Communication Modbus Parameters
 
 | Variable | Type | Accès | Défaut | Description |
 |---|---|---|---|---|
 | `Modbus_Address` | `int32` | rw<br>(mieux de se limiter à read only) | 241 | Modbus device address sur le bus de communication. Entre 1 et 247.<br>On se limitera au adresse entre 1 et 240 en pratique. On peut par simplicité d'installation, mettre une adresse 241 par défaut par exemple |
-| `Baud_Rate` | `int32` | rw | 19200 | Baundrate: Paramétre Modbus nécassaire pour la communication |
-| `Bit_stop` | `fxp1000` | rw | 2 | Bit de stop: Paramétre Modbus nécassaire pour la communication<br>1: Valeur la plus courante — standard sur la majorité des équipements<br>2: Utilisé si la parité est désactivée (no parity) pour garantir une synchronisation fiable<br>1.5: Rare — uniquement supporté par certains vieux contrôleurs RS-232, très peu utilisé en Modbus |
-| `Parity` | `enum` | rw | PARITY_NONE | Polarité: Paramétre Modbus nécassaire pour la communication<br>_Valeurs : PARITY_NONE · PARITY_EVEN · PARITY_ODD_ |
+| `Baud_Rate` | `int32` | rw | 19200 | Baudrate: Paramètre Modbus nécessaire pour la communication |
+| `Bit_stop` | `fxp1000` | rw | 2 | Bit de stop: Paramètre Modbus nécessaire pour la communication<br>1: Valeur la plus courante — standard sur la majorité des équipements<br>2: Utilisé si la parité est désactivée (no parity) pour garantir une synchronisation fiable<br>1.5: Rare — uniquement supporté par certains vieux contrôleurs RS-232, très peu utilisé en Modbus |
+| `Parity` | `enum` | rw | PARITY_NONE | Polarité: Paramètre Modbus nécessaire pour la communication<br>_Valeurs : PARITY_NONE · PARITY_EVEN · PARITY_ODD_ |
 
 ### Security
 
@@ -441,9 +441,9 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | Variable | Type | Accès | Défaut | Description |
 |---|---|---|---|---|
 | `Saving_Strategy_Occupancy` | `enum` | rw | NO_SAVING_STRATEGY | Variable qui permet de déterminer la stratégie d'économies en exploitant l'information de présence:<br>- State_Strategy_1: ON when occupancy / OFF when innocupancy<br>- State_Strategy_2: Nothing when occupancy / OFF when innocupancy<br>- Tsetpoint_Strategy_1: Comfort_temperature depending on the mode when occupancy / Standby_Temperature depending on the mode when innocupancy<br>- Tsetpoint_Strategy_2: +/- X°C (variable Tsetpoint_Shift_HEAT_Occupancy & Tsetpoint_Shift_COOL_Occupancy) based on the last Tsetpoint measured<br>_Valeurs : NO_SAVING_STRATEGY · STATE_STRATEGY_1 · STATE_STRATEGY_2 · TSETPOINT_STRATEGY_1 · TSETPOINT_STRATEGY_2_<br>_Absente du build MINIMAL._ |
-| `Comfort_Temperature_HEAT` | `fxp1000` | rw | 19 | Température de comfort en mode Chaud. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée, ou si 'Comfort temperature' a été choisi comme Back_ON_Tsetpoint_Strategy.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
-| `Comfort_Temperature_COOL` | `fxp1000` | rw | 26 | Température de comfort en mode Froid. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée, ou si 'Comfort temperature' a été choisi comme Back_ON_Tsetpoint_Strategy.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
-| `Comfort_Temperature_AUTO` | `fxp1000` | — | 22 | Température de comfort en mode Auto. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée, ou si 'Comfort temperature' a été choisi comme Back_ON_Tsetpoint_Strategy.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
+| `Comfort_Temperature_HEAT` | `fxp1000` | rw | 19 | Température de confort en mode Chaud. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée, ou si 'Comfort temperature' a été choisi comme Back_ON_Tsetpoint_Strategy.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
+| `Comfort_Temperature_COOL` | `fxp1000` | rw | 26 | Température de confort en mode Froid. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée, ou si 'Comfort temperature' a été choisi comme Back_ON_Tsetpoint_Strategy.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
+| `Comfort_Temperature_AUTO` | `fxp1000` | — | 22 | Température de confort en mode Auto. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée, ou si 'Comfort temperature' a été choisi comme Back_ON_Tsetpoint_Strategy.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
 | `Standby_Temperature_HEAT` | `fxp1000` | rw | 17 | Température d'attente en mode Chaud. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
 | `Standby_Temperature_COOL` | `fxp1000` | rw | 28 | Température d'attente en mode Froid. Cette variable est utilisée si Tsetpoint_Strategy_1 est activée.<br>Value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
 | `Tsetpoint_Shift_HEAT_Occupancy` | `fxp1000` | rw | 3 | Variable qui permet de faire du +/- X°C basé sur la valeur de Tsetpoint. En mode Chaud on fait -X°C si innocupation et +X°C si occupation.<br>Cette variable est utilisée si Tsetpoint_Strategy_2 est activée.<br>The final Tsetpoint value has to remain between given boundaries (depending on the Mode) => See the corresponding variables<br>_Absente du build MINIMAL._ |
@@ -456,17 +456,17 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Setback_Feature_Activated` | `boolean` | rw | false | Variable qui permet d'activer ou de désactiver la fonctionnalité de setback<br>_Absente du build MINIMAL._ |
 | `Setback_Temperature_HEAT` | `fxp1000` | rw | 15 | Variable de temperature de setback en mode Chaud. Cette variable sera utilisée si la fonctionnalité de Setback est utilisée<br>_Absente du build MINIMAL._ |
 | `Setback_Temperature_COOL` | `fxp1000` | rw | 30 | Variable de temperature de setback en mode Froid. Cette variable sera utilisée si la fonctionnalité de Setback est utilisée<br>_Absente du build MINIMAL._ |
-| `Back_ON_Tsetpoint_Strategy` | `enum` | rw | NO_TSET_STRAT_BACK_ON | Variable qui permet de déterminer une stratégie d'application de Tsetpoint quand le State passe de OFF à ON:<br>- No strategy: On repart à la précédente valeur en mémoire<br>- Comfort temperature: On repart systématiquement de la température de comfort en fonction du mode (Variables: Comfort_Temperature_HEAT & Comfort_Temperature_COOL)<br>_Valeurs : NO_TSET_STRAT_BACK_ON · TSET_STRAT_BACK_ON_COMFORT_T_<br>_Absente du build MINIMAL._ |
+| `Back_ON_Tsetpoint_Strategy` | `enum` | rw | NO_TSET_STRAT_BACK_ON | Variable qui permet de déterminer une stratégie d'application de Tsetpoint quand le State passe de OFF à ON:<br>- No strategy: On repart à la précédente valeur en mémoire<br>- Comfort temperature: On repart systématiquement de la température de confort en fonction du mode (Variables: Comfort_Temperature_HEAT & Comfort_Temperature_COOL)<br>_Valeurs : NO_TSET_STRAT_BACK_ON · TSET_STRAT_BACK_ON_COMFORT_T_<br>_Absente du build MINIMAL._ |
 | `Back_ON_HVAC_Mode_Power` | `int32` | rw | 1 | Mode de démarrage après une coupure de courant.<br>Integer qui pointe vers la valeur de HVAC_Mode_i<br>_Absente du build MINIMAL._ |
 | `Back_ON_State_Power` | `enum` | rw | POWER_BACK_ON_KEEP_OFF | état du thermostat à la mise en route (ou à une remise sous tension). On garde tous les paramètres précédents à l'exception du State qui met à OFF de force ou bien à sa précédente valeur<br>_Valeurs : POWER_BACK_ON_SWITCH_ON · POWER_BACK_ON_KEEP_OFF_<br>_Absente du build MINIMAL._ |
-| `Back_ON_Fanspeed` | `enum` | rw | FAN_SPEED_LOW | puissance de ventilatio à la mise en route<br>_Valeurs : FAN_SPEED_LOW · FAN_SPEED_MEDIUM · FAN_SPEED_HIGH · FAN_SPEED_AUTO_<br>_Absente du build MINIMAL._ |
+| `Back_ON_Fanspeed` | `enum` | rw | FAN_SPEED_LOW | puissance de ventilation à la mise en route<br>_Valeurs : FAN_SPEED_LOW · FAN_SPEED_MEDIUM · FAN_SPEED_HIGH · FAN_SPEED_AUTO_<br>_Absente du build MINIMAL._ |
 | `Back_ON_Temperature_Unit` | `enum` | rw | TEMPERATURE_UNIT_C_ONLY | unité de temperature à la mise en route<br>_Valeurs : TEMPERATURE_UNIT_C · TEMPERATURE_UNIT_F · TEMPERATURE_UNIT_C_ONLY · TEMPERATURE_UNIT_F_ONLY_<br>_Absente du build MINIMAL._ |
 
 ### Internal Regulation sensor selection
 
 | Variable | Type | Accès | Défaut | Description |
 |---|---|---|---|---|
-| `SHT_Sensor` | `enum` | rw | SHT41_SENSOR | sht31/41 humidity/temperture sensor type. it requieres reboot after update. If updated to wrong value, it requieres a electrical reset(!) to work again.<br>_Valeurs : SHT_NO_SENSOR · SHT31_SENSOR · SHT41_SENSOR_ |
+| `SHT_Sensor` | `enum` | rw | SHT41_SENSOR | sht31/41 humidity/temperture sensor type. it requires reboot after update. If updated to wrong value, it requires a electrical reset(!) to work again.<br>_Valeurs : SHT_NO_SENSOR · SHT31_SENSOR · SHT41_SENSOR_ |
 | `External_Sensor_1` | `enum` | rw | EXT_NO_SENSOR | type de capteur sur l'entrée 1<br>_Valeurs : EXT_NO_SENSOR · EXT_PIR_SENSOR · EXT_WINDOW_SENSOR · EXT_CARD_SENSOR · EXT_PT1000_SENSOR · EXT_NTC5k_SENSOR · EXT_CONTACT_SENSOR_ |
 | `External_Sensor_2` | `enum` | rw | EXT_NO_SENSOR | type de capteur sur l'entrée 2<br>_Valeurs : EXT_NO_SENSOR · EXT_PIR_SENSOR · EXT_WINDOW_SENSOR · EXT_CARD_SENSOR · EXT_PT1000_SENSOR · EXT_NTC5k_SENSOR · EXT_CONTACT_SENSOR_ |
 
@@ -474,9 +474,9 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 
 | Variable | Type | Accès | Défaut | Description |
 |---|---|---|---|---|
-| `BackLight_HIGH` | `int32` | rw | 1000 | luminostité (en pour 1000), en usage |
-| `BackLight_MID` | `int32` | rw | 200 | luminostité (en pour 1000), après Time_Delay_Screensaver |
-| `BackLight_LOW` | `int32` | rw | 50 | luminostité (en pour 1000), après 2* Time_Delay_Screensaver |
+| `BackLight_HIGH` | `int32` | rw | 1000 | luminosité (en pour 1000), en usage |
+| `BackLight_MID` | `int32` | rw | 200 | luminosité (en pour 1000), après Time_Delay_Screensaver |
+| `BackLight_LOW` | `int32` | rw | 50 | luminosité (en pour 1000), après 2* Time_Delay_Screensaver |
 | `Night_Threshold` | `fxp1000` | rw | 2.5 | seuil de luminosité entre écran noir et BackLight_LOW selon BackLight_Strategy . Luminosité entre 0 et 1000 environ, 3 c'est relativement faible. |
 | `BackLight_Strategy` | `enum` | rw | BACKLIGHT_STRAT_AUTO | stratégie du backlight en "inactivité"<br>_Valeurs : BACKLIGHT_STRAT_OFF · BACKLIGHT_STRAT_LOW · BACKLIGHT_STRAT_AUTO_ |
 | `Top_Element_Refresh` | `int32` | — | 5000 | temps minimal entre deux mise à jour des infos "top"<br>_(non implantée)_<br>_Absente du build MINIMAL._ |

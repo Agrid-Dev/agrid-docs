@@ -45,6 +45,8 @@ plugins:
             Security Support Policy: Politique de support securite
             Privacy Policy: Politique de confidentialité
             Firmware Variables: Variables du firmware
+            Mobile App: Application mobile
+            App Privacy: Confidentialité de l'application
         - locale: en
           name: English
           build: true
@@ -64,6 +66,9 @@ nav:
       # Page générée automatiquement depuis le dépôt firmware (thermostat) :
       # le workflow y pousse une PR à chaque évolution de la DATA_TABLE.
       - Firmware Variables: fan-coil/agr25-01/variables.md
+  - Mobile App:
+    - App Privacy: app/privacy.md
+
 
 markdown_extensions:
   - admonition

@@ -4,7 +4,7 @@
 
 Liste de référence des variables exposées par le firmware du thermostat (la table `DATA_TABLE`). Cette page est générée automatiquement à partir du firmware : elle suit la version en cours de développement.
 
-Le tableau compte **246 entrées**, dont **10** encore au stade planification (signalées _(non implantée)_ dans la colonne « Description »).
+Le tableau compte **257 entrées**, dont **10** encore au stade planification (signalées _(non implantée)_ dans la colonne « Description »).
 
 Le **même nom de variable** est utilisé sur les trois canaux de communication :
 
@@ -38,8 +38,10 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
   - [Status Time](#status-time)
   - [Status Debug](#status-debug)
   - [Status Setpoints](#status-setpoints)
+  - [Resistance Fan Safety](#resistance-fan-safety)
   - [Inputs Internal raw mesurements](#inputs-internal-raw-mesurements)
   - [Inputs Internal Treated values](#inputs-internal-treated-values)
+  - [Tsetpoint Shift Feature](#tsetpoint-shift-feature)
   - [Inputs External raw mesurements](#inputs-external-raw-mesurements)
   - [Inputs From external Sensors Treated](#inputs-from-external-sensors-treated)
   - [Inputs Computed Values No sensors needed](#inputs-computed-values-no-sensors-needed)
@@ -63,7 +65,6 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
   - [Internal Regulation Fan](#internal-regulation-fan)
   - [Internal Regulation AUTO Mode](#internal-regulation-auto-mode)
   - [Internal Regulation Main regulation](#internal-regulation-main-regulation)
-  - [Internal Regulation PID](#internal-regulation-pid)
   - [Internal Regulation Local Optimisation Strategies](#internal-regulation-local-optimisation-strategies)
   - [Internal Regulation sensor selection](#internal-regulation-sensor-selection)
   - [Internal Regulation backlight_config](#internal-regulation-backlight_config)
@@ -87,6 +88,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `App_Version` | `version` | r | -1 | version( max 127.127.65024) of aplication. |
 | `Required_Bootloader_Version` | `version` | r | -1 | expected bootloader version |
 | `Required_Stage0_Version` | `version` | r | -1 | expected stage0 version |
+| `Maintenance_Mode` | `boolean` | r | false | Vrai tant que le thermostat est dans les écrans de réglages (ou bloqué dedans en build minimal). Pendant ce temps la régulation continue mais les variables marquées non modifiables en maintenance sont refusées en écriture. |
 
 ### Status Time
 
@@ -100,7 +102,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 |---|---|---|---|---|
 | `Reboot_Timestamp` | `int32` | rw | 0 | timestamp_UTC du dernier reboot lié à un bug (watchdog).<br>_Absente du build MINIMAL._ |
 | `Reboot_Count_UTC` | `int32` | rw | 0 | nombre de reboot lié à un bug (watchdog). Cette variable s'incrémente à chaque reboot, mais est perdu en cas de panne de courant.<br>_Absente du build MINIMAL._ |
-| `Event` | `enum` | — | NO_EVENT | Dernier événement système remonté par le firmware : boot, Wi-Fi, MQTT, script, téléchargement OTA, opérations flash et actions de configuration.<br>_97 valeurs admises — les lister via `GET /enums`._ |
+| `Event` | `enum` | — | NO_EVENT | Dernier événement système remonté par le firmware : boot, Wi-Fi, MQTT, script, téléchargement OTA, opérations flash et actions de configuration.<br>_109 valeurs admises — les lister via `GET /enums`._ |
 
 ### Status Setpoints
 
@@ -112,6 +114,13 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Tsetpoint` | `fxp1000` | rw | 20 | Il s'agit de la température de consigne affichée sur le thermostat. Attention, il ne s'agit pas nécessairement de la température de consigne demandée au système (il faut prendre en compte Tsetpoint_Shift_HEAT ou Tsetpoint_Shift_COOL)<br>_Absente du build MINIMAL._ |
 | `Fanspeed` | `enum` | rw | FAN_SPEED_LOW | Pour une interface utilisateur simple, il faut 3 vitesses de ventilations et un mode AUTO<br>_Valeurs : FAN_SPEED_LOW · FAN_SPEED_MEDIUM · FAN_SPEED_HIGH · FAN_SPEED_AUTO_<br>_Absente du build MINIMAL._ |
 | `Temperature_Unit` | `enum` | rw | TEMPERATURE_UNIT_C_ONLY | Choix de l'unité de température. Il ne s'agit que de la temperature à l'affichage: les données sont toujours stockées en °C. les _ONLY interdisent à l'utilisateur de changer d'unité<br>_Valeurs : TEMPERATURE_UNIT_C · TEMPERATURE_UNIT_F · TEMPERATURE_UNIT_C_ONLY · TEMPERATURE_UNIT_F_ONLY_<br>_Absente du build MINIMAL._ |
+
+### Resistance Fan Safety
+
+| Variable | Type | Accès | Défaut | Description |
+|---|---|---|---|---|
+| `Fanspeed_Applied` | `enum` | r | FAN_SPEED_OFF | Vitesse réellement produite par la chaîne de ventilation au cycle courant, relevée APRÈS le filtrage des sorties : vaut `FAN_SPEED_OFF` dès qu'aucune sortie n'est pilotée, y compris quand la vitesse décidée par la régulation est annulée en aval parce que le composant est désactivé ou sans sortie physique. Jamais `FAN_SPEED_AUTO`, qui est une demande et non une sortie. À comparer à `Fanspeed`, qui porte la demande. Lecture seule.<br>_Valeurs : FAN_SPEED_LOW · FAN_SPEED_MEDIUM · FAN_SPEED_HIGH · FAN_SPEED_OFF_<br>_Absente du build MINIMAL._ |
+| `Resistance_Lockout` | `boolean` | r | false | Vrai quand la chaîne de ventilation ne peut pas servir `Resistance_Min_Fan_Percentage` : la résistance est alors interdite de démarrage. À distinguer d'une résistance désactivée par configuration (`Relay_Resistance_Active` / `DAC_Resistance_Active` à faux) — ici la configuration est inchangée, c'est la sécurité qui verrouille. N'empêche jamais la purge d'une résistance déjà chaude. Lecture seule.<br>_Absente du build MINIMAL._ |
 
 ### Inputs Internal raw mesurements
 
@@ -133,6 +142,12 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Temperature` | `fxp1000` | r | — | Valeur de température utilisée pour la régulation et affiché sur le dashboard pour nos clients.<br>Attention: - il ne s'agit pas forcément de la valeur mesurée par les capteurs: dépend du choix de capteur utilisée (voir variable: Temperature_Measure_Choice)<br>- Dépend de la valeur de calibration (voir variable: Temperature_Calibration) |
 | `Humidity` | `fxp1000` | r | — | Attention, il ne s'agit pas nécessairement de la valeur d'humidité mesurée par les capteurs. Il faut aussi prendre en compte une potentielle valeur de calibration (voir variable: Humidity_Calibration).<br>Il s'agit de la valeur de l'humidité que l'on va afficher sur le dashboard pour nos clients |
 | `Brightness` | `fxp1000` | r | — | Attention, il ne s'agit pas nécessairement de la valeur de luminosité mesurée par les capteurs. Il faut aussi prendre en compte une potentielle valeur de calibration (voir variable: Brightness_Calibration).<br>Il s'agit de la valeur de Luminosité que l'on va afficher sur le dashboard pour nos clients |
+
+### Tsetpoint Shift Feature
+
+| Variable | Type | Accès | Défaut | Description |
+|---|---|---|---|---|
+| `Tsetpoint_Effective` | `fxp1000` | r | — | Consigne réellement utilisée par la régulation : Tsetpoint diminuée (mode HEAT) ou augmentée (mode COOL) du retrait appliqué par la feature de shift. Égale à Tsetpoint quand le shift est inactif — shift nul, consigne en deçà du seuil de déclenchement, mode FAN ou thermostat à l'arrêt. Lecture seule, exposée pour le diagnostic.<br>_Absente du build MINIMAL._ |
 
 ### Inputs External raw mesurements
 
@@ -225,6 +240,9 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Print_Current_Reservation_State` | `boolean` | rw | false | Variable qui permet d'afficher ou de cacher l'état de réservation de la zone (variable: Current_Reservation_State) sur l'écran du thermostat.<br>Cette information ne doit pouvoir apparaitre que s'il y a une valeur correspondante<br>_Absente du build MINIMAL._ |
 | `Print_Outdoor_Temperature` | `boolean` | rw | false | Variable qui permet d'afficher ou de cacher la mesure de température extérieure (variable: Outdoor_Temperature) sur l'écran du thermostat.<br>Cette information ne doit pouvoir apparaitre que s'il y a une valeur correspondante<br>_Absente du build MINIMAL._ |
 | `Print_Green_Leaf` | `boolean` | rw | false | Variable qui permet d'afficher une feuille verte pour indiquer que le thermostat est en mode économie d'énergie (si par exemple suffisamment de fonctionnalités d'économie d'énergie sont activées)<br>_Absente du build MINIMAL._ |
+| `Print_Standby_Logo` | `boolean` | rw | false | Variable qui permet d'afficher un logo centré à la place du logo OFF quand l'écran passe au second niveau d'abaissement de luminosité. Le fichier vient de Standby_Logo_Landscape ou Standby_Logo_Portrait selon l'orientation. Sans fichier utilisable, l'écran OFF est inchangé<br>_Absente du build MINIMAL._ |
+| `Standby_Logo_Landscape` | `char` | rw | — | Chemin du logo de veille affiché en orientation paysage (ex. 0:/img/LOGO_L.RLE).<br>Vide, fichier absent ou illisible : la veille reste sombre, il n'y a pas de logo de repli<br>_Absente du build MINIMAL._ |
+| `Standby_Logo_Portrait` | `char` | rw | — | Chemin du logo de veille affiché en orientation portrait (ex. 0:/img/LOGO_P.RLE).<br>Même règle que Standby_Logo_Landscape<br>_Absente du build MINIMAL._ |
 | `Screen_Design_Type` | `enum` | rw | SCREEN_DESIGN_WITH_TSET | Variable qui permet de faire un choix sur le type d'affichage voulu. Pour le moment on a 2 choix lorsque l'écran est ON: Avec Affichage de Tsetpoint et sans affichage de Tsetpoint<br>_Valeurs : SCREEN_DESIGN_WITH_TSET · SCREEN_DESIGN_WITHOUT_TSET_<br>_Absente du build MINIMAL._ |
 | `Time_Delay_Screensaver` | `int32` | rw | 15 | Exprimé en secondes. Variable qui permet de déterminer la temporisation avant le passage à l'écran de veille depuis l'écran d'état ON.<br>Si 0: on shunte le mécanisme de mise en veille et l'écran reste en permanence allumé |
 | `Settings_Idle_Timeout` | `int32` | rw | 600 | temps (secondes) penant lequel on reste coonecté dans les settings. si minimal, on revient à l'écran settings. si normal, on revient en fonctionnement normal (off)<br>_(non implantée)_ |
@@ -235,9 +253,9 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 |---|---|---|---|---|
 | `Fan_Coil_Type` | `enum` | rw | FAN_COIL_2T_MIXED | Permet de décrire la technologie du ventilo-convecteur<br>_Valeurs : FAN_COIL_NO_VALVES · FAN_COIL_NO_VALVES_2WIRES · FAN_COIL_2T_MIXED · FAN_COIL_2T_MIXED_2WIRES · FAN_COIL_2T_HEAT_ONLY · FAN_COIL_2T_HEAT_ONLY_2WIRES · FAN_COIL_2T_COOL_ONLY · FAN_COIL_2T_COOL_ONLY_2WIRES · FAN_COIL_4T · FAN_COIL_4T_2WIRES_<br>_Absente du build MINIMAL._ |
 | `Fan_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation du ventilateur<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
-| `Heat_Valve_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation de la vanne chaude<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
-| `Cool_Valve_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation de la vanne froide<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
-| `Resistance_Regulation_Type` | `enum` | rw | REGULATION_ON_OFF | Permet de décrire le type de régulation de la résistance<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF · FAN_REGULATION_3_SPEEDS_<br>_Absente du build MINIMAL._ |
+| `Heat_Valve_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation de la vanne chaude<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF_<br>_Absente du build MINIMAL._ |
+| `Cool_Valve_Regulation_Type` | `enum` | rw | REGULATION_0_10V | Permet de décrire le type de régulation de la vanne froide<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF_<br>_Absente du build MINIMAL._ |
+| `Resistance_Regulation_Type` | `enum` | rw | REGULATION_ON_OFF | Permet de décrire le type de régulation de la résistance. `FAN_REGULATION_3_SPEEDS` appartient à l'énumération mais n'est pas applicable ici : la valeur est ramenée au défaut à la validation.<br>_Valeurs : REGULATION_0_10V · REGULATION_ON_OFF_<br>_Absente du build MINIMAL._ |
 | `HVAC_Mode_0` | `enum` | rw | HVAC_MODE_FAN | 1er mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
 | `HVAC_Mode_1` | `enum` | rw | HVAC_MODE_HEAT | 2ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
 | `HVAC_Mode_2` | `enum` | rw | HVAC_MODE_COOL | 3ème mode HVAC sélectionné<br>_Valeurs : HVAC_MODE_FAN · HVAC_MODE_HEAT · HVAC_MODE_COOL · HVAC_MODE_AUTO · HVAC_MODE_ERROR_<br>_Absente du build MINIMAL._ |
@@ -300,6 +318,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Tsetpoint_Shift_COOL` | `fxp1000` | rw | 0 | Variable utilisée pour demandée une valeur de Tsetpoint à la machine différente comparé à l'affichage. Cette variable est pour le mode COOL uniquement<br>_Absente du build MINIMAL._ |
 | `Tsetpoint_Limit_TrigShift_HEAT` | `fxp1000` | rw | 23 | Variable utilisée pour deéterminer une limite de Tsetpoint au dessus de laquelle on commence à appliquer un shift (pour le mode HVAC_MODE_HEAT)<br>_Plage : 16 - 32_<br>_Absente du build MINIMAL._ |
 | `Tsetpoint_Limit_TrigShift_COOL` | `fxp1000` | rw | 19 | Variable utilisée pour deéterminer une limite de Tsetpoint en dessous de laquelle on commence à appliquer un shift (pour le mode HVAC_MODE_COOL)<br>_Plage : 16 - 32_<br>_Absente du build MINIMAL._ |
+| `Tsetpoint_Shift_Slope` | `fxp1000` | rw | 0.33 | Pente du shift, commune aux modes HEAT et COOL : nombre de °C de consigne effective conservés pour chaque °C demandé au-delà de la limite de déclenchement. Le retrait vaut donc (1 - pente) par degré, plafonné à Tsetpoint_Shift_HEAT/COOL. À 0.33, le thermostat retire 0.67 °C par degré demandé et atteint le retrait maximal à limite + shift / 0.67. Bornée < 1 : la consigne effective ne peut jamais décroître quand la consigne demandée augmente.<br>_Plage : 0 - 0.9_<br>_Absente du build MINIMAL._ |
 
 ### Change Over
 
@@ -376,6 +395,8 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Baud_Rate` | `int32` | rw | 19200 | Baudrate: Paramètre Modbus nécessaire pour la communication |
 | `Bit_stop` | `fxp1000` | rw | 2 | Bit de stop: Paramètre Modbus nécessaire pour la communication<br>1: Valeur la plus courante — standard sur la majorité des équipements<br>2: Utilisé si la parité est désactivée (no parity) pour garantir une synchronisation fiable<br>1.5: Rare — uniquement supporté par certains vieux contrôleurs RS-232, très peu utilisé en Modbus |
 | `Parity` | `enum` | rw | PARITY_NONE | Polarité: Paramètre Modbus nécessaire pour la communication<br>_Valeurs : PARITY_NONE · PARITY_EVEN · PARITY_ODD_ |
+| `Modbus_Access_Level` | `int32` | rw | — | Niveau de droits accordé aux écritures arrivant par Modbus : 0=base, 1=user, 2=admin, 3=sadmin. |
+| `Max_Access_Level` | `int32` | rw | — | Plafond global de droits : aucun appelant, quel que soit son canal, ne peut agir au-dessus de ce niveau. 0=base, 1=user, 2=admin, 3=sadmin. |
 
 ### Security
 
@@ -390,7 +411,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 |---|---|---|---|---|
 | `Resistance_Usage_Type` | `enum` | rw | RESISTANCE_USAGE_SERIAL | Permet de préciser comment utiliser la résistance (en parallèle de la vanne chaude ou en appoint uniquement)<br>_Valeurs : RESISTANCE_USAGE_PARALLEL · RESISTANCE_USAGE_SERIAL_<br>_Absente du build MINIMAL._ |
 | `Hys_ONOFFControl_Resistance_ON` | `fxp1000` | rw | 2.5 | Si Résistance utilisée en appoint (Serie), permet de préciser le delta de temp (entre Tsetpoint et Temperature) à partir duquel déclencher la résistance<br>_Plage : 0,5 - 5,0_<br>_Absente du build MINIMAL._ |
-| `Hys_ONOFFControl_Resistance_OFF` | `fxp1000` | rw | 1.5 | Si Résistance utilisée en appoint (Serie), permet de préciserle delta de temp (entre Tsetpoint et Temperature) à partir duquel couper la résistance et laisser la pompe à chaleur faire le reste<br>_Plage : 0 - 4_<br>_Absente du build MINIMAL._ |
+| `Hys_ONOFFControl_Resistance_OFF` | `fxp1000` | rw | 1.5 | Si Résistance utilisée en appoint (Serie), permet de préciserle delta de temp (entre Tsetpoint et Temperature) à partir duquel couper la résistance et laisser la pompe à chaleur faire le reste<br>_Plage : 0,1 - 4,0_<br>_Absente du build MINIMAL._ |
 | `Time_Delay_Trigger_Resistance` | `int32` | rw | 300 | Exprimé en secondes. Permet de préciser combien de temps laisser la vanne chaude à X% (variable: Pct_Power_Trigger_Resistance) de sa puissance avant de déclencher la résistance<br>_Absente du build MINIMAL._ |
 
 ### Internal Regulation Fan
@@ -400,6 +421,8 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Permanent_Fan` | `boolean` | rw | false | Permet de savoir si on laisse une ventilation permanente même quand l'état est OFF<br>_Absente du build MINIMAL._ |
 | `Fan_Off_Delay_Heat` | `int32` | rw | 0 | Exprimé en secondes. Permet de déterminer combien de temps la ventilation va tourner lorsque système est mis OFF (en mode HEAT)<br>_Plage : 0 - 600_<br>_Absente du build MINIMAL._ |
 | `Fan_Off_Delay_Cool` | `int32` | rw | 0 | Exprimé en secondes. Permet de déterminer combien de temps la ventilation va tourner lorsque système est mis OFF (en mode COOL)<br>_Plage : 0 - 600_<br>_Absente du build MINIMAL._ |
+| `Fan_Off_Delay_Resistance` | `int32` | rw | 120 | Exprimé en secondes. Durée de post-ventilation propre à la résistance électrique, comptée depuis son arrêt. Indépendante de `Fan_Off_Delay_Heat` : les deux fenêtres courent en parallèle, chacune depuis son propre arrêt, jamais enchaînées ni additionnées.<br>_Plage : 0 - 600_<br>_Absente du build MINIMAL._ |
+| `Resistance_Min_Fan_Percentage` | `int32` | rw | 20 | Débit d'air minimum imposé tant que la résistance chauffe ou purge, exprimé en pourcentage de la vitesse **maximale** de ventilation — l'unité dans laquelle les fabricants expriment leur exigence. `0` désactive la contrainte.<br>C'est un plancher, jamais un figeage : toute demande supérieure, manuelle ou automatique, est respectée.<br>En régulation 0-10 V le pourcentage s'applique littéralement. En 3 vitesses le firmware ignore le débit réel de chaque plot : la traduction suit une **convention de tiers** — jusqu'à 33 % vitesse basse, jusqu'à 66 % vitesse moyenne, au-delà vitesse haute — indépendante des `Percentage_*_Fan_Speed`, qui sont des grandeurs de commande 0-10 V. Si la vitesse requise est indisponible on monte à la suivante ; si aucune ne convient, c'est la résistance qui est interdite de démarrage (voir `Resistance_Lockout`).<br>_Plage : 0 - 100_<br>_Absente du build MINIMAL._ |
 | `Force_Fan_Off_Delay_After_Res` | `boolean` | rw | true | Force la ventilation a continuer à souffler après l'utilisation de la résistance, même si le système est Off (et même si Fan_Off_Delay_Heat = 0)<br>_Absente du build MINIMAL._ |
 | `Fan_Stage_Change_Delay` | `int32` | rw | 1000 | Delay en milli-secondes entre le passage de Fanspeed (si Régulation 3 Vitesses TOR). On ouvre le relais actuellement utilisé, on attend Fan_Stage_Change_Delay, puis on ferme le relais suivant<br>_Plage : 100 - 5000_ |
 | `Fan_Valve_Dependency` | `enum` | rw | DEPENDENT | Variable pour déterminer si la ventilation est dépendante des vannes.<br>- Si DEPENDENT: La ventilation se coupe si la vanne se ferme, et la ventilation a une valeur mini (LOW Speed) si une vanne est ouverte<br>- si INDEPENDENT: la gestion est indépendante de la vanne. On peut être ON, vanne fermée mais venilation qui tourne (pour les clients qui aime entendre s=du bruit sinon ils disent que ça ne marche pas)<br>_Valeurs : DEPENDENT · INDEPENDENT_<br>_Absente du build MINIMAL._ |
@@ -426,15 +449,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Heat_Delta_Off` | `fxp1000` | rw | 1 | Valeur de l'hystéresis pour calculer un besoin de chauffage (en arrête de chauffer dès que Tin >= Tsetpoint + Heat_Delta_Off)<br>Valeur utilisée dans le calcul global de thermo_need (même pour les systèmes 0-10V)<br>_Absente du build MINIMAL._ |
 | `Cool_Delta_On` | `fxp1000` | rw | 0.8 | Valeur de l'hystéresis pour calculer un besoin de refroidissement (en refroidit dès que Tin >= Tsetpoint + Cool_Delta_On)<br>Valeur utilisée dans le calcul global de thermo_need (même pour les systèmes 0-10V)<br>_Absente du build MINIMAL._ |
 | `Cool_Delta_Off` | `fxp1000` | rw | 1 | Valeur de l'hystéresis pour calculer un besoin de refroidissement (en arrête de refroidir dès que Tin < Tsetpoint - Cool_Delta_Off)<br>Valeur utilisée dans le calcul global de thermo_need (même pour les systèmes 0-10V)<br>_Absente du build MINIMAL._ |
-
-### Internal Regulation PID
-
-| Variable | Type | Accès | Défaut | Description |
-|---|---|---|---|---|
-| `Kp_Global_Supervision` | `float` | rw | 18 | Valeur de la constante devant le terme Proportionnel pour le PID de la partie supervision globale<br>Valeur par défaut conseillé: 18 (limiter les oscillations sur les zones très réactives)<br>Si besoin de plus d'aggressivité: 30<br>Si zone trop sensible, descendre à : 12<br>Conseil: Rester entre 10 et 30<br>_Absente du build MINIMAL._ |
-| `Ki_Global_Supervision` | `float` | rw | 0.03 | Valeur de la constante devant le terme Intégral pour le PID de la partie supervision globale<br>Attention: Cette valeur n'est correcte que si le pas de temps dt utilisé dans le PID est en milliseconde !!<br>Valeur par défaut conseillé: 0.03 (dériveé léger pour amortir sans amplifier le bruit)<br>Si besoin de plus d'aggressivité: 0.05<br>Si zone trop sensible, descendre à : 0.02<br>Conseil: Ki très faible (quelques centièmes) , s'assurer que les unités soient cohérentes<br>_Absente du build MINIMAL._ |
-| `Kd_Global_Supervision` | `float` | rw | 0.05 | Valeur de la constante devant le terme Dérivé pour le PID de la partie supervision globale<br>Attention: Cette valeur n'est correcte que si le pas de temps dt utilisé dans le PID est en milliseconde !!<br>Valeur par défaut conseillé: 0.05 (dériveé léger pour amortir sans amplifier le bruit)<br>Si besoin de plus d'aggressivité: 0.1<br>Si zone trop sensible, garder : 0.05<br>Conseil: Kd modeste, s'assurer que les unités soient cohérentes<br>_Absente du build MINIMAL._ |
-| `PID_Time_Interval` | `int32` | rw | 2000 | Exprimé en ms. Interval de temps qui détermine tout les combien de temps on va lancer un calcul PID<br>Valeur par défaut conseillé: 2s (largement sufisant)<br>Si besoin de plus de rapidité: 1s<br>_Absente du build MINIMAL._ |
+| `Feedbackloop_Time_Interval` | `int32` | rw | 2000 | Exprimé en millisecondes. Période de la boucle de régulation : détermine tous les combien de temps la boucle est exécutée.<br>Valeur par défaut : 2000 ms<br>_Absente du build MINIMAL._ |
 
 ### Internal Regulation Local Optimisation Strategies
 
@@ -461,6 +476,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `Back_ON_State_Power` | `enum` | rw | POWER_BACK_ON_KEEP_OFF | état du thermostat à la mise en route (ou à une remise sous tension). On garde tous les paramètres précédents à l'exception du State qui met à OFF de force ou bien à sa précédente valeur<br>_Valeurs : POWER_BACK_ON_SWITCH_ON · POWER_BACK_ON_KEEP_OFF_<br>_Absente du build MINIMAL._ |
 | `Back_ON_Fanspeed` | `enum` | rw | FAN_SPEED_LOW | puissance de ventilation à la mise en route<br>_Valeurs : FAN_SPEED_LOW · FAN_SPEED_MEDIUM · FAN_SPEED_HIGH · FAN_SPEED_AUTO_<br>_Absente du build MINIMAL._ |
 | `Back_ON_Temperature_Unit` | `enum` | rw | TEMPERATURE_UNIT_C_ONLY | unité de temperature à la mise en route<br>_Valeurs : TEMPERATURE_UNIT_C · TEMPERATURE_UNIT_F · TEMPERATURE_UNIT_C_ONLY · TEMPERATURE_UNIT_F_ONLY_<br>_Absente du build MINIMAL._ |
+| `Time_Delay_Setback_Retrigger` | `int32` | rw | 300 | Exprimé en secondes. Délai pendant lequel la fonction de température minimale (setback) suspend son action après une écriture client sur State ou Tsetpoint.<br>Sans ce délai, un client qui éteint alors que la pièce est trop froide serait rallumé au passage suivant. Passé le délai, la contrainte reprend si la condition tient toujours.<br>_Absente du build MINIMAL._ |
 
 ### Internal Regulation sensor selection
 
@@ -477,6 +493,7 @@ Le **même nom de variable** est utilisé sur les trois canaux de communication 
 | `BackLight_HIGH` | `int32` | rw | 1000 | luminosité (en pour 1000), en usage |
 | `BackLight_MID` | `int32` | rw | 200 | luminosité (en pour 1000), après Time_Delay_Screensaver |
 | `BackLight_LOW` | `int32` | rw | 50 | luminosité (en pour 1000), après 2* Time_Delay_Screensaver |
+| `BackLight_LOGO` | `int32` | rw | 200 | luminosité (en pour 1000) du logo de veille, indépendante des trois niveaux de rétroéclairage<br>_Absente du build MINIMAL._ |
 | `Night_Threshold` | `fxp1000` | rw | 2.5 | seuil de luminosité entre écran noir et BackLight_LOW selon BackLight_Strategy . Luminosité entre 0 et 1000 environ, 3 c'est relativement faible. |
 | `BackLight_Strategy` | `enum` | rw | BACKLIGHT_STRAT_AUTO | stratégie du backlight en "inactivité"<br>_Valeurs : BACKLIGHT_STRAT_OFF · BACKLIGHT_STRAT_LOW · BACKLIGHT_STRAT_AUTO_ |
 | `Top_Element_Refresh` | `int32` | — | 5000 | temps minimal entre deux mise à jour des infos "top"<br>_(non implantée)_<br>_Absente du build MINIMAL._ |
